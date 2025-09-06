@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المجموعة الأولى - مواد اختيارية</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="1.index.css">
+    <link rel="icon" type="image/png" href="logo tab.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="aurora-background"></div>
+    <div id="page-overlay" class="page-overlay"></div>
+
+    <div class="page-container">
+        <aside id="sidebar" class="sidebar glass">
+            <div class="sidebar-header">
+                <h2><i class="bi bi-robot"></i> Robot Learn</h2>
+                <button id="close-sidebar-btn" class="close-sidebar-btn">&times;</button>
+            </div>
+            <nav id="main-nav">
+                <a href="index.html">الرئيسية</a>
+                <a href="courses.html" class="active">المواد الدراسية</a>
+                <a href="gpa.html">حساب المعدل</a>
+                <a href="teachers.html">الهيئة التدريسية</a>
+                <a href="about-robotics.html">عن التخصص </a>
+                <a href="about-web.html">عن الموقع</a>
+            </nav>
+        </aside>
+
+        <div class="main-content">
+            <header class="mobile-header glass">
+                <button id="hamburger-btn" class="hamburger-btn">
+                    <span></span><span></span><span></span>
+                </button>
+                <h2 class="mobile-logo"><i class="bi bi-robot"></i> Robot Learn</h2>
+            </header>
+            
+            <main>
+                <div class="main-page-header fade-in">
+                    <h1>المجموعة الأولى</h1>
+                    <p>المواد الاختيارية المتاحة (اختر 3 ساعات)</p>
+                    <a href="courses.html" class="gpa-btn" style="margin-top: 1rem;"><i class="bi bi-arrow-right-circle"></i> العودة للخارطة الدراسية</a>
+                </div>
+                <div class="course-grid fade-in">
+                    <a href="course-details.html?course=elec_g1_1" data-course-id="elec_g1_1" data-hours="3" class="course-card-link"><div class="course-card-item"><div class="course-category general"></div><h4>الإسلام وقضايا معاصرة</h4><p>821150</p><span class="course-hours">وجاهي</span></div></a>
+                    <a href="course-details.html?course=elec_g1_3" data-course-id="elec_g1_3" data-hours="3" class="course-card-link"><div class="course-card-item"><div class="course-category general"></div><h4>القضية الفلسطينية</h4><p>821032</p><span class="course-hours">إلكتروني</span></div></a>
+                    <a href="course-details.html?course=elec_g1_4" data-course-id="elec_g1_4" data-hours="3" class="course-card-link"><div class="course-card-item"><div class="course-category general"></div><h4>تاريخ العلوم عند العرب والمسلمين</h4><p>822310</p><span class="course-hours">إلكتروني</span></div></a>
+                    <a href="course-details.html?course=elec_g1_5" data-course-id="elec_g1_5" data-hours="3" class="course-card-link"><div class="course-card-item"><div class="course-category general"></div><h4>تذوق النص الأدبي</h4><p>802000</p><span class="course-hours">إلكتروني</span></div></a>
+                    <a href="course-details.html?course=elec_g1_6" data-course-id="elec_g1_6" data-hours="3" class="course-card-link"><div class="course-card-item"><div class="course-category general"></div><h4>حضارة إسلامية</h4><p>821311</p><span class="course-hours">إلكتروني</span></div></a>
+                    <a href="course-details.html?course=elec_g1_7" data-course-id="elec_g1_7" data-hours="3" class="course-card-link"><div class="course-card-item"><div class="course-category general"></div><h4>مبادئ في اللغة الألمانية</h4><p>2511060</p><span class="course-hours">وجاهي</span></div></a>
+                    <a href="course-details.html?course=elec_g1_8" data-course-id="elec_g1_8" data-hours="3" class="course-card-link"><div class="course-card-item"><div class="course-category general"></div><h4>مبادئ في علم الاجتماع</h4><p>821211</p><span class="course-hours">مدمج</span></div></a>
+                </div>
+            </main>
+        </div>
+    </div> 
+    
+    <div id="grade-modal" class="modal-overlay">
+        <div class="modal-content glass">
+            <h3>أدخل علامتك في مادة:</h3>
+            <p id="modal-course-title" style="color: var(--accent); font-weight: bold;"></p>
+            <div class="interactive-selector" id="modal-grade-selector"></div>
+            <div class="modal-actions">
+                <button id="cancel-grade-btn" class="gpa-btn secondary">إلغاء</button>
+                <button id="save-grade-btn" class="gpa-btn">حفظ العلامة</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="courses-data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
