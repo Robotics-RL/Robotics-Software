@@ -1,3 +1,16 @@
+// ======================================================
+// ✨ الكود الجديد (التحديث التلقائي) ✨
+// ======================================================
+
+if (window.performance.navigation.type === 2) {
+    window.location.reload();
+} else if (!sessionStorage.getItem('reloaded')) {
+    sessionStorage.setItem('reloaded', 'true');
+    window.location.reload();
+} else {
+    sessionStorage.removeItem('reloaded');
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
     // ===================================================================
@@ -1210,3 +1223,4 @@ gradeBadge.className = 'grade-badge';
     }
 
 });
+
