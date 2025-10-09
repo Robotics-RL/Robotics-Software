@@ -1,6 +1,8 @@
 /* --- 1. General Settings & Fonts --- */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
+
+
 :root {
     --bg-main: #0D0D1A;
     --text-main: #D1D1E0;
@@ -3052,3 +3054,4 @@ img {
   margin: 0 auto;
   border-radius: 12px;
 }
+
