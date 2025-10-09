@@ -1,0 +1,3054 @@
+/* --- 1. General Settings & Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+:root {
+    --bg-main: #0D0D1A;
+    --text-main: #D1D1E0;
+    --text-heading: #FFFFFF;
+    --accent: #00A9FF;
+    --mouse-x: 50%;
+    --mouse-y: 50%;
+    --scroll-percent: 0;
+}
+
+* { box-sizing: border-box; }
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    margin-bottom: 2rem;
+    overflow-x: hidden;
+    cursor: auto; 
+}
+
+a {
+    text-decoration: none;
+}
+
+/* --- 2. Aurora Background --- */
+.aurora-background {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: -1;
+    background: radial-gradient(circle 600px at var(--mouse-x) var(--mouse-y),
+        rgba(0, 169, 255, 0.15), transparent 80%);
+}
+
+/* --- 3. Glassmorphism --- */
+.glass {
+    background: rgba(18, 18, 30, 0.5);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+}
+
+/* --- 4. Sidebar --- */
+.sidebar {
+    width: 260px; height: 100vh;
+    position: fixed; right: 0; top: 0;
+    z-index: 2000;
+    padding: 1rem;
+    display: flex; flex-direction: column;
+    transform: translateX(0);
+    transition: transform 0.4s ease-in-out;
+}
+.sidebar-header {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 1rem;
+    text-align: center;
+    display: flex; align-items: center; justify-content: center;
+    gap: 10px;
+}
+.sidebar-header h2 { margin: 0; font-weight: 600; }
+.sidebar nav { padding-top: 1rem; flex-grow: 1; }
+.sidebar nav a {
+    display: flex; align-items: center; gap: 15px;
+    color: var(--text-main); text-decoration: none;
+    padding: 0.8rem 1.2rem; border-radius: 8px;
+    transition: all 0.3s ease;
+}
+.sidebar nav a:hover, .sidebar nav a.active {
+    background-color: var(--accent); color: #fff;
+}
+
+.close-sidebar-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-heading);
+    font-size: 2rem;
+    cursor: pointer;
+    position: absolute;
+    top: 5px;
+    left: 20px;
+    line-height: 1;
+    padding: 0;
+}
+
+/* --- 5. Main Content --- */
+.main-content { margin-right: 260px; padding: 3rem; }
+.main-page-header { text-align: center; margin-bottom: 4rem; }
+.main-page-header h1 { font-size: 3rem; color: var(--text-heading); font-weight: 600; min-height: 120px;}
+.main-page-header p { font-size: 1.2rem; }
+
+/* --- 6. Cards --- */
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem; perspective: 1000px;
+    margin-bottom: 3rem;
+}
+.card {
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.2s ease-out;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 120px;
+}
+.card .card-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.card-content { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+.card-icon { font-size: 2.5rem; color: var(--accent); }
+.card h3 { margin: 0; color: var(--text-heading); font-size: 1.2rem; }
+.card p { margin: 0; font-size: 0.9rem; line-height: 1.4; }
+
+.department-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.2rem;
+    padding: 1rem;
+}
+.department-cards-container .card {
+    padding: 1.2rem;
+    border-radius: 0.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.department-cards-container .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 169, 255, 0.08);
+}
+.department-cards-container .card-icon {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+.department-cards-container .card h3 {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* --- 7. Resources Section --- */
+.resources-section {
+    padding: 1.5rem 2rem;
+    position: relative; 
+    overflow: hidden;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.resources-section::before {
+    content: ''; position: absolute; z-index: 0;
+    width: 300px; height: 300px;
+    top: var(--mouse-y-local, 50%); left: var(--mouse-x-local, 50%);
+    background: radial-gradient(circle, rgba(0, 169, 255, 0.15), transparent 70%);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+.resources-section h3 {
+    color: var(--text-heading); margin: 0 0 1rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 1rem; display: flex; align-items: center; gap: 10px;
+}
+.resources-section ul { list-style: none; padding: 0; margin: 0; }
+.resources-section ul li a {
+    display: flex; justify-content: space-between; align-items: center;
+    color: var(--text-main); text-decoration: none;
+    padding: 1rem 1.5rem; border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.resources-section ul li a:hover {
+    background-color: rgba(0, 169, 255, 0.1); color: #fff;
+}
+.resources-section .link-arrow {
+    font-size: 1rem; opacity: 0; transform: translateX(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.resources-section ul li a:hover .link-arrow { opacity: 1; transform: translateX(0); }
+.resources-section ul li a div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.resources-section ul li a small {
+    font-size: 0.8rem;
+    opacity: 0.8;
+    margin-top: 5px;
+}
+
+/* --- 8. Animations & Effects --- */
+.fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+.dashboard-cards.fade-in.visible .card:nth-child(1){transition-delay:0.1s;}
+.dashboard-cards.fade-in.visible .card:nth-child(2){transition-delay:0.2s;}
+.dashboard-cards.fade-in.visible .card:nth-child(3){transition-delay:0.3s;}
+.dashboard-cards.fade-in.visible .card:nth-child(4){transition-delay:0.4s;}
+.resources-section.fade-in.visible{transition-delay:0.5s;}
+
+@keyframes slideIn { from { opacity: 0; transform: translateX(-20px);} to { opacity: 1; transform: translateX(0);} }
+
+/* --- 9. GPA Calculator Page --- */
+.gpa-command-center {
+    padding: 1.5rem; max-width: 900px; margin: 0 auto;
+    border: 1px solid rgba(0,169,255,0.3);
+    box-shadow: 0 0 30px rgba(0,169,255,0.1);
+    border-radius: 12px;
+}
+.gpa-settings {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 1.5rem; padding: 0.8rem 1rem;
+    background: rgba(0,0,0,0.1); border-radius: 8px;
+}
+.gpa-settings label { font-size: 0.95rem; font-weight: 500; }
+
+.toggle-switch { position: relative; width: 50px; height: 28px; }
+.toggle-switch input { opacity: 0; width: 0; height: 0; }
+.slider {
+    position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0,0,0,0.3); border-radius: 34px; transition: .4s;
+}
+.slider:before {
+    content: ""; position: absolute; height: 20px; width: 20px;
+    left: 4px; bottom: 4px; background-color: #fff; border-radius: 50%; transition: .4s;
+}
+input:checked + .slider { background-color: var(--accent); }
+input:checked + .slider:before { transform: translateX(22px); }
+
+.previous-gpa-section {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+    margin-bottom: 1.5rem; max-height: 0; overflow: hidden; opacity: 0;
+    transition: max-height 0.5s, opacity 0.5s, margin-bottom 0.5s;
+}
+.previous-gpa-section.visible { max-height: 200px; opacity: 1; }
+
+.gpa-input-field {
+    width: 100%; padding: 0.7rem 0.9rem;
+    background: rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--text-main);
+    border-radius: 8px; font-size: 0.9rem;
+}
+.gpa-input-field:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 10px rgba(0,169,255,0.3); }
+.input-group { display: flex; flex-direction: column; gap: 0.5rem; }
+.input-group label { font-size: 0.85rem; font-weight: 500; color: var(--text-main); }
+
+.course-card, .retake-course-card {
+    background: rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 1.2rem;
+    display: grid; grid-template-columns: 1fr auto;
+    gap: 1.2rem;
+    animation: slideIn 0.5s ease-out forwards;
+    margin-bottom: 1rem;
+}
+.course-card-main { display: flex; flex-direction: column; gap: 1rem; flex-grow: 1; }
+.course-card-actions { display: flex; align-items: flex-start; justify-content: center; padding-top: 0.5rem; }
+
+.retake-course-card {
+    border-left: 4px solid #ff6b6b;
+    background: rgba(255,107,107,0.05);
+}
+
+.interactive-selector {
+    display: flex; flex-wrap: wrap; gap: 0.4rem;
+    background: rgba(0,0,0,0.2);
+    padding: 0.5rem; border-radius: 8px;
+}
+.selector-btn {
+    flex: 1; min-width: 35px;
+    padding: 0.4rem 0.5rem;
+    border: 1px solid transparent; background: transparent;
+    color: var(--text-main);
+    border-radius: 6px; cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+}
+.selector-btn:hover { background: rgba(255,255,255,0.1); }
+.selector-btn.active {
+    background-color: var(--accent); color: #fff; font-weight: 600;
+    transform: scale(1.05); box-shadow: 0 0 10px rgba(0,169,255,0.5);
+}
+
+.remove-course-btn {
+    background: rgba(255,71,87,0.1); color: #ff4757;
+    border: 1px solid rgba(255,71,87,0.3);
+    border-radius: 6px; padding: 0.5rem;
+    cursor: pointer; transition: all 0.3s ease;
+}
+.remove-course-btn:hover { background: rgba(255,71,87,0.2); transform: scale(1.1); }
+
+.gpa-actions { text-align: center; margin-bottom: 1.5rem; }
+.gpa-btn {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.7rem 1.2rem; border-radius: 50px;
+    border: 1px solid var(--accent); background: transparent;
+    color: var(--accent); font-size: 0.9rem;
+    cursor: pointer; transition: all 0.3s ease;
+}
+.gpa-btn:hover { background: rgba(0,169,255,0.15); transform: translateY(-2px); }
+
+.calculate-btn {
+    width: 100%; padding: 0.9rem; margin-top: 1.5rem;
+    border-radius: 10px; border: 1px solid var(--accent);
+    background: var(--accent); color: #fff;
+    font-size: 1rem; font-weight: 600;
+    cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;
+    transition: all 0.3s ease;
+}
+.calculate-btn:hover { box-shadow: 0 0 20px var(--accent); transform: scale(1.02); }
+
+.result-display {
+    margin-top: 1.5rem; padding: 1rem; text-align: center;
+    border-top: 1px solid rgba(0,169,255,0.3);
+    display: none; position: relative; overflow: hidden;
+}
+.gpa-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+    align-items: center; margin-bottom: 1rem;
+    padding: 0.8rem; background: rgba(0,0,0,0.1); border-radius: 8px;
+}
+.gpa-grid h3 { margin: 0; font-size: 0.95rem; color: var(--text-main); }
+.gpa-value {
+    font-size: 1.8rem; font-weight: 700;
+    color: var(--accent); text-shadow: 0 0 20px var(--accent);
+}
+.gpa-grade {
+    font-size: 1.2rem; font-weight: 600; margin-top: 5px; letter-spacing: 1px;
+}
+.gpa-grade-إمتياز, .gpa-grade-ممتاز { color: #4CAF50; text-shadow: 0 0 10px #4CAF50; }
+.gpa-grade-جيدجداً { color: #2196F3; text-shadow: 0 0 10px #2196F3; }
+.gpa-grade-جيد { color: #FFC107; text-shadow: 0 0 10px #FFC107; }
+.gpa-grade-مقبول { color: #FF9800; text-shadow: 0 0 10px #FF9800; }
+.gpa-grade-إنذار { color: #F44336; text-shadow: 0 0 10px #F44336; }
+
+.honor-roll-message {
+    margin-top: 1.5rem; padding: 1rem; border-radius: 8px;
+    background: rgba(0, 169, 255, 0.1); border: 1px solid rgba(0, 169, 255, 0.3);
+    color: var(--accent); font-weight: bold; font-size: 1.2rem; animation: slideIn 0.5s ease;
+}
+
+/* --- 10. Courses Page --- */
+.accordion-container {
+    width: 100%; max-width: 900px; margin: 2rem auto;
+    display: flex; flex-direction: column; gap: 1rem;
+}
+.accordion-item {
+    border-radius: 15px; overflow: hidden;
+    transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.accordion-header {
+    width: 100%; background: transparent; border: none;
+    padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center;
+    cursor: pointer; font-size: 1.2rem; font-weight: 600; color: #fff;
+}
+.accordion-header:hover { background-color: rgba(255, 255, 255, 0.1); }
+.accordion-header span { display: flex; align-items: center; gap: 0.75rem; }
+.accordion-icon { transition: transform 0.3s ease; }
+.accordion-item.active .accordion-icon { transform: rotate(180deg); }
+.accordion-content {
+    max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+    padding: 0 1.5rem; background-color: rgba(0, 0, 0, 0.2);
+}
+.semester-title {
+    color: #fff; padding-top: 1.5rem; margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); padding-bottom: 0.5rem; font-size: 1.1rem;
+}
+.course-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem; padding-bottom: 1.5rem;
+}
+.course-card-item {
+     background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 1.2rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.course-card-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.course-card-item h4 { 
+    margin: 0.5rem auto 0.5rem auto; 
+    color: #fff; 
+    font-size: 1.1rem; 
+}
+.course-card-item p { 
+    margin: 0 auto 0.75rem auto; 
+    font-size: 0.9rem; 
+    color: #ccc; 
+    font-family: monospace; 
+}
+.course-card-item:hover {
+    transform: translateY(-5px) scale(1.02); background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+.course-hours {
+    display: inline-block; background-color: rgba(0, 0, 0, 0.3); color: #fff;
+    padding: 0.25rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 500;
+}
+.course-category {
+    position: absolute; top: 10px; right: 10px; width: 12px; height: 12px;
+    border-radius: 50%; border: 2px solid #fff;
+}
+.course-category.programming { background-color: #0d6efd; }
+.course-category.electronics { background-color: #ffc107; }
+.course-category.mechanics { background-color: #dc3545; }
+.course-category.math { background-color: #198754; }
+.course-category.physics { background-color: #fd7e14; }
+.course-category.ai { background-color: #6f42c1; }
+.course-category.general { background-color: #6c757d; }
+.course-card-link { text-decoration: none; color: inherit; }
+
+/* --- 11. Progress Tracker --- */
+.progress-controls {
+    padding: 1rem 1.5rem; margin-bottom: 2rem; border: 1px solid rgba(0,169,255,0.2);
+}
+.progress-tracker {
+    display: flex; justify-content: space-around; flex-wrap: wrap; gap: 1rem;
+    padding-top: 1rem; margin-top: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.progress-item { text-align: center; }
+.progress-item span { font-size: 0.8rem; display: block; margin-bottom: 0.25rem; }
+.progress-item strong { font-size: 1.2rem; color: var(--accent); }
+.progress-item.gpa-display small { font-size: 0.8rem; font-weight: 400; opacity: 0.8; }
+.progress-item.elective-progress strong { color: #ffc107; }
+
+/* --- 12. Teacher Cards Page --- */
+.teacher-cards-container {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+}
+.teacher-card {
+    display: flex; flex-direction: row; align-items: center;
+    padding: 1.2rem; gap: 1.5rem; transition: all 0.3s ease;
+}
+.teacher-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0, 169, 255, 0.15);
+    border-color: rgba(0, 169, 255, 0.3);
+}
+.teacher-photo img {
+    width: 85px; height: 85px; border-radius: 50%;
+    border: 3px solid var(--accent); object-fit: cover;
+    transition: transform 0.3s ease;
+}
+.teacher-card:hover .teacher-photo img { transform: scale(1.1); }
+.teacher-info { flex: 1; text-align: right; }
+.teacher-info .teacher-name {
+    color: var(--text-heading); margin: 0 0 0.25rem 0; font-size: 1.2rem;
+}
+.teacher-info .teacher-rank {
+    color: var(--accent); margin: 0 0 0.75rem 0; font-size: 0.9rem;
+}
+.teacher-contact p {
+    display: flex; align-items: center; justify-content: flex-start;
+    gap: 10px; margin: 0.2rem 0; font-size: 0.9rem;
+}
+.head-of-department { grid-column: span 2; }
+.head-of-department .teacher-photo { width: 100px; height: 100px; }
+.head-of-department .teacher-rank { font-size: 1em; }
+
+
+/* --- 13. Course Details Page --- */
+.meta-box-container {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem; max-width: 900px; margin: 0 auto 2rem auto;
+}
+.meta-box { text-align: center; padding: 1.5rem 1rem; border-radius: 16px; }
+.meta-box i { font-size: 2.2rem; color: var(--accent); display: block; margin-bottom: 0.75rem; }
+.meta-box span { font-size: 0.9rem; display: block; margin-bottom: 0.25rem; }
+.meta-box strong { font-size: 1.1rem; font-weight: 600; color: var(--text-heading); }
+.course-info-btn { display: block; width: fit-content; margin: 0 auto 2.5rem auto; }
+
+.video-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    padding-top: 1rem;
+}
+.video-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+    max-width: 100%;
+}
+.video-title {
+    color: var(--text-heading); margin: 0 0 1rem 0;
+    text-align: center; font-size: 1.1rem; font-weight: 500;
+}
+.video-container {
+    position: relative; padding-bottom: 56.25%;
+    height: 0; overflow: hidden; border-radius: 8px; flex-grow: 1;
+}
+.video-container iframe {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%; max-width: 100%;
+}
+
+/* --- 14. Modals (Grade Input, Images) --- */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(13, 13, 26, 0.7); backdrop-filter: blur(5px);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 5000; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+}
+.modal-overlay.visible { opacity: 1; pointer-events: auto; }
+.modal-content {
+    padding: 2rem; width: 90%; max-width: 500px;
+    text-align: center; transform: scale(0.95); transition: transform 0.3s ease;
+}
+.modal-overlay.visible .modal-content { transform: scale(1); }
+.modal-content h3 { margin: 0 0 0.5rem 0; color: var(--text-heading); }
+#modal-grade-selector {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    gap: 0.5rem; margin: 1.5rem 0;
+}
+.modal-actions {
+    display: flex; justify-content: center; gap: 1rem; margin-top: 1.5rem;
+}
+.gpa-btn.secondary {
+    background: rgba(255, 255, 255, 0.1); border-color: transparent; color: var(--text-main);
+}
+.gpa-btn.secondary:hover { background: rgba(255, 255, 255, 0.2); }
+
+/* --- 15. App Download Buttons --- */
+.app-download-buttons {
+    display: flex; justify-content: center; align-items: center;
+    gap: 1rem; flex-wrap: wrap;
+}
+.app-download-btn {
+    display: flex; align-items: center; gap: 12px; padding: 10px 20px;
+    background-color: #000; color: #fff; text-decoration: none;
+    border-radius: 8px; border: 1px solid #555;
+    transition: all 0.3s ease; min-width: 200px; 
+}
+.app-download-btn:hover {
+    background-color: #222; transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+.app-download-btn i { font-size: 2rem; }
+.app-download-btn div {
+    display: flex; flex-direction: column;
+    text-align: left; line-height: 1.2;
+}
+.app-download-btn span { font-size: 0.8rem; opacity: 0.8; }
+.app-download-btn strong { font-size: 1.2rem; font-weight: 600; }
+
+/* --- 16. Mobile Responsive (@media query) --- */
+@media (max-width: 768px) {
+    body {
+        -webkit-tap-highlight-color: transparent;
+    }
+    .main-content {
+        margin-right: 0;
+        padding: 1.5rem;
+    }
+    .main-page-header h1 { font-size: 2.2rem; line-height: 1.3; min-height: 150px; }
+    .main-page-header p { font-size: 1rem; }
+
+    .aurora-background {
+        background: radial-gradient(circle 600px at calc(var(--scroll-percent) * 100%) -20%, rgba(0,169,255,0.2), transparent 80%);
+        transition: background 0.5s ease-out;
+    }
+    .mobile-header { 
+        display: flex; align-items: center; justify-content: space-between; 
+        padding: 1rem; position: sticky; top: 0; z-index: 1000; 
+        background: rgba(18, 18, 30, 0.8);
+        backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .sidebar {
+        width: 80%; max-width: 300px;
+        transform: translateX(100%);
+        background: rgba(18, 18, 30, 0.8);
+    }
+    body.sidebar-open .sidebar { transform: translateX(0); }
+    .hamburger-btn { display: flex; flex-direction: column; justify-content: space-around; width: 30px; height: 25px; background: transparent; border: none; cursor: pointer; }
+    .hamburger-btn span { width: 100%; height: 3px; background: var(--text-heading); border-radius: 5px; transition: all .3s ease; }
+    .page-overlay {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); z-index: 1500;
+        display: none; opacity: 0; transition: opacity 0.3s ease;
+    }
+    .page-overlay.active { display: block; opacity: 1; }
+
+    .progress-tracker { grid-template-columns: 1fr 1fr; }
+    .previous-gpa-section, .gpa-grid { grid-template-columns: 1fr; }
+    .course-card, .retake-course-card { grid-template-columns: 1fr; }
+    .teacher-cards-container { grid-template-columns: 1fr; }
+
+    .teacher-card {
+        flex-direction: column !important;
+        text-align: center; gap: 1rem;
+    }
+    .teacher-info, .teacher-contact p { text-align: center; justify-content: center; }
+
+    .video-item { padding: 0.75rem; }
+    .video-container { min-width: 0; }
+    .video-title { font-size: 1rem; margin-bottom: 0.75rem; }
+
+    .resources-section h3 { font-size: 1.3rem; padding-bottom: 0.75rem; }
+    .selector-btn { padding: 0.6rem; min-width: 40px; font-size: 0.9rem; }
+    .gpa-btn, .calculate-btn { padding: 0.8rem 1.5rem; font-size: 1rem; }
+}
+
+@media (min-width: 769px) {
+    .mobile-header, .close-sidebar-btn { display: none; }
+}
+/* --- 17. Grade Badge Styles --- */
+.course-card-item {
+    position: relative;
+}
+
+.grade-badge {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #fff;
+    background-color: #6c757d;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.grade-badge.grade-excellent { background-color: #28a745; }
+.grade-badge.grade-good { background-color: #198754; }
+.grade-badge.grade-average { background-color: #fd7e14; }
+.grade-badge.grade-fail { background-color: #dc3545; }
+
+/* --- 18. Dynamic Border Colors for Completed Courses --- */
+.course-card-link.completed .course-card-item {
+    opacity: 0.7;
+    background: rgba(40, 167, 69, 0.1);
+    border-color: #28a745;
+}
+.course-card-link.completed .course-card-item h4 { 
+    text-decoration: line-through; 
+}
+.course-card-link.grade-excellent .course-card-item {
+    border-color: #28a745;
+    background-color: rgba(40, 167, 69, 0.1);
+}
+.course-card-link.grade-good .course-card-item {
+    border-color: #b3e86e;
+    background-color: rgba(25, 135, 84, 0.1);
+}
+.course-card-link.grade-average .course-card-item {
+    border-color: #fd7e14;
+    background-color: rgba(253, 126, 20, 0.1);
+}
+.course-card-link.grade-fail .course-card-item {
+    border-color: #dc3545;
+    background-color: rgba(220, 53, 69, 0.1);
+}
+
+/* --- 19. Custom WhatsApp Button & About Page Cards --- */
+.whatsapp-btn {
+    color: #fff !important;
+    border: none;
+    background: linear-gradient(90deg, var(--accent) 0%, #25D366 100%);
+    box-shadow: 0 4px 15px rgba(0, 169, 255, 0.2);
+    transition: all 0.3s ease;
+}
+.whatsapp-btn:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+.story-card {
+    padding: 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.story-card .story-icon {
+    font-size: 2.5rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+.story-card h2 {
+    color: var(--text-heading);
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+.story-card p {
+    max-width: 600px;
+    line-height: 1.8;
+}
+.developer-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.developer-info .social-links {
+    display: flex;
+    gap: 1.5rem;
+    margin: 1rem 0;
+}
+.developer-info .social-links a {
+    font-size: 1.5rem;
+    color: var(--text-main);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+.developer-info .social-links a:hover {
+    color: var(--accent);
+    transform: scale(1.1);
+}
+.robotics-info-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    background: rgba(18, 18, 30, 0.5) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.robotics-info-block:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+.robotics-info-block.reverse-layout {
+    flex-direction: row-reverse;
+}
+.robotics-info-block .info-content {
+    flex: 1;
+}
+.robotics-info-block .info-visual i {
+    font-size: 5rem;
+    color: var(--accent);
+    opacity: 0.5;
+}
+.styled-list {
+    list-style: none;
+    padding: 0;
+}
+.styled-list li {
+    padding-right: 1.5rem;
+    position: relative;
+    margin-bottom: 1rem;
+}
+.styled-list li::before {
+    content: ''; 
+    position: absolute;
+    right: 0;
+    top: 50%; 
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px; 
+    background-color: var(--accent); 
+    border-radius: 50%; 
+    box-shadow: 0 0 8px var(--accent); 
+}
+@media (max-width: 768px) {
+    .robotics-info-block, 
+    .robotics-info-block.reverse-layout {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+    .styled-list li {
+        padding-right: 2rem;
+    }
+}
+.robotics-info-block::before,
+.robotics-info-block::after {
+    display: none !important;
+}
+
+/* --- Styles for Teacher Search Bar --- */
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem 1.2rem;
+    margin: -2rem auto 3rem auto;
+    max-width: 600px;
+    border-radius: 50px;
+    border-color: rgba(0, 169, 255, 0.2);
+}
+.search-container i {
+    font-size: 1.2rem;
+    color: var(--accent);
+}
+.search-input {
+    flex-grow: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text-heading);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    width: 100%;
+}
+.search-input::placeholder {
+    color: var(--text-main);
+    opacity: 0.7;
+}
+
+/* === Futuristic Holographic GPA Result Card === */
+.gpa-result-card {
+    position: relative;
+    padding: 1.5rem 2rem;
+    border-radius: 16px;
+    border: 1px solid;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.2));
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    animation: fadeInResult 0.8s ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    min-height: 160px;
+}
+@keyframes fadeInResult {
+    from { opacity: 0; transform: translateY(20px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.gpa-result-card::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, currentColor 0%, transparent 45%);
+    transform-origin: center;
+    opacity: 0.1;
+    animation: rotateGlow 20s linear infinite;
+}
+@keyframes rotateGlow {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+.result-numerical {
+    font-size: 4.5rem;
+    font-weight: 700;
+    line-height: 1;
+    text-shadow: 0 0 20px currentColor;
+    flex-shrink: 0;
+}
+.result-details-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+}
+.result-title {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.7;
+    margin-bottom: 0.5rem;
+}
+.result-rank {
+    font-size: 2.2rem;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+}
+.result-symbol {
+    font-size: 1rem;
+    font-family: monospace;
+    opacity: 0.8;
+    background-color: rgba(0,0,0,0.2);
+    padding: 0.2rem 0.6rem;
+    border-radius: 5px;
+}
+.gpa-result-card.excellent,
+.gpa-result-card.very-good {
+    border-color: #28a745;
+    color: #28a745;
+    box-shadow: 0 0 25px rgba(40, 167, 69, 0.3);
+}
+.gpa-result-card.good,
+.gpa-result-card.passable {
+    border-color: #a0d911;
+    color: #a0d911;
+    box-shadow: 0 0 25px rgba(160, 217, 17, 0.3);
+}
+.gpa-result-card.pass {
+    border-color: #ffc107;
+    color: #ffc107;
+    box-shadow: 0 0 25px rgba(255, 193, 7, 0.3);
+}
+.gpa-result-card.warning {
+    border-color: #dc3545;
+    color: #dc3545;
+    box-shadow: 0 0 25px rgba(220, 53, 69, 0.3);
+}
+@media (max-width: 768px) {
+    .gpa-result-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+        padding: 1.5rem;
+    }
+    .result-details-group {
+        align-items: center;
+    }
+    .result-numerical {
+        font-size: 4rem;
+    }
+    .result-rank {
+        font-size: 1.8rem;
+        margin-bottom: 0.25rem;
+    }
+}
+
+/* ======================================================= */
+/* ====== التحسينات الجديدة المضافة للواجهة (V2) ====== */
+/* ======================================================= */
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 2rem;
+    padding: 12px 25px;
+    border-radius: 50px;
+    background-color: var(--accent);
+    color: #fff;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 169, 255, 0.2);
+}
+.cta-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 169, 255, 0.3);
+    background-color: #00BFFF;
+}
+
+.portal-card:hover {
+    border-color: rgba(0, 169, 255, 0.5) !important;
+}
+.portal-card .card-icon {
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+.portal-card:hover .card-icon {
+    color: #fff;
+    text-shadow: 0 0 15px var(--accent);
+}
+
+.quick-links-section {
+    padding: 1.5rem 2rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+.quick-links-section h3 {
+    color: var(--text-heading); margin: 0 0 1.5rem 0;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    border-bottom: none;
+}
+.quick-links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+}
+.link-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 1.5rem 1rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-main);
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+.link-card i {
+    font-size: 2rem;
+    color: var(--accent);
+    transition: all 0.3s ease;
+}
+.link-card span {
+    font-weight: 500;
+}
+.link-card:hover {
+    background: rgba(0, 169, 255, 0.1);
+    border-color: rgba(0, 169, 255, 0.3);
+    color: #fff;
+    transform: translateY(-5px);
+}
+.link-card:hover i {
+    transform: scale(1.1);
+    text-shadow: 0 0 10px var(--accent);
+}
+
+.app-download-cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
+.download-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 1.2rem 2.5rem;
+    border-radius: 15px;
+    background: rgba(18, 18, 30, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+.download-card:before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 169, 255, 0.2) 0%, transparent 60%);
+    transition: transform 0.6s ease;
+    transform: rotate(0deg) scale(0);
+    z-index: 0;
+    opacity: 0;
+}
+.download-card:hover:before {
+    transform: rotate(360deg) scale(1);
+    opacity: 1;
+}
+.download-card i {
+    font-size: 3.5rem;
+    color: #fff;
+    z-index: 1;
+    transition: transform 0.3s ease;
+}
+.download-card:hover i {
+    transform: scale(1.1);
+}
+.download-card .card-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: 1;
+}
+.download-card .card-text span {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin-bottom: -5px;
+}
+.download-card .card-text strong {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.app-store-card:hover i { color: var(--accent); }
+.google-play-card:hover i { color: var(--accent); }
+@media (max-width: 600px) {
+    .app-download-cards-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .download-card {
+        width: 90%;
+        max-width: 350px;
+        padding: 1rem 2rem;
+    }
+    .download-card i { font-size: 3rem; }
+    .download-card .card-text strong { font-size: 1.3rem; }
+}
+@keyframes section-highlight-glow {
+    0% { box-shadow: 0 0 0 rgba(0, 169, 255, 0); }
+    50% { box-shadow: 0 0 40px rgba(0, 169, 255, 0.5); }
+    100% { box-shadow: 0 0 0 rgba(0, 169, 255, 0); }
+}
+.highlight-section {
+    animation: section-highlight-glow 1.5s ease-out;
+}
+
+.tabs-section {
+    padding: 0;
+    overflow: hidden;
+}
+.tabs-container {
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 0.5rem;
+    gap: 0.5rem;
+    overflow-x: auto;
+}
+.tabs-container::-webkit-scrollbar {
+    display: none;
+}
+.tab-btn {
+    flex-shrink: 0;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    background: transparent;
+    color: var(--text-main);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-bottom: 3px solid transparent;
+}
+.tab-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+.tab-btn.active {
+    background-color: var(--accent) !important;
+    color: #fff !important;
+    box-shadow: 0 4px 15px rgba(0, 169, 255, 0.2);
+    transform: translateY(-2px);
+}
+.tab-content-container {
+    padding: 2rem;
+}
+.tab-content {
+    display: none;
+    animation: fadeInContent 0.5s ease-out;
+}
+.tab-content.active {
+    display: block;
+}
+@keyframes fadeInContent {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 768px) {
+    .tabs-container {
+        justify-content: flex-start;
+    }
+    .tab-btn {
+        padding: 0.7rem 1rem;
+        font-size: 0.9rem;
+    }
+    .tab-content-container {
+        padding: 1.5rem;
+    }
+}
+
+.progress-accordion-header {
+    justify-content: space-between;
+    width: 100%;
+}
+.progress-header-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+.progress-header-bar-container {
+    flex-grow: 1;
+    height: 20px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    margin: 0 2rem;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.progress-header-bar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), #00c3ff);
+    border-radius: 20px;
+    transition: width 0.8s ease-out;
+}
+.progress-header-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+@media (max-width: 768px) {
+    .progress-header-bar-container {
+        display: none;
+    }
+}
+
+.delete-options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+.delete-option-btn {
+    width: 100%;
+    justify-content: center;
+}
+.delete-option-btn.danger {
+    background: rgba(220, 53, 69, 0.2);
+    border-color: rgba(220, 53, 69, 0.4);
+    color: #dc3545;
+}
+.delete-option-btn.danger:hover {
+    background: rgba(220, 53, 69, 0.3);
+    color: #ff4757;
+}
+@media (max-width: 600px) {
+    .delete-options-grid {
+                text-align: center;
+
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ============================================= */
+/* --- Styles for Completed Courses Modal (CLEANED) --- */
+/* ============================================= */
+
+#completed-courses-modal .modal-content {
+    max-width: 90%;
+    width: 1200px;
+}
+#completed-courses-modal .modal-content .close-modal-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.completed-list-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+    padding-top: 1rem;
+    width: 100%;
+}
+
+.completed-list-placeholder {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.1rem;
+    opacity: 0.8;
+}
+
+.completed-group-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background: rgba(18, 18, 30, 0.5);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.completed-group-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.completed-group-header {
+    padding: 1rem 1.25rem;
+    background: rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.completed-group-header h3 {
+    margin: 0;
+    font-size: 1.3rem;
+    color: var(--accent);
+}
+
+.completed-group-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.completed-group-box-content {
+    padding: 0.75rem 1.25rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    flex-grow: 1;
+}
+
+.completed-course-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.completed-course-row:last-child {
+    border-bottom: none;
+}
+
+.completed-course-row .course-title {
+    font-size: 0.95rem;
+    flex-grow: 1;
+}
+
+.completed-course-grade {
+    font-weight: bold;
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    min-width: 50px;
+    text-align: center;
+}
+.completed-course-grade.grade-excellent { background-color: #28a745; }
+.completed-course-grade.grade-good { background-color: #198754; }
+.completed-course-grade.grade-average { background-color: #fd7e14; }
+.completed-course-grade.grade-fail { background-color: #dc3545; }
+/* --- تصميم مخصص لزر مسح الإنجاز --- */
+.delete-btn-custom {
+    background-color: rgba(220, 53, 69, 0.15);
+    border-color: rgba(220, 53, 69, 0.4);      
+    color: #f85b6a;            
+}           
+
+.delete-btn-custom:hover {
+    background-color: rgba(220, 53, 69, 0.3);
+    border-color: rgba(220, 53, 69, 0.6);
+    color: #ff7b88;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(220, 53, 69, 0.2);
+}
+
+.delete-btn-custom:active {
+    transform: translateY(0);
+}
+/* --- تنسيق وسم العلامة على بطاقة المادة --- */
+.course-card-item {
+    position: relative; 
+
+}
+.grade-badge-on-card {
+    position: absolute;
+    top: 10px;
+    right: 10px; /* تغيير موضع العلامة إلى اليمين */
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem; /* تصغير حجم الخط */
+    font-weight: 600;
+    color: #fff;
+    background-color: #6c757d; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1; /* يجب أن يكون أقل من زر الحذف */
+}
+
+.grade-badge-on-card.grade-excellent {
+    background: linear-gradient(45deg, #28a745, #28a745);
+}
+.grade-badge-on-card.grade-good {
+    background: linear-gradient(45deg, #1eff00, #1eff00);
+}
+.grade-badge-on-card.grade-average {
+    background: linear-gradient(45deg, #ffc107, #fd7e14);
+    color: #111;
+}
+.grade-badge-on-card.grade-fail {
+    background: linear-gradient(45deg, #ff0000, #ff0000);
+}
+
+.course-card-link.completed .course-card-item {
+    opacity: 0.8; 
+}
+.course-card-link.completed:hover .course-card-item {
+    opacity: 1;
+}
+/* ======================================================= */
+/* ====== ✨ تحسينات تصميم صفحة حساب المعدل (V3) ✨ ====== */
+/* ======================================================= */
+
+/* --- 1. تحديث لوحة التحكم الرئيسية --- */
+.gpa-command-center {
+    background: linear-gradient(145deg, rgba(28, 28, 48, 0.6), rgba(18, 18, 30, 0.7));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 169, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    transition: all 0.3s ease-in-out;
+}
+
+.gpa-command-center:hover {
+    box-shadow: 0 0 40px rgba(0, 169, 255, 0.25);
+}
+
+/* --- 2. تحسين حقول إدخال المعدل السابق --- */
+.gpa-input-field {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.gpa-input-field:focus {
+    background: rgba(0, 0, 0, 0.2);
+    border-color: var(--accent);
+    box-shadow: 0 0 15px rgba(0, 169, 255, 0.4);
+    transform: scale(1.02);
+}
+
+/* --- 3. تصميم جديد لبطاقات المواد --- */
+.course-card, .retake-course-card {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-card:hover, .retake-course-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    border-color: rgba(0, 169, 255, 0.3);
+}
+
+/* --- تأثير إضاءة عند المرور --- */
+.course-card::before, .retake-course-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 169, 255, 0.15) 0%, transparent 50%);
+    transform: scale(0);
+    transition: transform 0.5s ease;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.course-card:hover::before, .retake-course-card:hover::before {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* --- 4. تحديث أزرار الإجراءات --- */
+.gpa-btn {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    background: rgba(0, 169, 255, 0.1);
+    color: var(--accent);
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.gpa-btn:hover {
+    background: var(--accent);
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 169, 255, 0.3);
+}
+
+/* --- 5. زر الحساب الرئيسي --- */
+.calculate-btn {
+    position: relative;
+    background: linear-gradient(90deg, var(--accent) 0%, #00BFFF 100%);
+    border: none;
+    box-shadow: 0 0 20px rgba(0, 169, 255, 0.3);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.calculate-btn:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 35px rgba(0, 169, 255, 0.6);
+}
+
+.calculate-btn .bi-lightning-charge-fill {
+    transition: transform 0.3s ease;
+}
+
+.calculate-btn:hover .bi-lightning-charge-fill {
+    transform: scale(1.2) rotate(15deg);
+}
+
+/* --- 6. إعادة تصميم عرض النتائج (Holographic/Futuristic) --- */
+/* استخدم التصميم الحالي .gpa-result-card فهو ممتاز، لكن سنضيف له بعض اللمسات */
+
+.gpa-result-card {
+    background: linear-gradient(145deg, rgba(28, 28, 48, 0.5), rgba(18, 18, 30, 0.6));
+    border: 1px solid; /* اللون يحدده كلاس التقدير */
+    transition: all 0.4s ease-out;
+}
+
+.gpa-result-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+}
+
+/* --- إضافة خطوط مسح ضوئي للتأثير المستقبلي --- */
+.result-display {
+    position: relative;
+}
+
+.result-display::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent 98%, currentColor 100%);
+    background-size: 100% 4px;
+    opacity: 0.2;
+    animation: scanlines 5s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes scanlines {
+    from { background-position: 0 0; }
+    to { background-position: 0 100px; }
+}
+
+/* --- تحسين رسالة لوحة الشرف --- */
+.honor-roll-message {
+    background: linear-gradient(45deg, rgba(0, 169, 255, 0.1), rgba(40, 167, 69, 0.15));
+    border: 1px solid rgba(0, 169, 255, 0.4);
+    box-shadow: 0 0 20px rgba(0, 169, 255, 0.2);
+    font-size: 1.1rem;
+    padding: 1.2rem;
+}
+.honor-roll-message {
+    /* الخصائص الموجودة مسبقاً */
+    background: linear-gradient(45deg, rgba(0, 169, 255, 0.1), rgba(40, 167, 69, 0.15));
+    border: 1px solid rgba(0, 169, 255, 0.4);
+    box-shadow: 0 0 20px rgba(0, 169, 255, 0.2);
+    font-size: 1.1rem;
+    padding: 1.2rem;
+    
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    text-align: center; 
+    min-height: 80px; 
+    border-radius: 12px; 
+    margin-top: 20px; 
+    color: #E0E0FF; 
+}
+/* =================================================================== */
+/* =================================================================== */
+
+/* 1. إعداد البطاقات للتأثيرات ثلاثية الأبعاد والتفاعلية */
+.about-page-main .story-card {
+    perspective: 1500px; /* تفعيل المنظور الثلاثي الأبعاد */
+    position: relative;
+    overflow: hidden; /* لإخفاء الضوء الزائد عن الحواف */
+}
+
+/* 2. تأثير الضوء الموجه الذي يتبع الفأرة */
+.about-page-main .story-card::before {
+    content: '';
+    position: absolute;
+    top: var(--mouse-y-local, 50%);
+    left: var(--mouse-x-local, 50%);
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(0, 169, 255, 0.2) 0%, transparent 60%);
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none; /* لمنع التأثير من اعتراض نقرات الفأرة */
+}
+
+.about-page-main .story-card:hover::before {
+    opacity: 1; /* إظهار الضوء عند المرور */
+}
+
+/* 3. حركة دخول متقدمة للعناصر عند التمرير */
+.story-card.fade-in {
+    opacity: 0;
+    transform: perspective(1000px) rotateX(-20deg) translateY(50px);
+    transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.story-card.fade-in.visible {
+    opacity: 1;
+    transform: perspective(1000px) rotateX(0deg) translateY(0);
+}
+
+/* تأخير ظهور البطاقات بشكل متسلسل */
+.story-card.fade-in:nth-child(2) { transition-delay: 0.1s; }
+.story-card.fade-in:nth-child(3) { transition-delay: 0.2s; }
+.story-card.fade-in:nth-child(4) { transition-delay: 0.3s; }
+
+
+/* 4. إعداد بطاقة المطور للتأثير ثلاثي الأبعاد (الـ JavaScript سيتحكم بها) */
+#developer-card { /* سنعطي بطاقة المطور ID مميز */
+    transition: transform 0.1s linear; /* حركة ميلان سلسة وسريعة */
+}
+/* =================================================================== */
+/* =================================================================== */
+/* في نهاية ملف 1.index.css */
+
+/* 1. الحالة الافتراضية للجسم (يبدأ شفاف) */
+body {
+    transition: opacity 0.4s ease-in-out;
+}
+
+body.page-fade-in {
+    opacity: 1;
+}
+
+body.page-fade-out {
+    opacity: 0;
+}
+/* --- Final Fix for Double Cursor --- */
+.typed-cursor {
+  /* Reset all properties that might cause duplication */
+  border: none !important;
+  outline: none !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+  
+  /* Ensure stable rendering and font style */
+  display: inline-block;
+  vertical-align: middle;
+  font-weight: normal !important;
+  font-style: normal !important;
+  
+  /* Prevent any pseudo-elements from appearing */
+  content: "" !important;
+}
+
+/* =================================================================== */
+/* --- ✨ تعديلات التصميم الجديدة لنافذة عرض الصور ✨ --- */
+/* =================================================================== */
+
+/* 1. القاعدة الأساسية المشتركة للنافذتين */
+#image-modal-tree .image-modal-content,
+#image-modal-grades .image-modal-content {
+    all: unset; /* إلغاء كل التنسيقات القديمة المتعارضة */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 90%;
+    max-height: 95vh;
+    padding: 60px 20px 80px 20px; /* مساحة داخلية للزر العلوي والسفلي */
+
+    /* التصميم الزجاجي */
+    background: rgba(18, 18, 30, 0.7);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* 2. تنسيق الصورة داخل الإطار */
+#image-modal-tree .image-modal-content img,
+#image-modal-grades .image-modal-content img {
+    all: unset;
+    display: block;
+    width: 100%;
+    max-height: calc(95vh - 140px); /* حساب الارتفاع المتاح للصورة */
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+/* 3. تصميم زر الإغلاق (X) الموحد */
+#image-modal-tree .close-modal-btn,
+#image-modal-grades .close-modal-btn {
+    all: unset;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 15px;
+    left: 15px; /* RTL friendly */
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#image-modal-tree .close-modal-btn:hover,
+#image-modal-grades .close-modal-btn:hover {
+    background-color: rgba(220, 53, 69, 1);
+    transform: rotate(90deg);
+}
+
+/* 4. تصميم أزرار الإجراءات السفلية (التحميل) */
+#image-modal-tree .modal-actions,
+#image-modal-grades .modal-actions {
+    all: unset;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    gap: 15px;
+}
+
+/* 5. تصميم موحد للزر السفلي gpa-btn داخل النافذة */
+#image-modal-tree .modal-actions .gpa-btn,
+#image-modal-grades .modal-actions .gpa-btn {
+    all: unset;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 25px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: rgba(30, 30, 50, 0.5);
+}
+
+#image-modal-tree .modal-actions .gpa-btn:hover,
+#image-modal-grades .modal-actions .gpa-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    background-color: var(--accent);
+    border-color: var(--accent);
+}
+
+@media (max-width: 768px) {
+ 
+    .tabs-section {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem; 
+    }
+
+    .tabs-section::before {
+        content: '⟷ اسحب لتصفح السنوات ⟷'; 
+        display: block; 
+        text-align: center; 
+        font-size: 0.8rem; 
+        font-weight: 500;
+        color: var(--text-main);
+        opacity: 0.8;
+        padding-bottom: 0.25rem; 
+        animation: subtle-pulse 2.5s infinite ease-in-out; 
+    }
+    
+   
+    .tab-content-container {
+       padding-top: 1rem; 
+    }
+
+
+    @keyframes subtle-pulse {
+        0%, 100% {
+            opacity: 0.6;
+        }
+        50% {
+            opacity: 1;
+        }
+    }
+}
+@media (max-width: 768px) {
+    /* إظهار شريط التقدم على الشاشات الصغيرة */
+    .progress-header-bar-container {
+        display: block !important;
+        width: 100%;
+        margin: 1rem 0;
+        order: 3; /* وضعه في نهاية العناصر */
+    }
+
+    /* تحسين تخطيط عناصر التقدم */
+    .progress-accordion-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .progress-header-title {
+        margin-bottom: 0.5rem;
+    }
+
+    /* تحسين حجم النص المعروض داخل شريط التقدم */
+    .progress-header-text {
+        font-size: 0.7rem;
+        white-space: nowrap;
+    }
+
+    /* تحسين تخطيط عدادات الساعات */
+    .progress-tracker {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+    
+    .progress-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+    }
+}
+/* تحسينات للعرض على الجوال */
+@media (max-width: 768px) {
+    /* منع العناصر من الإختفاء */
+    .progress-item, 
+    .gpa-settings,
+    .input-group,
+    .course-card {
+        opacity: 1 !important;
+        visibility: visible !important;
+        display: flex !important;
+    }
+    
+    /* تحسين مساحة العناصر */
+    .main-content {
+        padding: 1rem;
+    }
+    
+    .gpa-command-center {
+        padding: 1rem;
+    }
+    
+    /* تحسين حجم الخطوط للجوال */
+    .progress-item span {
+        font-size: 0.9rem;
+    }
+    
+    .progress-item strong {
+        font-size: 1.1rem;
+    }
+    
+    /* تحسين الأزرار للجوال */
+    .gpa-btn, 
+    .calculate-btn {
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+/* ======================================================= */
+/* ====== تنسيقات صفحة دليل التخصصات المحسّنة ====== */
+/* ======================================================= */
+
+.main-page-header h1 {
+    font-size: 3.5rem; /* حجم أكبر للعنوان الرئيسي */
+    text-shadow: 0 0 15px rgba(var(--accent-rgb), 0.7); /* ظل حول النص */
+    color: var(--accent); /* لون مميز */
+    margin-bottom: 0.5rem;
+}
+
+.main-page-header p {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+}
+
+.comparison-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); /* مرونة أكبر للعرض */
+    gap: 2.5rem; /* زيادة المسافة بين الأعمدة */
+    max-width: 1500px; /* عرض أقصى أوسع قليلاً */
+    margin: 3rem auto; /* زيادة المسافة العلوية */
+    padding: 0 1rem; /* مسافة داخلية على الجوانب */
+}
+
+.specialization-column {
+    background: rgba(255, 255, 255, 0.08); /* تأثير زجاجي شفاف ومضيء */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* حدود واضحة */
+    border-radius: 20px; /* حواف أكثر دائرية */
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem; /* زيادة المسافة بين الأقسام الداخلية */
+    backdrop-filter: blur(15px); /* تأثير التعتيم الزجاجي */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3); /* ظل عميق وواضح */
+    transition: all 0.3s ease; /* انتقال سلس عند التحويم */
+}
+
+.specialization-column:hover {
+    transform: translateY(-10px) scale(1.02); /* رفع وتكبير بسيط عند التحويم */
+    box-shadow: 0 12px 40px 0 rgba(var(--accent-rgb), 0.4); /* ظل بلون مميز */
+}
+
+.column-header {
+    text-align: center;
+    color: var(--accent); /* لون مميز للعناوين الرئيسية */
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.column-header i {
+    font-size: 4.5rem; /* أيقونات أكبر */
+    margin-bottom: 1rem;
+    display: block;
+    text-shadow: 0 0 10px rgba(var(--accent-rgb), 0.5); /* ظل حول الأيقونات */
+    transition: transform 0.3s ease;
+}
+
+.specialization-column:hover .column-header i {
+    transform: scale(1.1) rotate(5deg); 
+}
+.column-header h2 {
+    margin: 0;
+    font-size: 2.2rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px; 
+}
+.column-header h2 i {
+    font-size: 1.8rem; 
+}
+
+.column-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(to right, transparent, var(--accent), transparent);
+    border-radius: 5px;
+}
+
+.topic {
+    background: rgba(0, 0, 0, 0.3); /* خلفية أغمق  للأقسام الفرعية */
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 15px; /* حواف أكثر دائرية */
+    padding: 1.5rem 2rem; /* زيادة المسافة الداخلية */
+    transition: all 0.2s ease-in-out; /* انتقال سلس */
+}
+
+.topic:hover {
+    border-color: var(--accent); 
+    transform: translateY(-5px); 
+    box-shadow: 0 5px 20px rgba(var(--accent-rgb), 0.2);
+}
+
+.topic-header {
+    margin: 0 0 1rem 0;
+    color: var(--text-color); /* لون نص طبيعي */
+    font-size: 1.4rem; /* عنوان قسم أكبر */
+    font-weight: 600;
+    position: relative;
+    padding-right: 2.5rem; /* مساحة للأيقونة */
+}
+
+/* أيقونة جانبية لعناوين الأقسام */
+.topic-header::before {
+    font-family: 'bootstrap-icons';
+    content: '\F4DA'; /* أيقونة كتاب مفتوح - bi-book */
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    color: var(--accent);
+}
+
+.topic:nth-child(2) .topic-header::before { content: '\F32C'; } /* مسارات وظيفية - bi-briefcase */
+.topic:nth-child(3) .topic-header::before { content: '\F4DE'; } /* مهارات - bi-tools */
+.topic:nth-child(4) .topic-header::before { content: '\F438'; } /* طبيعة العمل - bi-pc-display-horizontal */
+
+
+.topic-content ul {
+    list-style: none;
+    padding-right: 0;
+    margin: 0;
+}
+
+.topic-content li {
+    padding-right: 2.2rem; /* مسافة أكبر لأيقونة Checkmark */
+    position: relative;
+    margin-bottom: 0.8rem;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    color: var(--text-color-light); /* لون نص أخف */
+}
+
+.topic-content li::before {
+    content: '\F26E'; /* أيقونة Checkmark من Bootstrap Icons */
+    font-family: 'bootstrap-icons';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.topic-content p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--text-color-light);
+    margin: 0;
+}
+
+/* تنسيق للكلمات البارزة (Strong) داخل القوائم */
+.topic-content strong {
+    color: var(--accent);
+    font-weight: bold;
+}
+
+@media (max-width: 992px) {
+    .comparison-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+    .specialization-column {
+        padding: 2rem;
+    }
+    .column-header i {
+        font-size: 3.5rem;
+    }
+    .column-header h2 {
+        font-size: 1.8rem;
+    }
+    .topic-header {
+        font-size: 1.2rem;
+    }
+    .topic-content li, .topic-content p {
+        font-size: 0.95rem;
+    }
+}
+@media (max-width: 576px) {
+    .main-page-header h1 {
+        font-size: 2.5rem;
+    }
+    .main-page-header p {
+        font-size: 1rem;
+    }
+    .specialization-column {
+        padding: 1.5rem;
+    }
+    .column-header i {
+        font-size: 3rem;
+    }
+    .column-header h2 {
+        font-size: 1.5rem;
+    }
+}
+/* ======================================================= */
+/* ====== تنسيق قسم المشاريع للمبتدئين ====== */
+/* ======================================================= */
+
+.topic.starter-project {
+    background: rgba(var(--accent-rgb), 0.1);
+    border: 1px solid rgba(var(--accent-rgb), 0.4);
+    box-shadow: 0 0 25px rgba(var(--accent-rgb), 0.15);
+}
+
+.topic.starter-project .topic-header::before {
+    content: '\F586'; 
+    font-size: 1.4rem;
+}
+
+.topic.starter-project .topic-content li::before {
+    content: '\F560'; 
+    font-size: 1.1rem;
+}
+
+.topic.starter-project .topic-content small {
+    display: block;
+    opacity: 0.7;
+    font-size: 0.85rem;
+    margin-right: 0.5rem; 
+    margin-top: 4px;
+}
+/* ======================================================= */
+/* ====== تصميم زر المصادر والنافذة المنبثقة ====== */
+/* ======================================================= */
+
+.resource-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    margin-top: 1rem;
+    padding: 10px 15px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #fff;
+    background: rgba(var(--accent-rgb), 0.25);
+    border: 1px solid rgba(var(--accent-rgb), 0.5);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.resource-btn:hover {
+    background: var(--accent);
+    box-shadow: 0 5px 15px rgba(var(--accent-rgb), 0.4);
+    transform: translateY(-3px);
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(13, 13, 26, 0.7);
+    backdrop-filter: blur(10px);
+    display: none; 
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.visible {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-content {
+    position: relative;
+    padding: 2.5rem;
+    width: 90%;
+    max-width: 800px;
+    border-top: 4px solid var(--accent);
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.visible .modal-content {
+    transform: scale(1);
+}
+
+#modal-title {
+    text-align: center;
+    color: var(--text-heading);
+    font-size: 2rem;
+    margin-top: 0;
+    margin-bottom: 2rem;
+}
+
+.resources-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.resource-category h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--accent);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.75rem;
+    margin: 0 0 1rem 0;
+}
+
+.resource-category ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.resource-category a {
+    display: block;
+    padding: 12px 15px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    color: var(--text-main);
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.resource-category a:hover {
+    background: rgba(var(--accent-rgb), 0.2);
+    border-color: var(--accent);
+    color: #fff;
+    transform: translateX(-5px);
+}
+
+#close-modal-btn {
+    position: absolute;
+    top: 15px;
+    left: 15px; 
+    font-size: 2rem;
+    background: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .resources-container {
+        grid-template-columns: 1fr;
+    }
+    #modal-title {
+        font-size: 1.5rem;
+    }
+}
+/* --- ✨ أكواد خاصة بأنميشن حذف بطاقة المادة ✨ --- */
+@keyframes fadeOutCard {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+}
+
+.card-fade-out {
+    animation: fadeOutCard 0.3s ease-out forwards;
+}/* ================================================= */
+/* ======   تصميم نافذة البحث المنبثقة الجديدة   ====== */
+/* ================================================= */
+
+/* 1. تصميم زر تشغيل البحث في القائمة الجانبية */
+.sidebar-search-trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 15px;
+    margin: 20px 0;
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-main);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sidebar-search-trigger:hover {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+}
+
+.sidebar-search-trigger i {
+    font-size: 1.1rem;
+}
+
+/* 2. تصميم خلفية النافذة المنبثقة */
+.search-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(13, 13, 26, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    padding-top: 10vh; /* ترك مسافة من الأعلى */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.search-modal-overlay.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 3. تصميم محتوى النافذة */
+.search-modal-content {
+    width: 90%;
+    max-width: 650px;
+    height: fit-content;
+    max-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    padding: 1rem;
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.search-modal-overlay.visible .search-modal-content {
+    transform: scale(1);
+}
+
+/* 4. تصميم حقل البحث داخل النافذة */
+.modal-search-input-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    flex-shrink: 0;
+}
+
+.modal-search-input-container i {
+    font-size: 1.5rem;
+    color: var(--accent);
+}
+
+#modal-search-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text-heading);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    padding: 0.5rem 0;
+}
+
+#modal-search-input::placeholder {
+    color: var(--text-main);
+    opacity: 0.6;
+}
+
+/* 5. تصميم حاوية النتائج داخل النافذة */
+#modal-search-results {
+    padding-top: 0.5rem;
+    overflow-y: auto;
+}
+
+#modal-search-results::-webkit-scrollbar { width: 6px; }
+#modal-search-results::-webkit-scrollbar-thumb { background-color: var(--accent); border-radius: 10px; }
+#modal-search-results::-webkit-scrollbar-track { background-color: rgba(0,0,0,0.3); }
+
+/* (نفس تصميم النتائج السابق ولكن بدون تعديل) */
+.result-item { display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 12px; text-decoration: none; color: var(--text-main); transition: all 0.2s ease-in-out; overflow: hidden; }
+.result-item:hover, .result-item:focus { background-color: var(--accent); color: #fff; transform: scale(1.03); }
+.result-item i { font-size: 1.5rem; color: var(--accent); transition: all 0.2s ease-in-out; flex-shrink: 0; }
+.result-item:hover i { color: #fff; }
+.result-text { display: flex; flex-direction: column; flex-grow: 1; min-width: 0; text-align: right; }
+.result-name, .result-type { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.result-name { font-weight: 500; font-size: 0.95rem; }
+.result-type { font-size: 0.8rem; opacity: 0.7; }
+.result-item.no-results { justify-content: center; text-align: center; padding: 20px; opacity: 0.8; }
+.result-item.no-results:hover { background-color: transparent; transform: none; color: var(--text-main); }/* ================================================= */
+/* ======   تنسيق تظليل العنصر عند البحث   ====== */
+/* ================================================= */
+
+a.highlighted-from-search .teacher-card,
+a.highlighted-from-search .course-card-item {
+    transition: all 0.5s ease-in-out !important;
+    box-shadow: 0 0 30px 8px var(--accent) !important;
+    transform: scale(1.05) !important;
+    border-color: var(--accent) !important;
+}
+/* ================================================= */
+/* ======   تنسيق تظليل العنصر عند البحث   ====== */
+/* ================================================= */
+
+.highlighted-from-search .teacher-card,
+a.highlighted-from-search .course-card-item {
+    transition: all 0.5s ease-in-out !important;
+    box-shadow: 0 0 30px 8px var(--accent) !important;
+    transform: scale(1.05) !important;
+    border-color: var(--accent) !important;
+}
+/* ================================================= */
+/* ======   تصميم نافذة الاختيار للمواد المشتركة   ====== */
+/* ================================================= */
+
+.choice-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(13, 13, 26, 0.7);
+    backdrop-filter: blur(10px);
+    z-index: 11000; /* يجب أن تكون فوق نافذة البحث */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.choice-modal-overlay.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.choice-modal-content {
+    width: 90%;
+    max-width: 450px;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 16px;
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.choice-modal-overlay.visible .choice-modal-content {
+    transform: scale(1);
+}
+
+.choice-modal-content h3 {
+    margin: 0 0 1.5rem 0;
+    color: var(--text-heading);
+}
+
+.choice-modal-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.choice-modal-options .gpa-btn {
+    width: 100%;
+    justify-content: center;
+    text-decoration: none;
+}
+/* ======================================================= */
+/* ====== ✨ تحسينات احترافية للتصميم (V4) ✨ ====== */
+/* ======================================================= */
+
+/* --- 1. تحسينات عامة (Global Enhancements) --- */
+
+/* تحسين قابلية القراءة للنصوص الطويلة */
+body {
+    line-height: 1.7;
+}
+
+/* تصميم موحد لشريط التمرير (Scrollbar) ليتناسب مع هوية الموقع */
+::-webkit-scrollbar {
+    width: 8px;
+    background-color: var(--bg-main);
+}
+::-webkit-scrollbar-thumb {
+    background-color: var(--accent);
+    border-radius: 10px;
+    border: 2px solid var(--bg-main);
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: #00BFFF;
+}
+
+/* خطوط مرنة تتكيف مع حجم الشاشة بسلاسة (Fluid Typography) */
+h1 {
+    font-size: clamp(2.2rem, 5vw, 3.5rem); /* يتراوح بين 2.2rem و 3.5rem */
+}
+h2 {
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+}
+h3 {
+    font-size: clamp(1.1rem, 3vw, 1.4rem);
+}
+
+
+/* --- 2. تحسينات المرونة والاستجابة (Responsiveness) --- */
+
+/* إضافة نقطة توقف (Breakpoint) للشاشات الكبيرة جداً (Large Desktops) */
+@media (min-width: 1400px) {
+    .main-content {
+        padding: 4rem 6rem; /* زيادة المساحة على الشاشات الكبيرة */
+    }
+    .gpa-command-center,
+    .accordion-container,
+    .comparison-container {
+        max-width: 1100px; /* زيادة العرض الأقصى للعناصر الرئيسية */
+    }
+}
+
+/* تحسين عرض الشبكة على الشاشات اللوحية (Tablets) */
+@media (max-width: 992px) and (min-width: 769px) {
+    .dashboard-cards {
+        grid-template-columns: repeat(2, 1fr); /* ضمان وجود عنصرين فقط في كل صف */
+    }
+    .teacher-cards-container {
+        grid-template-columns: 1fr; /* عرض دكتور واحد في كل صف لتحسين القراءة */
+    }
+}
+
+
+/* --- 3. لمسات احترافية على العناصر (UI Polish) --- */
+
+/* تحسين تجربة النقر على جميع العناصر القابلة للتفاعل */
+a, button, .course-card-link, .link-card, .sidebar-search-trigger {
+    cursor: pointer;
+}
+
+/* إضافة تأثير "الضغط" عند النقر على الأزرار */
+.gpa-btn:active, .cta-button:active, .tab-btn:active, .resource-btn:active {
+    transform: translateY(1px) scale(0.98);
+    box-shadow: none;
+}
+
+/* تحسين التركيز (Focus) للتنقل باستخدام لوحة المفاتيح (Accessibility) */
+a:focus-visible, button:focus-visible, input:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    box-shadow: 0 0 15px rgba(0, 169, 255, 0.5);
+    border-radius: 6px;
+}
+/* إخفاء التحسين السابق عند استخدام الماوس لتجربة أنظف */
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible),
+input:focus:not(:focus-visible) {
+    outline: none;
+    box-shadow: none;
+}
+
+/* إضافة تدرج لوني خفيف على خلفية البطاقات الرئيسية لمزيد من العمق */
+.card.glass, .resources-section.glass {
+    background: linear-gradient(145deg, rgba(22, 22, 38, 0.5), rgba(18, 18, 30, 0.6));
+}
+
+/* تحسين تأثير الظل على البطاقات عند المرور */
+.card:hover, .teacher-card:hover, .specialization-column:hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+/* ======================================================= */
+/* ====== ✨ تسريع حركة ظهور العناصر عند التمرير ✨ ====== */
+/* ======================================================= */
+
+/* 1. تقليل مدة الحركة الأساسية إلى النصف */
+.fade-in {
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out; /* تقليل المدة من 0.6s إلى 0.3s */
+}
+
+/* 2. إلغاء التأخير المتسلسل بين البطاقات والعناصر */
+.dashboard-cards.fade-in.visible .card,
+.resources-section.fade-in.visible,
+.story-card.fade-in {
+    transition-delay: 0s !important; /* إلغاء التأخير تماماً */
+}
+@media (max-width: 600px) {
+    .delete-options-grid {
+                text-align: center;
+
+        grid-template-columns: 1fr ;
+    }
+}
+/* --- Styles for My Courses Page --- */.remove-course-btn {
+    background: rgba(255,71,87,0.1);
+    color: #ff4757;
+    border: 1px solid rgba(255,71,87,0.3);
+    border-radius: 6px;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+
+.course-card-link.grade-mode .course-card-item {
+    cursor: pointer;
+}
+.course-card-link:not(.grade-mode) .grade-badge-on-card {
+    display: none;
+}
+/* --- Styles for My Courses Page Search --- */
+.my-courses-search-section {
+    position: relative; /* This is the key. Establishes a positioning context. */
+    margin-bottom: 2rem;
+}
+.my-courses-search-section .search-container {
+    max-width: 100%;
+    margin: 0;
+}
+.my-courses-search-section #search-results-list {
+    position: absolute;
+    top: 100%; /* Positions the list right below the search bar */
+    left: 0;
+    right: 0;
+    z-index: 100;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 12px;
+}
+.my-courses-search-section #search-results-list .result-item {
+    cursor: pointer;
+}
+.my-courses-search-section #search-results-list .result-item:hover {
+    background: rgba(0, 169, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+    .my-courses-search-section #search-results-list {
+        max-width: 90%;
+        left: 5%;
+        right: 5%;
+    }
+}
+/* --- 14. Modals (Grade Input, Images) --- */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(13, 13, 26, 0.7); backdrop-filter: blur(5px);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 5000; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+}
+.modal-overlay.visible { opacity: 1; pointer-events: auto; }
+.modal-content {
+    padding: 2rem; width: 90%; max-width: 500px;
+    text-align: center; transform: scale(0.95); transition: transform 0.3s ease;
+}
+.modal-overlay.visible .modal-content { transform: scale(1); }
+.modal-content h3 { margin: 0 0 0.5rem 0; color: var(--text-heading); }
+#modal-grade-selector {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    gap: 0.5rem; margin: 1.5rem 0;
+}
+.modal-actions {
+    display: flex; justify-content: center; gap: 1rem; margin-top: 1.5rem;
+}
+.gpa-btn.secondary {
+    background: rgba(255, 255, 255, 0.1); border-color: transparent; color: var(--text-main);
+}
+.gpa-btn.secondary:hover { background: rgba(255, 255, 255, 0.2); }
+
+/* --- 17. Grade Badge Styles --- */
+.course-card-item {
+    position: relative;
+}
+
+.grade-badge {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #fff;
+    background-color: #6c757d;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.grade-badge.grade-excellent { background-color: #28a745; }
+.grade-badge.grade-good { background-color: #198754; }
+.grade-badge.grade-average { background-color: #fd7e14; }
+.grade-badge.grade-fail { background-color: #dc3545; }
+
+/* --- 18. Dynamic Border Colors for Completed Courses --- */
+.course-card-link.completed .course-card-item {
+    opacity: 0.7;
+    background: rgba(40, 167, 69, 0.1);
+    border-color: #28a745;
+}
+.course-card-link.completed .course-card-item h4 { 
+    text-decoration: line-through; 
+}
+.course-card-link.grade-excellent .course-card-item {
+    border-color: #28a745;
+}
+.course-card-link.grade-good .course-card-item {
+    border-color: #b3e86e;
+}
+.course-card-link.grade-average .course-card-item {
+    border-color: #ffc107;
+}
+.course-card-link.grade-fail .course-card-item {
+    border-color: #dc3545;
+}
+/* --- تنسيق وسم العلامة على بطاقة المادة --- */
+.course-card-item {
+    position: relative; 
+}
+.grade-badge-on-card {
+    position: absolute;
+    top: 10px;
+    right: 10px; /* تغيير موضع العلامة إلى اليمين */
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem; /* تصغير حجم الخط */
+    font-weight: 600;
+    color: #fff;
+    background-color: #6c757d; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1; /* يجب أن يكون أقل من زر الحذف */
+}
+
+.grade-badge-on-card.grade-excellent {
+    background: linear-gradient(45deg, #28a745, #28a745);
+}
+.grade-badge-on-card.grade-good {
+    background: linear-gradient(45deg, #1eff00, #1eff00);
+}
+.grade-badge-on-card.grade-average {
+    background: linear-gradient(45deg, #ffc107, #fd7e14);
+    color: #111;
+}
+.grade-badge-on-card.grade-fail {
+    background: linear-gradient(45deg, #ff0000, #ff0000);
+}
+
+.course-card-link.completed .course-card-item {
+    opacity: 0.8; 
+}
+.course-card-link.completed:hover .course-card-item {
+    opacity: 1;
+}
+/* Styling for the new buttons group */
+@media (max-width: 768px) {
+    .gpa-btn {
+        width: 100%;
+        text-align: center;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .main-page-header + div > .gpa-btn {
+        flex-grow: 1;
+    }
+}
+/* --- GPA Calculator Page --- */
+.gpa-command-center {
+    padding: 1.5rem; max-width: 900px; margin: 0 auto;
+    border: 1px solid rgba(0,169,255,0.3);
+    box-shadow: 0 0 30px rgba(0,169,255,0.1);
+    border-radius: 12px;
+}
+.gpa-settings {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 1.5rem; padding: 0.8rem 1rem;
+    background: rgba(0,0,0,0.1); border-radius: 8px;
+}
+.gpa-settings label { font-size: 0.95rem; font-weight: 500; }
+
+.toggle-switch { position: relative; width: 50px; height: 28px; }
+.toggle-switch input { opacity: 0; width: 0; height: 0; }
+.slider {
+    position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0,0,0,0.3); border-radius: 34px; transition: .4s;
+}
+.slider:before {
+    content: ""; position: absolute; height: 20px; width: 20px;
+    left: 4px; bottom: 4px; background-color: #fff; border-radius: 50%; transition: .4s;
+}
+input:checked + .slider { background-color: var(--accent); }
+input:checked + .slider:before { transform: translateX(22px); }
+
+.previous-gpa-section {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+    margin-bottom: 1.5rem; max-height: 0; overflow: hidden; opacity: 0;
+    transition: max-height 0.5s, opacity 0.5s, margin-bottom 0.5s;
+}
+.previous-gpa-section.visible { max-height: 200px; opacity: 1; }
+
+.gpa-input-field {
+    width: 100%; padding: 0.7rem 0.9rem;
+    background: rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--text-main);
+    border-radius: 8px; font-size: 0.9rem;
+}
+.gpa-input-field:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 10px rgba(0,169,255,0.3); }
+.input-group { display: flex; flex-direction: column; gap: 0.5rem; }
+.input-group label { font-size: 0.85rem; font-weight: 500; color: var(--text-main); }
+
+.course-card-actions .remove-course-btn {
+    display: inline-block !important;
+    opacity: 1 !important;   
+    visibility: visible !important; 
+}
+/* تحسين تصميم مودال مسح الإنجاز على الشاشات الكبيرة */
+@media (min-width: 992px) {
+  #delete-modal .modal-content {
+    max-width: 600px;
+    padding: 2.5rem 3rem;
+    border-radius: 16px;
+    background: rgba(18, 18, 30, 0.85);
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+  }
+
+  #delete-modal h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #fff;
+  }
+
+  #delete-modal .modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
+
+  #delete-modal .gpa-btn {
+    min-width: 150px;
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+  }
+}
+/* 🎨 تصميم موحّد ومتجاوب لمودال مسح الإنجاز */
+
+/* القاعدة العامة (تشتغل لكل الشاشات) */
+#delete-modal .modal-content {
+  padding: 2rem;
+  width: 90%;
+  max-width: 500px;
+  background: rgba(18, 18, 30, 0.9);
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+
+#delete-modal h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  color: #fff;
+}
+
+#delete-modal .modal-actions {
+  display: flex;
+  flex-direction: column; /* مبدئيًا الأزرار تحت بعض */
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+}
+
+#delete-modal .gpa-btn {
+  width: 100%;
+  font-size: 0.95rem;
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+}
+/* زر مسح الإنجاز بحجم ثابت على كل الشاشات */
+#clear-all-btn {
+  min-width: 180px;   /* العرض الأدنى */
+  max-width: 180px;   /* العرض الأقصى */
+  height: 45px;       /* ارتفاع ثابت */
+  font-size: 1rem;    /* حجم خط ثابت */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;        /* مسافة بين الأيقونة والنص */
+  text-align: center;
+}
+
+/* ✅ تحسين العرض للشاشات الأكبر */
+@media (min-width: 768px) {
+  #delete-modal .modal-content {
+    max-width: 600px;
+    padding: 2.5rem 3rem;
+    border-radius: 16px;
+  }
+
+  #delete-modal h3 {
+    font-size: 1.5rem;
+  }
+
+  #delete-modal .modal-actions {
+    flex-direction: row; /* الأزرار جنب بعض */
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  #delete-modal .gpa-btn {
+    min-width: 150px;
+    width: auto;
+    font-size: 1rem;
+  }
+}
+@media (max-width: 768px) {
+    body {
+        -webkit-tap-highlight-color: transparent;
+    }
+    .main-content {
+        margin-right: 0;
+        padding: 1.5rem;
+    }
+    .main-page-header h1 { font-size: 2.2rem; line-height: 1.3; min-height: 150px; }
+    .main-page-header p { font-size: 1rem; }
+
+    .aurora-background {
+        background: radial-gradient(circle 600px at calc(var(--scroll-percent) * 100%) -20%, rgba(0,169,255,0.2), transparent 80%);
+        transition: background 0.5s ease-out;
+    }
+    .mobile-header { 
+        display: flex; align-items: center; justify-content: space-between; 
+        padding: 1rem; position: sticky; top: 0; z-index: 1000; 
+        background: rgba(18, 18, 30, 0.8);
+        backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .sidebar {
+        width: 80%; max-width: 300px;
+        transform: translateX(100%);
+        background: rgba(18, 18, 30, 0.8);
+    }
+    body.sidebar-open .sidebar { transform: translateX(0); }
+    .hamburger-btn { display: flex; flex-direction: column; justify-content: space-around; width: 30px; height: 25px; background: transparent; border: none; cursor: pointer; }
+    .hamburger-btn span { width: 100%; height: 3px; background: var(--text-heading); border-radius: 5px; transition: all .3s ease; }
+    .page-overlay {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); z-index: 1500;
+        display: none; opacity: 0; transition: opacity 0.3s ease;
+    }
+    .page-overlay.active { display: block; opacity: 1; }
+
+    .progress-tracker { grid-template-columns: 1fr 1fr; }
+    .previous-gpa-section, .gpa-grid { grid-template-columns: 1fr; }
+    .course-card, .retake-course-card { grid-template-columns: 1fr; }
+    .teacher-cards-container { grid-template-columns: 1fr; }
+
+    .teacher-card {
+        flex-direction: column !important;
+        text-align: center; gap: 1rem;
+    }
+    .teacher-info, .teacher-contact p { text-align: center; justify-content: center; }
+
+    .video-item { padding: 0.75rem; }
+    .video-container { min-width: 0; }
+    .video-title { font-size: 1rem; margin-bottom: 0.75rem; }
+
+    .resources-section h3 { font-size: 1.3rem; padding-bottom: 0.75rem; }
+    .selector-btn { padding: 0.6rem; min-width: 40px; font-size: 0.9rem; }
+    .gpa-btn, .calculate-btn { padding: 0.8rem 1.5rem; font-size: 1rem; }
+    
+    /* === التعديلات المضافة لتحسين مظهر الأزرار على الهاتف === */
+    .gpa-command-center .my-courses-search-section + .gpa-settings,
+    .progress-actions {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+    .gpa-command-center .my-courses-search-section + .gpa-settings > div,
+    .progress-actions > .gpa-btn {
+        width: 100%;
+    }
+    .gpa-btn {
+        width: 100%;
+        text-align: center;
+    }
+    .delete-options-grid {
+        text-align: center;
+        grid-template-columns: 1fr;
+    }
+    
+}
+
+@media (max-width: 768px) {
+    .progress-actions {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+
+    }
+    .progress-actions .gpa-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .delete-options-grid {
+        width: 50%;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .delete-option-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+/* --- إضافة كلاس جديد لإظهار نتائج المعدل --- */
+.result-display.visible {
+    display: block !important;
+    animation: fadeInResult 0.8s ease-out;
+}
+
+
+
+
+
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 12px;
+}

@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>هندسة الميكانيك - الهيئة التدريسية</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../1.index.css">
+    <link rel="icon" type="image/png" href="logo tab.png">
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="aurora-background"></div>
+    <div id="page-overlay" class="page-overlay"></div>
+
+    <div class="page-container">
+        <aside id="sidebar" class="sidebar glass">
+            <div class="sidebar-header">
+                <h3><i class="bi bi-robot"></i> Robot Learn</h3>
+                <button id="close-sidebar-btn" class="close-sidebar-btn">&times;</button>
+            </div>
+            <nav id="main-nav">
+                <a href="../index.html">الصفحة الرئيسية للقسم</a>
+                <a href="index.html">الصفحة الرئيسية للتخصص</a>
+                <a href="courses.html">المواد الدراسية</a>
+                <a href="gpa.html">حساب المعدل</a>
+                <a href="teachers.html">الهيئة التدريسية</a>
+                <a href="about-robotics.html">عن التخصص </a>
+                <a href="about-web.html">عن الموقع</a>
+            </nav>
+        </aside>
+
+        <div class="main-content">
+            <header class="mobile-header glass">
+                <button id="hamburger-btn" class="hamburger-btn">
+                    <span></span><span></span><span></span>
+                </button>
+                <h2 class="mobile-logo"><i class="bi bi-robot"></i> Robot Learn</h2>
+            </header>
+            
+            <main>
+                <div class="main-page-header fade-in">
+                    <h1>قسم هندسة الميكانيك</h1>
+                    <p>الكادر الأكاديمي والمشرفون في القسم</p>
+                </div>
+                <a href="https://www.just.edu.jo/ar/eportfolio/Pages/Default.aspx?email=engomari" class="teacher-link fade-in" id="engomari">
+                    <div class="teacher-card glass">
+                        <div class="teacher-photo">
+                            <img src="https://services.just.edu.jo/JUSTHandlers/GetPortfolioImage.ashx?email=engomari" alt="صورة الدكتور محمد عمري">
+                        </div>
+                        <div class="teacher-info">
+                            <h3 class="teacher-name">الدكتور محمد عمري</h3>
+                            <p class="teacher-rank">عضو هيئة تدريس - رئيس القسم </p>
+                            <div class="teacher-contact">
+                                <p><i class="bi bi-envelope-fill"></i> engomari@just.edu.jo</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <div class="teacher-cards-container">
+                    <a href="https://www.just.edu.jo/ar/eportfolio/Pages/Default.aspx?email=akhdair" class="teacher-link fade-in" id="akhdair">
+                        <div class="teacher-card glass">
+                            <div class="teacher-photo">
+                                <img src="https://services.just.edu.jo/JUSTHandlers/GetPortfolioImage.ashx?email=akhdair" alt="صورة الدكتور عدنان خضير"> 
+                            </div>
+                            <div class="teacher-info">
+                                <h3 class="teacher-name">الدكتور عدنان خضير</h3>
+                                <p class="teacher-rank">عضو هيئة تدريس</p>
+                                <div class="teacher-contact">
+                                    <p><i class="bi bi-envelope-fill"></i> akhdair@just.edu.jo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://www.just.edu.jo/ar/eportfolio/Pages/Default.aspx?email=bourhan" class="teacher-link fade-in" id="bourhan">
+                        <div class="teacher-card glass">
+                            <div class="teacher-photo">
+                                <img src="https://services.just.edu.jo/JUSTHandlers/GetPortfolioImage.ashx?email=bourhan" alt="صورة الدكتور برهان طشطوش">
+                            </div>
+                            <div class="teacher-info">
+                                <h3 class="teacher-name">الدكتور برهان طشطوش</h3>
+                                <p class="teacher-rank">عضو هيئة تدريس</p>
+                                <div class="teacher-contact">
+                                    <p><i class="bi bi-envelope-fill"></i> bourhan@just.edu.jo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://www.just.edu.jo/ar/eportfolio/Pages/Default.aspx?email=gtash" class="teacher-link fade-in" id="gtash">
+                        <div class="teacher-card glass">
+                            <div class="teacher-photo">
+                                <img src="https://services.just.edu.jo/JUSTHandlers/GetPortfolioImage.ashx?email=gtash" alt="صورة الدكتور غسان طشطوش">
+                            </div>
+                            <div class="teacher-info">
+                                <h3 class="teacher-name">الدكتور غسان طشطوش</h3>
+                                <p class="teacher-rank">عضو هيئة تدريس</p>
+                                <div class="teacher-contact">
+                                    <p><i class="bi bi-envelope-fill"></i> gtash@just.edu.jo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://www.just.edu.jo/ar/eportfolio/Pages/Default.aspx?email=hazem" class="teacher-link fade-in" id="hazem">
+                        <div class="teacher-card glass">
+                            <div class="teacher-photo">
+                                <img src="https://services.just.edu.jo/JUSTHandlers/GetPortfolioImage.ashx?email=hazem" alt="صورة الدكتور حازم الزبده">
+                            </div>
+                            <div class="teacher-info">
+                                <h3 class="teacher-name">الدكتور حازم الزبده</h3>
+                                <p class="teacher-rank">عضو هيئة تدريس</p>
+                                <div class="teacher-contact">
+                                    <p><i class="bi bi-envelope-fill"></i> hazem@just.edu.jo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://www.just.edu.jo/ar/eportfolio/Pages/Default.aspx?email=k.bataineh" class="teacher-link fade-in" id="k.bataineh">
+                        <div class="teacher-card glass">
+                            <div class="teacher-photo">
+                                <img src="https://services.just.edu.jo/JUSTHandlers/GetPortfolioImage.ashx?email=k.bataineh" alt="صورة الدكتور خالد بطاينه">
+                            </div>
+                            <div class="teacher-info">
+                                <h3 class="teacher-name">الدكتور خالد بطاينه</h3>
+                                <p class="teacher-rank">عضو هيئة تدريس</p>
+                                <div class="teacher-contact">
+                                    <p><i class="bi bi-envelope-fill"></i> k.bataineh@just.edu.jo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://www.just.edu.jo/ar/eportfolio/Pages/Default.aspx?email=widyan" class="teacher-link fade-in" id="widyan">
+                        <div class="teacher-card glass">
+                            <div class="teacher-photo">
+                                <img src="https://services.just.edu.jo/JUSTHandlers/GetPortfolioImage.ashx?email=widyan" alt="صورة الدكتور محمد الوديان">
+                            </div>
+                            <div class="teacher-info">
+                                <h3 class="teacher-name">الدكتور محمد الوديان</h3>
+                                <p class="teacher-rank">عضو هيئة تدريس</p>
+                                <div class="teacher-contact">
+                                    <p><i class="bi bi-envelope-fill"></i> widyan@just.edu.jo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://www.just.edu.jo/ar/eportfolio/Pages/Default.aspx?email=qudais" class="teacher-link fade-in" id="qudais">
+                        <div class="teacher-card glass">
+                            <div class="teacher-photo">
+                                <img src="avatar-male.png" alt="صورة الدكتور محمد خير ابو قديس">
+                            </div>
+                            <div class="teacher-info">
+                                <h3 class="teacher-name">الدكتور محمد خير ابو قديس</h3>
+                                <p class="teacher-rank">عضو هيئة تدريس</p>
+                                <div class="teacher-contact">
+                                    <p><i class="bi bi-envelope-fill"></i> qudais@just.edu.jo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://www.just.edu.jo/ar/eportfolio/Pages/Default.aspx?email=mohamed_alfandi" class="teacher-link fade-in" id="mohamed_alfandi">
+                        <div class="teacher-card glass">
+                            <div class="teacher-photo">
+                                <img src="https://services.just.edu.jo/JUSTHandlers/GetPortfolioImage.ashx?email=mohamed_alfandi" alt="صورة الدكتور محمد الفندي">
+                            </div>
+                            <div class="teacher-info">
+                                <h3 class="teacher-name">الدكتور محمد الفندي</h3>
+                                <p class="teacher-rank">عضو هيئة تدريس</p>
+                                <div class="teacher-contact">
+                                    <p><i class="bi bi-envelope-fill"></i> mohamed_alfandi@just.edu.jo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://www.just.edu.jo/ar/eportfolio/Pages/Default.aspx?email=malnimr" class="teacher-link fade-in" id="malnimr">
+                        <div class="teacher-card glass">
+                            <div class="teacher-photo">
+                                <img src="https://services.just.edu.jo/JUSTHandlers/GetPortfolioImage.ashx?email=malnimr" alt="صورة الدكتور محمد النمر">
+                            </div>
+                            <div class="teacher-info">
+                                <h3 class="teacher-name">الدكتور محمد النمر</h3>
+                                <p class="teacher-rank">عضو هيئة تدريس</p>
+                                <div class="teacher-contact">
+                                    <p><i class="bi bi-envelope-fill"></i> malnimr@just.edu.jo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://www.just.edu.jo/ar/eportfolio/Pages/Default.aspx?email=alkam" class="teacher-link fade-in" id="alkam">
+                        <div class="teacher-card glass">
+                            <div class="teacher-photo">
+                                <img src="https://services.just.edu.jo/JUSTHandlers/GetPortfolioImage.ashx?email=alkam" alt="صورة الدكتور محمد علقم">
+                            </div>
+                            <div class="teacher-info">
+                                <h3 class="teacher-name">الدكتور محمد علقم</h3>
+                                <p class="teacher-rank">عضو هيئة تدريس</p>
+                                <div class="teacher-contact">
+                                    <p><i class="bi bi-envelope-fill"></i> alkam@just.edu.jo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://www.just.edu.jo/ar/eportfolio/Pages/Default.aspx?email=nrabdelal" class="teacher-link fade-in" id="nrabdelal">
+                        <div class="teacher-card glass">
+                            <div class="teacher-photo">
+                                <img src="https://services.just.edu.jo/JUSTHandlers/GetPortfolioImage.ashx?email=nrabdelal" alt="صورة الدكتورة نسرين عبدالعال">
+                            </div>
+                            <div class="teacher-info">
+                                <h3 class="teacher-name">الدكتورة نسرين عبدالعال</h3>
+                                <p class="teacher-rank">عضو هيئة تدريس</p>
+                                <div class="teacher-contact">
+                                    <p><i class="bi bi-envelope-fill"></i> nrabdelal@just.edu.jo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://www.just.edu.jo/ar/eportfolio/Pages/Default.aspx?email=haddad" class="teacher-link fade-in" id="haddad">
+                        <div class="teacher-card glass">
+                            <div class="teacher-photo">
+                                <img src="https://services.just.edu.jo/JUSTHandlers/GetPortfolioImage.ashx?email=haddad" alt="صورة الدكتور اسامه حداد">
+                            </div>
+                            <div class="teacher-info">
+                                <h3 class="teacher-name">الدكتور اسامه حداد</h3>
+                                <p class="teacher-rank">عضو هيئة تدريس</p>
+                                <div class="teacher-contact">
+                                    <p><i class="bi bi-envelope-fill"></i> haddad@just.edu.jo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://www.just.edu.jo/ar/eportfolio/Pages/Default.aspx?email=sakhashan" class="teacher-link fade-in" id="sakhashan">
+                        <div class="teacher-card glass">
+                            <div class="teacher-photo">
+                                <img src="https://services.just.edu.jo/JUSTHandlers/GetPortfolioImage.ashx?email=sakhashan" alt="صورة الدكتور سعود خشان">
+                            </div>
+                            <div class="teacher-info">
+                                <h3 class="teacher-name">الدكتور سعود خشان</h3>
+                                <p class="teacher-rank">عضو هيئة تدريس</p>
+                                <div class="teacher-contact">
+                                    <p><i class="bi bi-envelope-fill"></i> sakhashan@just.edu.jo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://www.just.edu.jo/ar/eportfolio/Pages/Default.aspx?email=masoud" class="teacher-link fade-in" id="masoud">
+                        <div class="teacher-card glass">
+                            <div class="teacher-photo">
+                                <img src="https://services.just.edu.jo/JUSTHandlers/GetPortfolioImage.ashx?email=masoud" alt="صورة الدكتور سامر السعيد">
+                            </div>
+                            <div class="teacher-info">
+                                <h3 class="teacher-name">الدكتور سامر السعيد</h3>
+                                <p class="teacher-rank">عضو هيئة تدريس</p>
+                                <div class="teacher-contact">
+                                    <p><i class="bi bi-envelope-fill"></i> masoud@just.edu.jo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://www.just.edu.jo/ar/eportfolio/Pages/Default.aspx?email=kiwan" class="teacher-link fade-in" id="kiwan">
+                        <div class="teacher-card glass">
+                            <div class="teacher-photo">
+                                <img src="https://services.just.edu.jo/JUSTHandlers/GetPortfolioImage.ashx?email=kiwan" alt="صورة الدكتور سهيل كيوان">
+                            </div>
+                            <div class="teacher-info">
+                                <h3 class="teacher-name">الدكتور سهيل كيوان</h3>
+                                <p class="teacher-rank">عضو هيئة تدريس</p>
+                                <div class="teacher-contact">
+                                    <p><i class="bi bi-envelope-fill"></i> kiwan@just.edu.jo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://www.just.edu.jo/ar/eportfolio/Pages/Default.aspx?email=darabseh" class="teacher-link fade-in" id="darabseh">
+                        <div class="teacher-card glass">
+                            <div class="teacher-photo">
+                                <img src="https://services.just.edu.jo/JUSTHandlers/GetPortfolioImage.ashx?email=darabseh" alt="صورة الدكتور طارق درابسه">
+                            </div>
+                            <div class="teacher-info">
+                                <h3 class="teacher-name">الدكتور طارق درابسه</h3>
+                                <p class="teacher-rank">عضو هيئة تدريس</p>
+                                <div class="teacher-contact">
+                                    <p><i class="bi bi-envelope-fill"></i> darabseh@just.edu.jo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://www.just.edu.jo/ar/eportfolio/Pages/Default.aspx?email=batayw" class="teacher-link fade-in" id="batayw">
+                        <div class="teacher-card glass">
+                            <div class="teacher-photo">
+                                <img src="https://services.just.edu.jo/JUSTHandlers/GetPortfolioImage.ashx?email=batayw" alt="صورة الدكتورة وفاء بطاينه">
+                            </div>
+                            <div class="teacher-info">
+                                <h3 class="teacher-name">الدكتورة وفاء بطاينه</h3>
+                                <p class="teacher-rank">عضو هيئة تدريس</p>
+                                <div class="teacher-contact">
+                                    <p><i class="bi bi-envelope-fill"></i> batayw@just.edu.jo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://www.just.edu.jo/ar/eportfolio/Pages/Default.aspx?email=kodah" class="teacher-link fade-in" id="kodah">
+                        <div class="teacher-card glass">
+                            <div class="teacher-photo">
+                                <img src="https://services.just.edu.jo/JUSTHandlers/GetPortfolioImage.ashx?email=kodah" alt="صورة الدكتور زياد القضاه">
+                            </div>
+                            <div class="teacher-info">
+                                <h3 class="teacher-name">الدكتور زياد القضاه</h3>
+                                <p class="teacher-rank">عضو هيئة تدريس</p>
+                                <div class="teacher-contact">
+                                    <p><i class="bi bi-envelope-fill"></i> kodah@just.edu.jo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://www.just.edu.jo/ar/eportfolio/Pages/Default.aspx?email=amalshorman6" class="teacher-link fade-in" id="amalshorman6">
+                        <div class="teacher-card glass">
+                            <div class="teacher-photo">
+                                <img src="https://services.just.edu.jo/JUSTHandlers/GetPortfolioImage.ashx?email=amalshorman6" alt="صورة الدكتور احمد الشرمان">
+                            </div>
+                            <div class="teacher-info">
+                                <h3 class="teacher-name">الدكتور احمد الشرمان</h3>
+                                <p class="teacher-rank">عضو هيئة تدريس</p>
+                                <div class="teacher-contact">
+                                    <p><i class="bi bi-envelope-fill"></i> amalshorman6@just.edu.jo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://www.just.edu.jo/ar/eportfolio/Pages/Default.aspx?email=ambataineh2" class="teacher-link fade-in" id="ambataineh2">
+                        <div class="teacher-card glass">
+                            <div class="teacher-photo">
+                                <img src="https://services.just.edu.jo/JUSTHandlers/GetPortfolioImage.ashx?email=ambataineh2" alt="صورة الدكتور احمد بطاينه">
+                            </div>
+                            <div class="teacher-info">
+                                <h3 class="teacher-name">الدكتور احمد بطاينه</h3>
+                                <p class="teacher-rank">عضو هيئة تدريس</p>
+                                <div class="teacher-contact">
+                                    <p><i class="bi bi-envelope-fill"></i> ambataineh2@just.edu.jo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://www.just.edu.jo/ar/eportfolio/Pages/Default.aspx?email=bjalshaer" class="teacher-link fade-in" id="bjalshaer">
+                        <div class="teacher-card glass">
+                            <div class="teacher-photo">
+                                <img src="https://services.just.edu.jo/JUSTHandlers/GetPortfolioImage.ashx?email=bjalshaer" alt="صورة الدكتور بسام الشاعر">
+                            </div>
+                            <div class="teacher-info">
+                                <h3 class="teacher-name">الدكتور بسام الشاعر</h3>
+                                <p class="teacher-rank">عضو هيئة تدريس</p>
+                                <div class="teacher-contact">
+                                    <p><i class="bi bi-envelope-fill"></i> bjalshaer@just.edu.jo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://www.just.edu.jo/ar/eportfolio/Pages/Default.aspx?email=kshh" class="teacher-link fade-in" id="kshh">
+                        <div class="teacher-card glass">
+                            <div class="teacher-photo">
+                                <img src="https://services.just.edu.jo/JUSTHandlers/GetPortfolioImage.ashx?email=kshh" alt="صورة الدكتور خالد حتامله">
+                            </div>
+                            <div class="teacher-info">
+                                <h3 class="teacher-name">الدكتور خالد حتامله</h3>
+                                <p class="teacher-rank">عضو هيئة تدريس</p>
+                                <div class="teacher-contact">
+                                    <p><i class="bi bi-envelope-fill"></i> kshh@just.edu.jo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://www.just.edu.jo/ar/eportfolio/Pages/Default.aspx?email=krkhasawneh" class="teacher-link fade-in" id="krkhasawneh">
+                        <div class="teacher-card glass">
+                            <div class="teacher-photo">
+                                <img src="https://services.just.edu.jo/JUSTHandlers/GetPortfolioImage.ashx?email=krkhasawneh" alt="صورة الدكتور خليل الخصاونه">
+                            </div>
+                            <div class="teacher-info">
+                                <h3 class="teacher-name">الدكتور خليل الخصاونه</h3>
+                                <p class="teacher-rank">عضو هيئة تدريس</p>
+                                <div class="teacher-contact">
+                                    <p><i class="bi bi-envelope-fill"></i> krkhasawneh@just.edu.jo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://www.just.edu.jo/ar/eportfolio/Pages/Default.aspx?email=malak" class="teacher-link fade-in" id="malak">
+                        <div class="teacher-card glass">
+                            <div class="teacher-photo">
+                                <img src="https://services.just.edu.jo/JUSTHandlers/GetPortfolioImage.ashx?email=malak" alt="صورة الدكتورة ملك ناجي">
+                            </div>
+                            <div class="teacher-info">
+                                <h3 class="teacher-name">الدكتورة ملك ناجي</h3>
+                                <p class="teacher-rank">عضو هيئة تدريس</p>
+                                <div class="teacher-contact">
+                                    <p><i class="bi bi-envelope-fill"></i> malak@just.edu.jo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://www.just.edu.jo/ar/eportfolio/Pages/Default.aspx?email=ajaradat" class="teacher-link fade-in" id="ajaradat">
+                        <div class="teacher-card glass">
+                            <div class="teacher-photo">
+                                <img src="avatar-male.png" alt="صورة الدكتور محمد جرادات">
+                            </div>
+                            <div class="teacher-info">
+                                <h3 class="teacher-name">الدكتور محمد جرادات</h3>
+                                <p class="teacher-rank">عضو هيئة تدريس</p>
+                                <div class="teacher-contact">
+                                    <p><i class="bi bi-envelope-fill"></i> ajaradat@just.edu.jo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://www.just.edu.jo/ar/eportfolio/Pages/Default.aspx?email=qakhasawneh" class="teacher-link fade-in" id="qakhasawneh">
+                        <div class="teacher-card glass">
+                            <div class="teacher-photo">
+                                <img src="https://services.just.edu.jo/JUSTHandlers/GetPortfolioImage.ashx?email=qakhasawneh" alt="صورة الدكتور قيس خصاونه">
+                            </div>
+                            <div class="teacher-info">
+                                <h3 class="teacher-name">الدكتور قيس خصاونه</h3>
+                                <p class="teacher-rank">عضو هيئة تدريس</p>
+                                <div class="teacher-contact">
+                                    <p><i class="bi bi-envelope-fill"></i> qakhasawneh@just.edu.jo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://www.just.edu.jo/ar/eportfolio/Pages/Default.aspx?email=yfmakableh" class="teacher-link fade-in" id="yfmakableh">
+                        <div class="teacher-card glass">
+                            <div class="teacher-photo">
+                                <img src="https://services.just.edu.jo/JUSTHandlers/GetPortfolioImage.ashx?email=yfmakableh" alt="صورة الدكتور يحيى مقابله">
+                            </div>
+                            <div class="teacher-info">
+                                <h3 class="teacher-name">الدكتور يحيى مقابله</h3>
+                                <p class="teacher-rank">عضو هيئة تدريس</p>
+                                <div class="teacher-contact">
+                                    <p><i class="bi bi-envelope-fill"></i> yfmakableh@just.edu.jo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://www.just.edu.jo/ar/eportfolio/Pages/Default.aspx?email=ymsmadi" class="teacher-link fade-in" id="ymsmadi">
+                        <div class="teacher-card glass">
+                            <div class="teacher-photo">
+                                <img src="https://services.just.edu.jo/JUSTHandlers/GetPortfolioImage.ashx?email=ymsmadi" alt="صورة الدكتور يحيى الصمادي">
+                            </div>
+                            <div class="teacher-info">
+                                <h3 class="teacher-name">الدكتور يحيى الصمادي</h3>
+                                <p class="teacher-rank">عضو هيئة تدريس</p>
+                                <div class="teacher-contact">
+                                    <p><i class="bi bi-envelope-fill"></i> ymsmadi@just.edu.jo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://www.just.edu.jo/ar/eportfolio/Pages/Default.aspx?email=aidawahdeh" class="teacher-link fade-in" id="aidawahdeh">
+                        <div class="teacher-card glass">
+                            <div class="teacher-photo">
+                                <img src="https://services.just.edu.jo/JUSTHandlers/GetPortfolioImage.ashx?email=aidawahdeh" alt="صورة الدكتور احمد دواهده">
+                            </div>
+                            <div class="teacher-info">
+                                <h3 class="teacher-name">الدكتور احمد دواهده</h3>
+                                <p class="teacher-rank">عضو هيئة تدريس</p>
+                                <div class="teacher-contact">
+                                    <p><i class="bi bi-envelope-fill"></i> aidawahdeh@just.edu.jo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://www.just.edu.jo/ar/eportfolio/Pages/Default.aspx?email=gmshatnawi" class="teacher-link fade-in" id="gmshatnawi">
+                        <div class="teacher-card glass">
+                            <div class="teacher-photo">
+                                <img src="https://services.just.edu.jo/JUSTHandlers/GetPortfolioImage.ashx?email=gmshatnawi" alt="صورة الدكتور غانم شطناوي">
+                            </div>
+                            <div class="teacher-info">
+                                <h3 class="teacher-name">الدكتور غانم شطناوي</h3>
+                                <p class="teacher-rank">عضو هيئة تدريس</p>
+                                <div class="teacher-contact">
+                                    <p><i class="bi bi-envelope-fill"></i> gmshatnawi@just.edu.jo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://www.just.edu.jo/ar/eportfolio/Pages/Default.aspx?email=jfarran" class="teacher-link fade-in" id="jfarran">
+                        <div class="teacher-card glass">
+                            <div class="teacher-photo">
+                                <img src="https://services.just.edu.jo/JUSTHandlers/GetPortfolioImage.ashx?email=jfarran" alt="صورة الدكتور جمال الفران">
+                            </div>
+                            <div class="teacher-info">
+                                <h3 class="teacher-name">الدكتور جمال الفران</h3>
+                                <p class="teacher-rank">عضو هيئة تدريس</p>
+                                <div class="teacher-contact">
+                                    <p><i class="bi bi-envelope-fill"></i> jfarran@just.edu.jo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://www.just.edu.jo/ar/eportfolio/Pages/Default.aspx?email=mfkhaleel" class="teacher-link fade-in" id="mfkhaleel">
+                        <div class="teacher-card glass">
+                            <div class="teacher-photo">
+                                <img src="https://services.just.edu.jo/JUSTHandlers/GetPortfolioImage.ashx?email=mfkhaleel" alt="صورة الدكتورة ميساء خليل">
+                            </div>
+                            <div class="teacher-info">
+                                <h3 class="teacher-name">الدكتورة ميساء خليل</h3>
+                                <p class="teacher-rank">عضو هيئة تدريس</p>
+                                <div class="teacher-contact">
+                                    <p><i class="bi bi-envelope-fill"></i> mfkhaleel@just.edu.jo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://www.just.edu.jo/ar/eportfolio/Pages/Default.aspx?email=melahmad" class="teacher-link fade-in" id="melahmad">
+                        <div class="teacher-card glass">
+                            <div class="teacher-photo">
+                                <img src="https://services.just.edu.jo/JUSTHandlers/GetPortfolioImage.ashx?email=melahmad" alt="صورة الدكتور محمد الاحمد">
+                            </div>
+                            <div class="teacher-info">
+                                <h3 class="teacher-name">الدكتور محمد الاحمد</h3>
+                                <p class="teacher-rank">عضو هيئة تدريس</p>
+                                <div class="teacher-contact">
+                                    <p><i class="bi bi-envelope-fill"></i> melahmad@just.edu.jo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://www.just.edu.jo/ar/eportfolio/Pages/Default.aspx?email=nkalzztreh" class="teacher-link fade-in" id="nkalzztreh">
+                        <div class="teacher-card glass">
+                            <div class="teacher-photo">
+                                <img src="avatar-female.png" alt="صورة الدكتورة نسرين الزعاتره">
+                            </div>
+                            <div class="teacher-info">
+                                <h3 class="teacher-name">الدكتورة نسرين الزعاتره</h3>
+                                <p class="teacher-rank">عضو هيئة تدريس</p>
+                                <div class="teacher-contact">
+                                    <p><i class="bi bi-envelope-fill"></i> nkalzztreh@just.edu.jo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </main>
+        </div>
+    </div> 
+    <script src="../script.js"></script>
+    <script src="../highlighter.js"></script>
+    
+    <script>
+        window.addEventListener('unload', function() {
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الخطة الدراسية والمواد - تخصص هندسة البرمجيات | Software Learn</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../1.index.css">
+    <link rel="icon" type="image/png" href="logo tab.png">
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="aurora-background"></div>
+    <div id="page-overlay" class="page-overlay"></div>
+
+    <div class="page-container">
+        <aside id="sidebar" class="sidebar glass">
+            <div class="sidebar-header">
+                <h3><i class="bi bi-code-slash"></i> Software Learn</h3>
+                <button id="close-sidebar-btn" class="close-sidebar-btn">&times;</button>
+            </div>
+           <nav id="main-nav">
+                <a href="../index.html">الصفحة الرئيسية للقسم</a>
+                <a href="index.html">الصفحة الرئيسية للتخصص</a>
+                <a href="courses.html" class="active">المواد الدراسية</a>
+                <a href="gpa.html">حساب المعدل</a>
+                <a href="teachers.html">الهيئة التدريسية</a>
+                <a href="about-software.html">عن التخصص</a> 
+                <a href="about-web.html">عن الموقع</a>
+            </nav>
+        </aside>
+
+        <div class="main-content">
+            <header class="mobile-header glass">
+                <button id="hamburger-btn" class="hamburger-btn">
+                    <span></span><span></span><span></span>
+                </button>
+                <h2 class="mobile-logo"><i class="bi bi-code-slash"></i> Software Learn</h2>
+            </header>
+            
+            <main>
+                <div class="main-page-header fade-in">
+                    <h1>خارطة المواد الدراسية</h1>
+                    <p>تصفح مسيرتك الأكاديمية وتابع تقدمك في إنجاز المواد</p>
+                </div>
+                
+                <div style="text-align: center; margin-bottom: 2rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                    <button id="show-tree-btn-2025" class="gpa-btn">
+                        <i class="bi bi-diagram-3-fill"></i> خطة 2025
+                    </button>
+                    <button id="show-tree-btn-2024" class="gpa-btn secondary">
+                        <i class="bi bi-diagram-3"></i> خطة 2024
+                    </button>
+                    <a href="my-courses.html" class="gpa-btn">
+                        <i class="bi bi-list-check"></i> موادي هذا الفصل
+                    </a>
+                </div>
+                <div class="accordion-container fade-in">
+                    <div class="accordion-item glass active">
+                        <button class="accordion-header progress-accordion-header">
+                            <div class="progress-header-title">
+                                <i class="bi bi-speedometer2"></i>
+                                <span>ملخص التقدم والإنجاز</span>
+                            </div>
+                            <div class="progress-header-bar-container">
+                                <div id="header-progress-bar" class="progress-header-bar"></div>
+                                <span id="header-progress-text" class="progress-header-text">0%</span>
+                            </div>
+                            <i class="bi bi-chevron-down accordion-icon"></i>
+                        </button>
+                        <div class="accordion-content" style="padding: 1.5rem;">
+                            <div class="progress-controls">
+                                <div class="gpa-settings">
+                                    <label for="edit-mode-toggle">تفعيل وضع الإنجاز</label>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" id="edit-mode-toggle">
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                                <div class="progress-actions" style="display: flex; justify-content: center; gap: 1rem; margin-top: 1rem; flex-wrap: wrap;">
+                                    <button id="clear-all-btn" class="gpa-btn delete-btn-custom">
+                                        <i class="bi bi-trash-fill"></i> مسح الإنجاز
+                                    </button>
+                                </div>
+                                <p style="text-align: center; font-size: 0.9rem; margin-top: 1rem; color: #aaa;">
+                                    لتتبع تقدمك، فعّل الزر ثم اضغط على المواد التي أنجزتها.
+                                </p>
+                                <div id="progress-tracker" class="progress-tracker">
+                                    <div class="progress-item">
+                                        <span>الإجمالي</span>
+                                        <strong id="total-hours">0 / 132</strong>
+                                    </div>
+                                    <div class="progress-item elective-progress">
+                                        <span>اختياري جامعة</span>
+                                        <strong id="uni-elective-hours">0 / 9</strong>
+                                    </div>
+                                    <div class="progress-item">
+                                        <span>السنة الأولى</span>
+                                        <strong id="year-1-hours">0 / 31</strong>
+                                    </div>
+                                    <div class="progress-item">
+                                        <span>السنة الثانية</span>
+                                        <strong id="year-2-hours">0 / 31</strong>
+                                    </div>
+                                    <div class="progress-item">
+                                        <span>السنة الثالثة</span>
+                                        <strong id="year-3-hours">0 / 33</strong>
+                                    </div>
+                                    <div class="progress-item">
+                                        <span>السنة الرابعة</span>
+                                        <strong id="year-4-hours">0 / 28</strong>
+                                    </div>
+                                    <div class="progress-item gpa-display">
+                                        <span>المعدل التراكمي</span>
+                                        <strong id="cumulative-gpa-tracker">0.00 <small>(لم تبدأ)</small></strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+<div class="tabs-section glass fade-in">
+    <div class="tabs-container">
+        <button class="tab-btn active" data-year="1"><i class="bi bi-1-circle-fill"></i> السنة الأولى</button>
+        <button class="tab-btn" data-year="2"><i class="bi bi-2-circle-fill"></i> السنة الثانية</button>
+        <button class="tab-btn" data-year="3"><i class="bi bi-3-circle-fill"></i> السنة الثالثة</button>
+        <button class="tab-btn" data-year="4"><i class="bi bi-4-circle-fill"></i> السنة الرابعة</button>
+        <button class="tab-btn" data-year="electives"><i class="bi bi-bookshelf"></i> الاختياريات</button>
+    </div>
+    <div class="tab-content-container">
+        
+        <!-- السنة الأولى -->
+        <div class="tab-content active" data-year="1">
+            <h3 class="semester-title">الفصل الأول (15 ساعة)</h3>
+            <div class="course-grid">
+                <a href="course-details.html?course=math101" data-course-id="math101" class="course-card-link" id="math101">
+                    <div class="course-card-item">
+                        <div class="course-category math"></div>
+                        <div class="course-card-content">
+                            <h4>تفاضل وتكامل (1)</h4>
+                            <p>ع أ 101ر</p>
+                        </div>
+                        <span class="course-hours">3 ساعات</span>
+                    </div>
+                </a>
+                <a href="course-details.html?course=ent119" data-course-id="ent119" class="course-card-link" id="ent119">
+                    <div class="course-card-item">
+                        <div class="course-category general"></div>
+                        <div class="course-card-content">
+                            <h4>الريادة والإبتكار</h4>
+                            <p>ع أ 119</p>
+                        </div>
+                        <span class="course-hours">2 ساعات</span>
+                    </div>
+                </a>
+                <a href="course-details.html?course=lg101" data-course-id="lg101" class="course-card-link" id="lg101">
+                    <div class="course-card-item">
+                        <div class="course-category general"></div>
+                        <div class="course-card-content">
+                            <h4>اللغة الإنجليزية ومهارات التواصل</h4>
+                            <p>ل غ 101</p>
+                        </div>
+                        <span class="course-hours">3 ساعات</span>
+                    </div>
+                </a>
+                <a href="course-details.html?course=cs101" data-course-id="cs101" class="course-card-link" id="cs101">
+                    <div class="course-card-item">
+                        <div class="course-category programming"></div>
+                        <div class="course-card-content">
+                            <h4>مقدمة في البرمجة</h4>
+                            <p>ع أ 101ع ح</p>
+                        </div>
+                        <span class="course-hours">3 ساعات</span>
+                    </div>
+                </a>
+                <a href="course-details.html?course=lap101" data-course-id="lap101" class="course-card-link" id="lap101">
+                    <div class="course-card-item">
+                        <div class="course-category programming"></div>
+                        <div class="course-card-content">
+                            <h4>مختبر البرمجة</h4>
+                            <p>ع أ 106ع ح</p>
+                        </div>
+                        <span class="course-hours">1 ساعة</span>
+                    </div>
+                </a>
+                <a href="course-details.html?course=it103" data-course-id="it103" class="course-card-link" id="it103">
+                    <div class="course-card-item">
+                        <div class="course-category programming"></div>
+                        <div class="course-card-content">
+                            <h4>مقدمة إلى تكنولوجيا المعلومات</h4>
+                            <p>ع أ 103هـ ب</p>
+                        </div>
+                        <span class="course-hours">3 ساعات</span>
+                    </div>
+                </a>
+            </div>
+
+            <h3 class="semester-title">الفصل الثاني (16 ساعة)</h3>
+            <div class="course-grid">
+                <a href="course-details.html?course=ar102" data-course-id="ar102" class="course-card-link" id="ar102">
+                    <div class="course-card-item">
+                        <div class="course-category general"></div>
+                        <div class="course-card-content">
+                            <h4>اللغة العربية ومهارات التواصل</h4>
+                            <p>ع 102</p>
+                        </div>
+                        <span class="course-hours">3 ساعات</span>
+                    </div>
+                </a>
+                <a href="course-details.html?course=oop112" data-course-id="oop112" class="course-card-link" id="oop112">
+                    <div class="course-card-item">
+                        <div class="course-category programming"></div>
+                        <div class="course-card-content">
+                            <h4>مقدمة في البرمجة الكينونية</h4>
+                            <p>ع أ 112هـ ب</p>
+                        </div>
+                        <span class="course-hours">3 ساعات</span>
+                    </div>
+                </a>
+                <a href="course-details.html?course=lap112" data-course-id="lap112" class="course-card-link" id="lap112">
+                    <div class="course-card-item">
+                        <div class="course-category programming"></div>
+                        <div class="course-card-content">
+                            <h4>مختبر البرمجة الكينونية</h4>
+                            <p>ع أ 113هـ ب</p>
+                        </div>
+                        <span class="course-hours">1 ساعة</span>
+                    </div>
+                </a>
+                <a href="course-details.html?course=national110" data-course-id="national110" class="course-card-link" id="national110">
+                    <div class="course-card-item">
+                        <div class="course-category general"></div>
+                        <div class="course-card-content">
+                            <h4>التربية الوطنية والمسؤولية المجتمعية</h4>
+                            <p>ع أ 110</p>
+                        </div>
+                        <span class="course-hours">3 ساعات</span>
+                    </div>
+                </a>
+                <a href="course-details.html?course=math241" data-course-id="math241" class="course-card-link" id="math241">
+                    <div class="course-card-item">
+                        <div class="course-category math"></div>
+                        <div class="course-card-content">
+                            <h4>الرياضيات المتقطعة</h4>
+                            <p>ع أ 241ر</p>
+                        </div>
+                        <span class="course-hours">3 ساعات</span>
+                    </div>
+                </a>
+                <a href="course-details.html?course=mil100" data-course-id="mil100" class="course-card-link" id="mil100">
+                    <div class="course-card-item">
+                        <div class="course-category general"></div>
+                        <div class="course-card-content">
+                            <h4>العلوم العسكرية</h4>
+                            <p>ع ع 100</p>
+                        </div>
+                        <span class="course-hours">3 ساعات</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- السنة الثانية -->
+        <div class="tab-content" data-year="2">
+            <h3 class="semester-title">الفصل الأول (14 ساعة)</h3>
+            <div class="course-grid">
+                <a href="course-details.html?course=java210" data-course-id="java210" class="course-card-link" id="java210">
+                    <div class="course-card-item">
+                        <div class="course-category programming"></div>
+                        <div class="course-card-content">
+                            <h4>البرمجة بلغة جافا</h4>
+                            <p>هـ ب 210</p>
+                        </div>
+                        <span class="course-hours">3 ساعات</span>
+                    </div>
+                </a>
+                <a href="course-details.html?course=java211" data-course-id="java211" class="course-card-link" id="java211">
+                    <div class="course-card-item">
+                        <div class="course-category programming"></div>
+                        <div class="course-card-content">
+                            <h4>مختبر البرمجة بلغة الجافا</h4>
+                            <p>هـ ب 211</p>
+                        </div>
+                        <span class="course-hours">1 ساعة</span>
+                    </div>
+                </a>
+                <a href="course-details.html?course=se230" data-course-id="se230" class="course-card-link" id="se230">
+                    <div class="course-card-item">
+                        <div class="course-category programming"></div>
+                        <div class="course-card-content">
+                            <h4>أساسيات هندسة البرمجيات</h4>
+                            <p>هـ ب 230</p>
+                        </div>
+                        <span class="course-hours">3 ساعات</span>
+                    </div>
+                </a>
+                <a href="course-details.html?course=ds211" data-course-id="ds211" class="course-card-link" id="ds211">
+                    <div class="course-card-item">
+                        <div class="course-category programming"></div>
+                        <div class="course-card-content">
+                            <h4>تراكيب البيانات</h4>
+                            <p>ع أ 211ع ح</p>
+                        </div>
+                        <span class="course-hours">3 ساعات</span>
+                    </div>
+                </a>
+                  <a href="course-details.html?course=ds212" data-course-id="ds212" class="course-card-link" id="ds212">
+                    <div class="course-card-item">
+                        <div class="course-category programming"></div>
+                        <div class="course-card-content">
+                            <h4>مختبر تراكيب البيانات</h4>
+                            <p>ع أ 212ع ح</p>
+                        </div>
+                        <span class="course-hours">3 ساعات</span>
+                    </div>
+                </a>
+                <a href="course-details.html?course=cpe236" data-course-id="cpe236" class="course-card-link" id="cpe236">
+                    <div class="course-card-item">
+                        <div class="course-category electronics"></div>
+                        <div class="course-card-content">
+                            <h4>تصميم المنطق الرقمي</h4>
+                            <p>هك 236</p>
+                        </div>
+                        <span class="course-hours">3 ساعات</span>
+                    </div>
+                </a>
+            </div>
+
+            <h3 class="semester-title">الفصل الثاني (17 ساعة)</h3>
+
+            <div class="course-grid">
+   <a href="course-details.html?course=la140" data-course-id="la140" class="course-card-link" id="la140"><div class="course-card-item"><div class="course-category math"></div><div class="course-card-content"><h4>مبادىء الجبر الخطي</h4><p>ر 140</p></div><span class="course-hours">3 ساعات</span></div></a>
+
+                <a href="course-details.html?course=algo284" data-course-id="algo284" class="course-card-link" id="algo284">
+                    <div class="course-card-item">
+                        <div class="course-category programming"></div>
+                        <div class="course-card-content">
+                            <h4>تحليل وتصميم الخوارزميات</h4>
+                            <p>ع ح 284</p>
+                        </div>
+                        <span class="course-hours">3 ساعات</span>
+                    </div>
+                </a>
+                <a href="course-details.html?course=ui222" data-course-id="ui222" class="course-card-link" id="ui222">
+                    <div class="course-card-item">
+                        <div class="course-category programming"></div>
+                        <div class="course-card-content">
+                            <h4>تصميم واجهة المستخدم وبرمجتها</h4>
+                            <p>هـ ب222</p>
+                        </div>
+                        <span class="course-hours">3 ساعات</span>
+                    </div>
+                </a>
+                <a href="course-details.html?course=ui223" data-course-id="ui223" class="course-card-link" id="ui223">
+                    <div class="course-card-item">
+                        <div class="course-category programming"></div>
+                        <div class="course-card-content">
+                            <h4>مختبر تصميم واجهة المستخدم وبرمجتها</h4>
+                            <p>هـ 223</p>
+                        </div>
+                        <span class="course-hours">1 ساعة</span>
+                    </div>
+                </a>
+                <a href="course-details.html?course=db221" data-course-id="ds211" class="course-card-link" id="ds211">
+                    <div class="course-card-item">
+                        <div class="course-category programming"></div>
+                        <div class="course-card-content">
+                            <h4>قواعد البيانات</h4>
+                            <p>ع أ221ع ب</p>
+                        </div>
+                        <span class="course-hours">3 ساعات</span>
+                    </div>
+                </a>
+                <a href="course-details.html?course=HI201" data-course-id="HI201" class="course-card-link" id="HI201">
+                    <div class="course-card-item">
+                        <div class="course-category programming"></div>
+                        <div class="course-card-content">
+                            <h4>مختبر تصميم صفحات الوب</h4>
+                            <p>م ص201</p>
+                        </div>
+                        <span class="course-hours">1 ساعة</span>
+                    </div>
+                </a>
+                <a href="course-details.html?course=HSS256CPE" data-course-id="HSS256CPE" class="course-card-link" id="HSS256CPE">
+                    <div class="course-card-item">
+                        <div class="course-category programming"></div>
+                        <div class="course-card-content">
+                            <h4>تصميم وتنظيم الحاسوب</h4>
+                            <p>ع أ221ع ب</p>
+                        </div>
+                        <span class="course-hours">3 ساعات</span>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+
+        <!-- السنة الثالثة -->
+        <div class="tab-content" data-year="3">
+            <h3 class="semester-title">الفصل الأول (16 ساعة)</h3>
+            <div class="course-grid">
+                <a href="course-details.html?course=stat233" data-course-id="stat233" class="course-card-link" id="stat233">
+                    <div class="course-card-item">
+                        <div class="course-category math"></div>
+                        <div class="course-card-content">
+                            <h4>إحصاء واحتمالات لطلبة الحاسوب</h4>
+                            <p> 233ر</p>
+                        </div>
+                        <span class="course-hours">3 ساعات</span>
+                    </div>
+                </a>
+                <a href="course-details.html?course=comm203" data-course-id="comm203" class="course-card-link" id="comm203">
+                    <div class="course-card-item">
+                        <div class="course-category general"></div>
+                        <div class="course-card-content">
+                            <h4>مهارات الاتصال وأخلاقيات المهنة</h4>
+                            <p>ن م 203</p>
+                        </div>
+                        <span class="course-hours">2 ساعات</span>
+                    </div>
+                </a>
+                <a href="course-details.html?course=CS342" data-course-id="CS342" class="course-card-link" id="CS342">
+                    <div class="course-card-item">
+                        <div class="course-category programming"></div>
+                        <div class="course-card-content">
+                            <h4>شبكات الحاسوب</h4>
+                            <p>ع ح342</p>
+                        </div>
+                        <span class="course-hours">3 ساعات</span>
+                    </div>
+                </a>
+                <a href="course-details.html?course=CS375" data-course-id="CS375" class="course-card-link" id="CS375">
+                    <div class="course-card-item">
+                        <div class="course-category programming"></div>
+                        <div class="course-card-content">
+                            <h4>مبادئ نظم التشغيل الحديثة</h4>
+                            <p>ع ح375</p>
+                        </div>
+                        <span class="course-hours">3 ساعات</span>
+                    </div>
+                </a>
+                <a href="course-details.html?course=SE301" data-course-id="SE301" class="course-card-link" id="SE301">
+                    <div class="course-card-item">
+                        <div class="course-category programming"></div>
+                        <div class="course-card-content">
+                            <h4>تحليل ونمذجة وتصميم الأنظمة</h4>
+                            <p>هـ ب301</p>
+                        </div>
+                        <span class="course-hours">3 ساعات</span>
+                    </div>
+                </a>
+                <a href="course-details.html?course=skills103" data-course-id="skills103" class="course-card-link" id="skills103">
+                    <div class="course-card-item">
+                        <div class="course-category general"></div>
+                        <div class="course-card-content">
+                            <h4>المهارات الحياتية</h4>
+                            <p>ل غ 103</p>
+                        </div>
+                        <span class="course-hours">2 ساعات</span>
+                    </div>
+                </a>
+                
+            </div>
+
+            <h3 class="semester-title">الفصل الثاني (14 ساعة)</h3>
+            <div class="course-grid">
+                <a href="course-details.html?course=se324" data-course-id="se324" class="course-card-link" id="se324">
+                    <div class="course-card-item">
+                        <div class="course-category programming"></div>
+                        <div class="course-card-content">
+                            <h4>معمارية وتصميم البرمجيات</h4>
+                            <p>هـ ب 324</p>
+                        </div>
+                        <span class="course-hours">3 ساعات</span>
+                    </div>
+                </a>
+                <a href="course-details.html?course=se321" data-course-id="se321" class="course-card-link" id="se321">
+                    <div class="course-card-item">
+                        <div class="course-category programming"></div>
+                        <div class="course-card-content">
+                            <h4>هندسة متطلبات البرمجيات</h4>
+                            <p>هـ ب 321</p>
+                        </div>
+                        <span class="course-hours">3 ساعات</span>
+                    </div>
+                </a>
+                <a href="course-details.html?course=SE312" data-course-id="SE312" class="course-card-link" id="SE312">
+                    <div class="course-card-item">
+                        <div class="course-category programming"></div>
+                        <div class="course-card-content">
+                            <h4>تصميم وتطوير الأنظمة المتوازية والموزعة</h4>
+                            <p>هـ ب312</p>
+                        </div>
+                        <span class="course-hours">3 ساعات</span>
+                    </div>
+                </a>
+                <a href="course-details.html?course=SE313" data-course-id="SE313" class="course-card-link" id="SE313">
+                    <div class="course-card-item">
+                        <div class="course-category programming"></div>
+                        <div class="course-card-content">
+                            <h4>مختبر تصميم وتطوير الأنظمة المتوازية والموزعة</h4>
+                            <p>هـ ب313</p>
+                        </div>
+                        <span class="course-hours">1 ساعة</span>
+                    </div>
+                </a>
+                <a href="course-details.html?course=web332" data-course-id="web332" class="course-card-link" id="web332">
+                    <div class="course-card-item">
+                        <div class="course-category programming"></div>
+                        <div class="course-card-content">
+                            <h4>هندسة تطبيقات الويب</h4>
+                            <p>هـ ب 332</p>
+                        </div>
+                        <span class="course-hours">3 ساعات</span>
+                    </div>
+                </a>
+                <a href="course-details.html?course=SE333" data-course-id="SE333" class="course-card-link" id="SE333">
+                    <div class="course-card-item">
+                        <div class="course-category programming"></div>
+                        <div class="course-card-content">
+                            <h4>مختبر هندسة تطبيقات الوب</h4>
+                            <p>هـ ب 333</p>
+                        </div>
+                        <span class="course-hours">1 ساعات</span>
+                    </div>
+                </a>
+            </div>
+            <h3 class="semester-title">الفصل الصيفي (3 ساعات)</h3>
+                            <div class="course-grid">
+                                <a href="course-details.html?course=training391" data-course-id="training391" class="course-card-link" id="training391"><div class="course-card-item"><div class="course-category general"></div><div class="course-card-content"><h4>التدريب الميداني</h4><p>ع ر 391</p></div><span class="course-hours">3 ساعات</span></div></a>
+                            </div>
+        </div>
+
+        <!-- السنة الرابعة -->
+        <div class="tab-content" data-year="4">
+            <h3 class="semester-title">الفصل الأول (13 ساعة)</h3>
+            <div class="course-grid">
+                <a href="course-details.html?course=se436" data-course-id="se436" class="course-card-link" id="se436">
+                    <div class="course-card-item">
+                        <div class="course-category programming"></div>
+                        <div class="course-card-content">
+                            <h4>فحص وضمان جودة البرمجيات</h4>
+                            <p>هـ ب 436</p>
+                        </div>
+                        <span class="course-hours">3 ساعات</span>
+                    </div>
+                </a>
+                <a href="course-details.html?course=se437" data-course-id="se437" class="course-card-link" id="se437">
+                    <div class="course-card-item">
+                        <div class="course-category programming"></div>
+                        <div class="course-card-content">
+                            <h4>مختبر فحص وضمان جودة البرمجيات</h4>
+                            <p>هـ ب 437</p>
+                        </div>
+                        <span class="course-hours">1 ساعة</span>
+                    </div>
+                </a>
+                <a href="course-details.html?course=SE442" data-course-id="SE442" class="course-card-link" id="SE442">
+                    <div class="course-card-item">
+                        <div class="course-category programming"></div>
+                        <div class="course-card-content">
+                            <h4>عمليات وإدارة المشاريع البرمجية</h4>
+                            <p>هـ ب 436</p>
+                        </div>
+                        <span class="course-hours">3 ساعات</span>
+                    </div>
+                </a>
+              
+                <a href="course-details.html?course=SE491" data-course-id="SE491" class="course-card-link" id="SE491">
+                    <div class="course-card-item">
+                        <div class="course-category general"></div>
+                        <div class="course-card-content">
+                            <h4>مشروع تخرج (1)</h4>
+                            <p>هـ ب491</p>
+                        </div>
+                        <span class="course-hours">3 ساعات</span>
+                    </div>
+                </a>
+                  
+                <a href="course-details.html?course=elective3" data-course-id="elective3" class="course-card-link" id="elective3">
+                    <div class="course-card-item">
+                        <div class="course-category programming"></div>
+                        <div class="course-card-content">
+                            <h4>قسم اختياري (1)</h4>
+                            <p>---</p>
+                        </div>
+                        <span class="course-hours">3 ساعات</span>
+                    </div>
+                </a>
+                
+                <a href="course-details.html?course=elective4" data-course-id="elective4" class="course-card-link" id="elective4">
+                    <div class="course-card-item">
+                        <div class="course-category programming"></div>
+                        <div class="course-card-content">
+                            <h4>قسم اختياري (2)</h4>
+                            <p>---</p>
+                        </div>
+                        <span class="course-hours">3 ساعات</span>
+                    </div>
+                </a>
+            </div>
+
+            <h3 class="semester-title">الفصل الثاني (12 ساعة)</h3>
+            <div class="course-grid">
+                <a href="course-details.html?course=SE492" data-course-id="SE492" class="course-card-link" id="SE492">
+                    <div class="course-card-item">
+                        <div class="course-category general"></div>
+                        <div class="course-card-content">
+                            <h4>مشروع تخرج (2)</h4>
+                            <p>هـ ب 492</p>
+                        </div>
+                        <span class="course-hours">3 ساعات</span>
+                    </div>
+                </a>
+                <a href="course-details.html?course=SE444" data-course-id="SE444" class="course-card-link" id="SE444">
+                    <div class="course-card-item">
+                        <div class="course-category programming"></div>
+                        <div class="course-card-content">
+                            <h4>بناء البرمجيات الآمنة</h4>
+                            <p>هـ ب444</p>
+                        </div>
+                        <span class="course-hours">3 ساعات</span>
+                    </div>
+                </a>
+                <a href="course-details.html?course=SE443" data-course-id="SE443" class="course-card-link" id="SE443">
+                    <div class="course-card-item">
+                        <div class="course-category programming"></div>
+                        <div class="course-card-content">
+                            <h4>صيانة وإدارة تكوين البرمجيات</h4>
+                            <p>هـ ب443</p>
+                        </div>
+                        <span class="course-hours">3 ساعات</span>
+                    </div>
+                </a>
+                <a href="course-details.html?course=elective5" data-course-id="elective5" class="course-card-link" id="elective5">
+                    <div class="course-card-item">
+                        <div class="course-category programming"></div>
+                        <div class="course-card-content">
+                            <h4>قسم اختياري (3)</h4>
+                            <p>---</p>
+                        </div>
+                        <span class="course-hours">3 ساعات</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- الاختياريات -->
+        <div class="tab-content" data-year="electives">
+            <p style="text-align:center; padding: 1rem 0 0.5rem 0; opacity: 0.8;">اختر إحدى المجموعات التالية لتصفح المواد المتاحة.</p>
+            <div class="department-cards-container" style="padding: 1rem;">
+                <div class="card glass"><a href="electives-group1.html" class="card-link"></a><div class="card-content"><div class="card-icon"><i class="bi bi-1-square"></i></div><h3>المجموعة الأولى</h3></div></div>
+                <div class="card glass"><a href="electives-group2.html" class="card-link"></a><div class="card-content"><div class="card-icon"><i class="bi bi-2-square"></i></div><h3>المجموعة الثانية</h3></div></div>
+                <div class="card glass"><a href="electives-group3.html" class="card-link"></a><div class="card-content"><div class="card-icon"><i class="bi bi-3-square"></i></div><h3>المجموعة الثالثة</h3></div></div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+    <div id="image-modal-tree-2025" class="modal-overlay">
+        <div class="modal-content glass image-modal-content">
+            <button class="close-modal-btn">&times;</button>
+            <img src="https://justrobotics-software.com/software/(2025)-software-engineering-tree-plan.jpg" alt="الخطة الشجرية لتخصص هندسة البرمجيات - دفعة 2025">
+          
+            <div class="modal-actions">
+                <a href="https://justrobotics-software.com/software/(2025)-software-engineering-tree-plan.jpg" download="software-eng-plan-tree-2025.jpg" class="gpa-btn">
+                    <i class="bi bi-download"></i> تحميل خطة 2025
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div id="image-modal-tree-2024" class="modal-overlay">
+        <div class="modal-content glass image-modal-content">
+            <button class="close-modal-btn">&times;</button>
+            <img src="https://justrobotics-software.com/software/(2024)-software-engineering-tree-plan.jpg" alt="الخطة الشجرية لتخصص هندسة البرمجيات - دفعة 2024">
+          
+            <div class="modal-actions">
+                <a href="https://justrobotics-software.com/software/(2024)-software-engineering-tree-plan.jpg" download="software-eng-plan-tree-2024.jpg" class="gpa-btn">
+                    <i class="bi bi-download"></i> تحميل خطة 2024
+                </a>
+            </div>
+        </div>
+    </div>
+    <div id="grade-modal" class="modal-overlay">
+  <div class="modal-content glass">
+    <h3 id="modal-course-title">اسم المادة</h3>
+    <div id="modal-grade-selector" class="grade-selector"></div>
+    <div class="modal-actions">
+      <button id="save-grade-btn" class="gpa-btn">حفظ</button>
+      <button id="cancel-grade-btn" class="gpa-btn secondary">إلغاء</button>
+    </div>
+  </div>
+</div>
+
+<div id="delete-modal" class="modal-overlay">
+  <div class="modal-content glass">
+    <h3>مسح الإنجاز</h3>
+    <p>اختر ما تريد مسحه:</p>
+    <div class="modal-actions">
+      <button class="delete-option-btn gpa-btn" data-delete-target="all">مسح الكل</button>
+      <button class="delete-option-btn gpa-btn" data-delete-target="year1">مسح مواد السنة الأولى</button>
+      <button class="delete-option-btn gpa-btn" data-delete-target="year2">مسح مواد السنة الثانية</button>
+      <button class="delete-option-btn gpa-btn" data-delete-target="year3">مسح مواد السنة الثالثة</button>
+      <button class="delete-option-btn gpa-btn" data-delete-target="year4">مسح مواد السنة الرابعة</button>
+      <button class="delete-option-btn gpa-btn" data-delete-target="electives">مسح المواد الاختيارية</button>
+      <button id="cancel-delete-btn" class="gpa-btn secondary">إلغاء</button>
+    </div>
+  </div>
+</div>
+
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script src="courses-data.js"></script>
+    <script src="../script.js"></script>
+    <script src="../highlighter.js"></script>
+    
+    <script>
+        window.addEventListener('unload', function() {
+        });
+    </script>
+</body>
+
+</html>

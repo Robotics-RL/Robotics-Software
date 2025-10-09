@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موادي هذا الفصل - Robot Learn</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../1.index.css">
+</head>
+<body data-page="my-courses">
+    <div class="aurora-background"></div>
+    <div id="page-overlay" class="page-overlay"></div>
+    <div class="page-container">
+        <aside id="sidebar" class="sidebar glass">
+            <div class="sidebar-header">
+                <h3><i class="bi bi-code-slash"></i> Software Learn</h3>
+                <button id="close-sidebar-btn" class="close-sidebar-btn">&times;</button>
+            </div>
+            <nav id="main-nav">
+                <a href="index.html">الصفحة الرئيسية للتخصص</a>
+                <a href="courses.html" class="active">المواد الدراسية</a>
+                <a href="gpa.html">حساب المعدل</a>
+                <a href="teachers.html">الهيئة التدريسية</a>
+                <a href="about-robotics.html">عن التخصص</a>
+                <a href="about-web.html">عن الموقع</a>
+            </nav>
+        </aside>
+        <div class="main-content">
+            <header class="mobile-header glass">
+                <button id="hamburger-btn" class="hamburger-btn">
+                    <span></span><span></span><span></span>
+                </button>
+                <h2 class="mobile-logo"><i class="bi bi-code-slash"></i> Software Learn</h2>
+            </header>
+            <main>
+                <div class="main-page-header fade-in">
+                    <h1>موادي هذا الفصل</h1>
+                    <p>أضف موادك لتتبع تقدمك وحساب معدلك الفصلي المتوقع.</p>
+                </div>
+
+                <div class="gpa-command-center glass fade-in" style="max-width: none;">
+                    <div class="my-courses-search-section">
+                        <div class="search-container glass" id="course-search-bar">
+                            <i class="bi bi-search"></i>
+                            <input type="text" class="search-input" id="my-courses-search-input" placeholder="اكتب اسم المادة لإضافتها...">
+                        </div>
+                        <div id="search-results-list" class="glass" style="display: none;"></div>
+                    </div>
+
+                    <div class="gpa-settings" style="flex-direction: column; align-items: flex-start; gap: 1rem;">
+                        <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                            <label for="grade-input-toggle">العلامات المتوقعة لهذا الفصل </label>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="grade-input-toggle">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                            <label for="cumulative-toggle">حساب المعدل التراكمي المتوقع</label>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="cumulative-toggle">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div id="previous-gpa-section" class="previous-gpa-section" style="margin-top: 1rem;">
+                        <div class="input-group">
+                            <label for="prev-gpa">المعدل التراكمي السابق</label>
+                            <input type="text" id="prev-gpa" class="gpa-input-field" placeholder="مثال: 3.50">
+                        </div>
+                        <div class="input-group">
+                            <label for="prev-hours">الساعات السابقة</label>
+                            <input type="text" id="prev-hours" placeholder="مثال: 60" class="gpa-input-field" inputmode="numeric">
+                        </div>
+                    </div>
+
+                    <div id="selected-courses-container" class="course-grid" style="margin-top: 2rem;">
+                        </div>
+
+                    <div id="gpa-result-section" class="result-display" style="display: none;">
+                        <div id="hologram-content"></div>
+                        <div id="honor-roll-message" class="honor-roll-message" style="display: none;"></div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    
+    <div id="grade-modal" class="modal-overlay">
+        <div class="modal-content glass">
+            <h3 id="modal-course-title"></h3>
+            <div id="modal-grade-selector" class="grade-selector"></div>
+            <div class="modal-actions">
+                <button id="save-grade-btn" class="gpa-btn">حفظ</button>
+                <button id="cancel-grade-btn" class="gpa-btn secondary">إلغاء</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="courses-data.js"></script>
+    <script src="../script.js"></script>
+    
+    <script>
+        window.addEventListener('unload', function() {
+        });
+    </script>
+</body>
+</html>

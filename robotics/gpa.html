@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <link rel="icon" type="image/png" href="favicon.png">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> حساب المعدل - Robot Learn</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../1.index.css">
+    <link rel="icon" type="image/png" href="logo tab.png">
+    <meta charset="UTF-8">
+    <title>حساب المعدل</title>
+    <meta name="description" content="احسب معدلك الفصلي والتراكمي في جامعة العلوم والتكنولوجيا (JUST) بكل سهولة ودقة. استخدم حاسبة Robot Learn لحساب المعدلات، مع خيارات لحساب المواد المعادة والمعدلات التراكمية السابقة.">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+    <link rel="stylesheet" href="../1.index.css">
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="aurora-background"></div>
+    <div id="page-overlay" class="page-overlay"></div>
+
+    <div class="page-container">
+        <aside id="sidebar" class="sidebar glass">
+            <div class="sidebar-header">
+                <h3><i class="bi bi-robot"></i> Robot Learn</h3>
+                <button id="close-sidebar-btn" class="close-sidebar-btn">&times;</button>
+            </div>
+           <nav id="main-nav">
+                            <a href="../index.html">الصفحة الرئيسية للقسم</a>
+
+                    <a href="index.html">الصفحة الرئيسية للتخصص</a>
+                <a href="courses.html">المواد الدراسية</a>
+                <a href="gpa.html" class="active">حساب المعدل</a>
+                <a href="teachers.html">الهيئة التدريسية</a>
+                <a href="about-robotics.html">عن التخصص </a>
+                <a href="about-web.html">عن الموقع</a>
+            </nav>
+        </aside>
+
+        <div class="main-content">
+            <header class="mobile-header glass">
+                <button id="hamburger-btn" class="hamburger-btn">
+                    <span></span><span></span><span></span>
+                </button>
+                <h2 class="mobile-logo"><i class="bi bi-robot"></i> Robot Learn</h2>
+            </header>
+            
+            <main>
+                <div class="main-page-header fade-in">
+                    <h3>حساب المعدل ( الفصلي / التراكمي )</h3>
+                </div>
+
+                <div id="gpa-command-center" class="gpa-command-center glass fade-in">
+                    
+                    <div class="info-link-container">
+<a href="#" id="show-grades-btn" class="info-link">
+                                    <i class="bi bi-info-circle-fill"></i>
+                            نظام العلامات والرموز
+                        </a>
+                    </div>
+
+                    
+                    <div class="gpa-settings">
+                        <label for="cumulative-toggle">حساب المعدل التراكمي؟</label>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="cumulative-toggle">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+
+                    <div id="previous-gpa-section" class="previous-gpa-section">
+                        <div class="input-group">
+                            <label>المعدل التراكمي السابق (من 4.2)</label>
+                            <input type="text" id="prev-gpa" placeholder="مثال: 3.25" class="gpa-input-field" inputmode="decimal">
+                        </div>
+                        <div class="input-group">
+                            <label>مجموع الساعات المقطوعة سابقاً</label>
+                            <input type="text" id="prev-hours" placeholder="مثال: 90" class="gpa-input-field" inputmode="numeric">
+                        </div>
+                    </div>
+
+                    <div class="gpa-settings">
+                        <label for="retake-toggle">هل لديك مواد معادة؟</label>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="retake-toggle">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div id="retake-courses-section" class="retake-courses-section">
+                        <div id="retake-courses-panel">
+                            </div>
+                        
+                        <div class="gpa-actions">
+                            <button id="add-retake-course-btn" class="gpa-btn"><i class="bi bi-plus-circle"></i> إضافة مادة معادة</button>
+                        </div>
+                    </div>
+
+                    <div id="courses-panel">
+                        </div>
+                    
+                    <div class="gpa-actions">
+                        <button id="add-course-btn" class="gpa-btn"><i class="bi bi-plus-circle"></i> إضافة مادة جديدة</button>
+                    </div>
+
+                    <div id="result-display" class="result-display">
+                        <div class="hologram-scanline"></div>
+                        <div id="hologram-content">
+                            </div>
+                        <div id="celebration-container"></div>
+                    </div>
+
+                    <div id="honor-roll-message" class="honor-roll-message" style="display: none;"></div>
+
+                    <button id="calculate-gpa-btn" class="calculate-btn">
+                        <i class="bi bi-lightning-charge-fill"></i>
+                        <span>احسب الآن</span>
+                    </button>
+                </div>
+            </main>
+        </div>
+    </div> 
+    
+   
+   <div id="image-modal-grades" class="modal-overlay">
+        <div class="modal-content glass image-modal-content">
+            <button class="close-modal-btn">&times;</button>
+            <img src="https://justrobotics-software.com/robotics/grades-system.jpg" alt="نظام العلامات والرموز جامعة العلوم والتكنولوجيا">
+          
+            <div class="modal-actions">
+                <a href="https://justrobotics-software.com/robotics/grades-system.jpg" download="grades-system" class="gpa-btn">
+                    <i class="bi bi-download"></i> تحميل 
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script src="../script.js"></script>
+    
+    <script>
+        window.addEventListener('unload', function() {
+        });
+    </script>
+</body>
+
+</html>

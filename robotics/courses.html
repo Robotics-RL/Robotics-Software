@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الخطة الدراسية والمواد - تخصص علم الروبوتات | Robot Learn</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../1.index.css">
+    <link rel="icon" type="image/png" href="logo tab.png">
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="aurora-background"></div>
+    <div id="page-overlay" class="page-overlay"></div>
+
+    <div class="page-container">
+        <aside id="sidebar" class="sidebar glass">
+            <div class="sidebar-header">
+                <h3><i class="bi bi-robot"></i> Robot Learn</h3>
+                <button id="close-sidebar-btn" class="close-sidebar-btn">&times;</button>
+            </div>
+            <nav id="main-nav">
+                <a href="../index.html">الصفحة الرئيسية للقسم</a>
+                <a href="index.html">الصفحة الرئيسية للتخصص</a>
+                <a href="courses.html" class="active">المواد الدراسية</a>
+                <a href="gpa.html">حساب المعدل</a>
+                <a href="teachers.html">الهيئة التدريسية</a>
+                <a href="about-robotics.html">عن التخصص </a>
+                <a href="about-web.html">عن الموقع</a>
+            </nav>
+        </aside>
+
+        <div class="main-content">
+            <header class="mobile-header glass">
+                <button id="hamburger-btn" class="hamburger-btn">
+                    <span></span><span></span><span></span>
+                </button>
+                <h2 class="mobile-logo"><i class="bi bi-robot"></i> Robot Learn</h2>
+            </header>
+            
+            <main>
+                <div class="main-page-header fade-in">
+                    <h1>خارطة المواد الدراسية</h1>
+                    <p>تصفح مسيرتك الأكاديمية وتابع تقدمك في إنجاز المواد</p>
+                </div>
+                
+                <div style="text-align: center; margin-bottom: 2rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                    <button id="show-tree-btn-2025" class="gpa-btn">
+                        <i class="bi bi-diagram-3-fill"></i> خطة 2025
+                    </button>
+                    <button id="show-tree-btn-2024" class="gpa-btn secondary">
+                        <i class="bi bi-diagram-3"></i> خطة 2024
+                    </button>
+                    <a href="my-courses.html" class="gpa-btn">
+                        <i class="bi bi-list-check"></i> موادي هذا الفصل
+                    </a>
+                </div>
+                <div class="accordion-container fade-in">
+                    <div class="accordion-item glass active">
+                        <button class="accordion-header progress-accordion-header">
+                            <div class="progress-header-title">
+                                <i class="bi bi-speedometer2"></i>
+                                <span>ملخص التقدم والإنجاز</span>
+                            </div>
+                            <div class="progress-header-bar-container">
+                                <div id="header-progress-bar" class="progress-header-bar"></div>
+                                <span id="header-progress-text" class="progress-header-text">0%</span>
+                            </div>
+                            <i class="bi bi-chevron-down accordion-icon"></i>
+                        </button>
+                        <div class="accordion-content" style="padding: 1.5rem;">
+                            <div class="progress-controls">
+                                <div class="gpa-settings">
+                                    <label for="edit-mode-toggle">تفعيل وضع الإنجاز</label>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" id="edit-mode-toggle">
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                                <div class="progress-actions" style="display: flex; justify-content: center; gap: 1rem; margin-top: 1rem; flex-wrap: wrap;">
+                                    <button id="clear-all-btn" class="gpa-btn secondary">
+                                        <i class="bi bi-trash-fill"></i> مسح الإنجاز
+                                    </button>
+                                </div>
+                                <p style="text-align: center; font-size: 0.9rem; margin-top: 1rem; color: #aaa;">
+                                    لتتبع تقدمك، فعّل الزر ثم اضغط على المواد التي أنجزتها.
+                                </p>
+                                <div id="progress-tracker" class="progress-tracker">
+                                    <div class="progress-item"><span>الإجمالي</span><strong id="total-hours"> 0 / 132 </strong></div>
+                                    <div class="progress-item elective-progress"><span>اختياري جامعة</span><strong id="uni-elective-hours"> 0 / 9 </strong></div>
+                                    <div class="progress-item"><span >السنة الأولى </span><strong id="year-1-hours"> 0 / 35 </strong></div>
+                                    <div class="progress-item"><span>السنة الثانية</span><strong id="year-2-hours"> 0 / 29 </strong></div>
+                                    <div class="progress-item"><span>السنة الثالثة</span><strong id="year-3-hours"> 0 / 29 </strong></div>
+                                    <div class="progress-item"><span>السنة الرابعة</span><strong id="year-4-hours"> 0 / 30 </strong></div>
+                                    <div class="progress-item gpa-display"><span>المعدل التراكمي</span><strong id="cumulative-gpa-tracker">0.00 <small>(لم تبدأ)</small></strong></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tabs-section glass fade-in">
+                    <div class="tabs-container">
+                        <button class="tab-btn active" data-year="1"><i class="bi bi-1-circle-fill"></i> السنة الأولى</button>
+                        <button class="tab-btn" data-year="2"><i class="bi bi-2-circle-fill"></i> السنة الثانية</button>
+                        <button class="tab-btn" data-year="3"><i class="bi bi-3-circle-fill"></i> السنة الثالثة</button>
+                        <button class="tab-btn" data-year="4"><i class="bi bi-4-circle-fill"></i> السنة الرابعة</button>
+                        <button class="tab-btn" data-year="electives"><i class="bi bi-bookshelf"></i> الاختياريات</button>
+                    </div>
+
+                    <div class="tab-content-container">
+                        <div class="tab-content active" data-year="1">
+                            <h3 class="semester-title">الفصل الأول (16 ساعة)</h3>
+                            <div class="course-grid">
+                                <a href="course-details.html?course=lg101" data-course-id="lg101" class="course-card-link" id="lg101"><div class="course-card-item"><div class="course-category general"></div><div class="course-card-content"><h4>اللغة الإنجليزية</h4><p>ل غ 101</p></div><span class="course-hours">3 ساعات</span></div></a>
+                                <a href="course-details.html?course=math101" data-course-id="math101" class="course-card-link" id="math101"><div class="course-card-item"><div class="course-category math"></div><div class="course-card-content"><h4>تفاضل و تكامل (1)</h4><p>ع أ 101ر</p></div><span class="course-hours">3 ساعات</span></div></a>
+                                <a href="course-details.html?course=cs101" data-course-id="cs101" class="course-card-link" id="cs101"><div class="course-card-item"><div class="course-category programming"></div><div class="course-card-content"><h4>مقدمة في البرمجة</h4><p>ع أ 101ع ح</p></div><span class="course-hours">3 ساعات</span></div></a>
+                                <a href="course-details.html?course=lap101" data-course-id="lap101" class="course-card-link" id="lap101"><div class="course-card-item"><div class="course-category programming"></div><div class="course-card-content"><h4>مختبر البرمجة</h4><p>ع أ 106ع ح</p></div><span class="course-hours">1 ساعة</span></div></a>
+                                <a href="course-details.html?course=phys103" data-course-id="phys103" class="course-card-link" id="phys103"><div class="course-card-item"><div class="course-category physics"></div><div class="course-card-content"><h4>فيزياء عامه</h4><p>ع أ 103ف</p></div><span class="course-hours">3 ساعات</span></div></a>
+                                <a href="course-details.html?course=it103" data-course-id="it103" class="course-card-link" id="it103"><div class="course-card-item"><div class="course-category programming"></div><div class="course-card-content"><h4>مقدمة إلى تكنولوجيا المعلومات</h4><p>ع أ 103هـ ب</p></div><span class="course-hours">3 ساعات</span></div></a>
+                            </div>
+                            <h3 class="semester-title">الفصل الثاني (18 ساعة)</h3>
+                            <div class="course-grid">
+                                
+                                <a href="course-details.html?course=ai244" data-course-id="ai244" class="course-card-link" id="ai244"><div class="course-card-item"><div class="course-category ai"></div><div class="course-card-content"><h4>برمجة الذكاء الاصطناعي</h4><p>ذ.ص 244</p></div><span class="course-hours">2 ساعات</span></div></a>
+                                <a href="course-details.html?course=ai245" data-course-id="ai245" class="course-card-link" id="ai245"><div class="course-card-item"><div class="course-category ai"></div><div class="course-card-content"><h4>مخبر برمجة الذكاء الإصطناعي</h4><p>ذ.ص 245</p></div><span class="course-hours">1 ساعات</span></div></a>
+                                <a href="course-details.html?course=math102" data-course-id="math102" class="course-card-link" id="math102"><div class="course-card-item"><div class="course-category math"></div><div class="course-card-content"><h4>تفاضل وتكامل (2)</h4><p>ع أ 102ر</p></div><span class="course-hours">3 ساعات</span></div></a>
+                                <a href="course-details.html?course=oop112" data-course-id="oop112" class="course-card-link" id="oop112"><div class="course-card-item"><div class="course-category programming"></div><div class="course-card-content"><h4>مقدمة في البرمجة الكينونية</h4><p>ع أ 112هـ ب</p></div><span class="course-hours">3 ساعات</span></div></a>
+                                <a href="course-details.html?course=lap112" data-course-id="lap112" class="course-card-link" id="lap112"><div class="course-card-item"><div class="course-category programming"></div><div class="course-card-content"><h4>مختبر البرمجة الكينونية</h4><p>ع أ 113هـ ب</p></div><span class="course-hours">1 ساعة</span></div></a>
+                                <a href="course-details.html?course=math241" data-course-id="math241" class="course-card-link" id="math241"><div class="course-card-item"><div class="course-category math"></div><div class="course-card-content"><h4>الرياضيات المتقطعه</h4><p>ع أ 241ر</p></div><span class="course-hours">3 ساعات</span></div></a>
+                                <a href="course-details.html?course=mil100" data-course-id="mil100" class="course-card-link" id="mil100"><div class="course-card-item"><div class="course-category general"></div><div class="course-card-content"><h4>العلوم العسكريه</h4><p>ع ع 100</p></div><span class="course-hours">3 ساعات</span></div></a>
+                                <a href="course-details.html?course=la140" data-course-id="la140" class="course-card-link" id="la140"><div class="course-card-item"><div class="course-category math"></div><div class="course-card-content"><h4>مبادىء الجبر الخطي</h4><p>ر 140</p></div><span class="course-hours">3 ساعات</span></div></a>
+                            </div>
+                        </div>
+
+                        <div class="tab-content" data-year="2">
+                            <h3 class="semester-title">الفصل الأول (15 ساعة)</h3>
+                            <div class="course-grid">
+                                <a href="course-details.html?course=cpe236" data-course-id="cpe236" class="course-card-link" id="cpe236"><div class="course-card-item"><div class="course-category electronics"></div><div class="course-card-content"><h4>تصميم المنطق الرقمي</h4><p>هك 236</p></div><span class="course-hours">3 ساعات</span></div></a>
+                                <a href="course-details.html?course=ai240" data-course-id="ai240" class="course-card-link" id="ai240"><div class="course-card-item"><div class="course-category ai"></div><div class="course-card-content"><h4>مقدمة في الذكاء الاصطناعي</h4><p>ذ.ص 240</p></div><span class="course-hours">3 ساعات</span></div></a>
+                                <a href="course-details.html?course=ds211" data-course-id="ds211" class="course-card-link" id="ds211"><div class="course-card-item"><div class="course-category programming"></div><div class="course-card-content"><h4>تراكيب البيانات</h4><p>ع أ 211ع ح</p></div><span class="course-hours">3 ساعات</span></div></a>
+                                <a href="course-details.html?course=stat233" data-course-id="stat233" class="course-card-link" id="stat233"><div class="course-card-item"><div class="course-category math"></div><div class="course-card-content"><h4>إحصاء واحتمالات</h4><p>ع أ 233ر</p></div><span class="course-hours">3 ساعات</span></div></a>
+                                <a href="course-details.html?course=de203" data-course-id="de203" class="course-card-link" id="de203"><div class="course-card-item"><div class="course-category math"></div><div class="course-card-content"><h4>معادلات تفاضليه عاديه (1)</h4><p>ر 203</p></div><span class="course-hours">3 ساعات</span></div></a>
+                            </div>
+                            <h3 class="semester-title">الفصل الثاني (14 ساعة)</h3>
+                            <div class="course-grid">
+                                <a href="course-details.html?course=algo284" data-course-id="algo284" class="course-card-link" id="algo284"><div class="course-card-item"><div class="course-category programming"></div><div class="course-card-content"><h4>تحليل وتصميم الخوارزميات</h4><p>ع ح 284</p></div><span class="course-hours">3 ساعات</span></div></a>
+                                <a href="course-details.html?course=robo201" data-course-id="robo201" class="course-card-link" id="robo201"><div class="course-card-item"><div class="course-category mechanics"></div><div class="course-card-content"><h4>مقدمة في الروبوتات</h4><p>ع ر 201</p></div><span class="course-hours">3 ساعات</span></div></a>
+                                <a href="course-details.html?course=mech215" data-course-id="mech215" class="course-card-link" id="mech215"><div class="course-card-item"><div class="course-category mechanics"></div><div class="course-card-content"><h4>ميكانيكا هندسية</h4><p>مك 215</p></div><span class="course-hours">3 ساعات</span></div></a>
+                                <a href="course-details.html?course=ar102" data-course-id="ar102" class="course-card-link" id="ar102"><div class="course-card-item"><div class="course-category general"></div><div class="course-card-content"><h4>اللغة العربية</h4><p>ع 102</p></div><span class="course-hours">3 ساعات</span></div></a>
+                                <a href="course-details.html?course=na221" data-course-id="na221" class="course-card-link" id="na221"><div class="course-card-item"><div class="course-category math"></div><div class="course-card-content"><h4>تحليل عددي</h4><p>ع أ 221ر</p></div><span class="course-hours">2 ساعات</span></div></a>
+                            </div>
+                        </div>
+
+                        <div class="tab-content" data-year="3">
+                             <h3 class="semester-title">الفصل الأول (14 ساعة)</h3>
+                            <div class="course-grid">
+                                <a href="course-details.html?course=ml249" data-course-id="ml249" class="course-card-link" id="ml249"><div class="course-card-item"><div class="course-category ai"></div><div class="course-card-content"><h4>تعلم الآلة</h4><p>ذ.ص 249</p></div><span class="course-hours">3 ساعات</span></div></a>
+                                <a href="course-details.html?course=signals331" data-course-id="signals331" class="course-card-link" id="signals331"><div class="course-card-item"><div class="course-category electronics"></div><div class="course-card-content"><h4>تحليل الاشارات وأنظمة التحكم</h4><p>ع ر 331</p></div><span class="course-hours">3 ساعات</span></div></a>
+                                <a href="course-details.html?course=dynamics350" data-course-id="dynamics350" class="course-card-link" id="dynamics350"><div class="course-card-item"><div class="course-category mechanics"></div><div class="course-card-content"><h4>حركة و ديناميكية الروبوتات</h4><p>ع ر 350</p></div><span class="course-hours">3 ساعات</span></div></a>
+                                <a href="course-details.html?course=skills103" data-course-id="skills103" class="course-card-link" id="skills103"><div class="course-card-item"><div class="course-category general"></div><div class="course-card-content"><h4>المهارات الحياتية</h4><p>ل غ 103</p></div><span class="course-hours">2 ساعات</span></div></a>
+                                <a href="course-details.html?course=db221" data-course-id="db221" class="course-card-link" id="db221"><div class="course-card-item"><div class="course-category programming"></div><div class="course-card-content"><h4> قواعد البيانات</h4><p>ع أ 221ن م</p></div><span class="course-hours">3 ساعات</span></div></a>
+                            </div>
+                            <h3 class="semester-title">الفصل الثاني (12 ساعة)</h3>
+                            <div class="course-grid">
+                                <a href="course-details.html?course=dl342" data-course-id="dl342" class="course-card-link" id="dl342"><div class="course-card-item"><div class="course-category ai"></div><div class="course-card-content"><h4>التعلم العميق</h4><p>ذ.ص 342</p></div><span class="course-hours">3 ساعات</span></div></a>
+                                <a href="course-details.html?course=embedded332" data-course-id="embedded332" class="course-card-link" id="embedded332"><div class="course-card-item"><div class="course-category electronics"></div><div class="course-card-content"><h4>أنظمة التشغيل المدمجة</h4><p>ع ر 332</p></div><span class="course-hours">3 ساعات</span></div></a>
+                                <a href="course-details.html?course=cv340" data-course-id="cv340" class="course-card-link" id="cv340"><div class="course-card-item"><div class="course-category ai"></div><div class="course-card-content"><h4>الرؤية الحاسوبية</h4><p>ع ر 340</p></div><span class="course-hours">3 ساعات</span></div></a>
+                                <a href="course-details.html?course=sensors360" data-course-id="sensors360" class="course-card-link" id="sensors360"><div class="course-card-item"><div class="course-category electronics"></div><div class="course-card-content"><h4>شبكات الاستشعار المتنقلة</h4><p>ع ر 360</p></div><span class="course-hours">3 ساعات</span></div></a>
+                            </div>
+                             <h3 class="semester-title">الفصل الصيفي (3 ساعات)</h3>
+                            <div class="course-grid">
+                                <a href="course-details.html?course=training391" data-course-id="training391" class="course-card-link" id="training391"><div class="course-card-item"><div class="course-category general"></div><div class="course-card-content"><h4>التدريب الميداني</h4><p>ع ر 391</p></div><span class="course-hours">3 ساعات</span></div></a>
+                            </div>
+                        </div>
+
+                        <div class="tab-content" data-year="4">
+                            <h3 class="semester-title">الفصل الأول (11 ساعة)</h3>
+                            <div class="course-grid">
+                                <a href="course-details.html?course=lab310" data-course-id="lab310" class="course-card-link" id="lab310"><div class="course-card-item"><div class="course-category programming"></div><div class="course-card-content"><h4>مختبر برمجة الروبوتات</h4><p>ع ر 310</p></div><span class="course-hours">1 ساعة</span></div></a>
+                                <a href="course-details.html?course=mobile461" data-course-id="mobile461" class="course-card-link" id="mobile461"><div class="course-card-item"><div class="course-category mechanics"></div><div class="course-card-content"><h4>الروبوتات المتنقلة</h4><p>ع ر 461</p></div><span class="course-hours">3 ساعات</span></div></a>
+                                <a href="course-details.html?course=mobilelab462" data-course-id="mobilelab462" class="course-card-link" id="mobilelab462"><div class="course-card-item"><div class="course-category mechanics"></div><div class="course-card-content"><h4>مختبر الروبوتات المتنقلة</h4><p>ع ر 462</p></div><span class="course-hours">1 ساعة</span></div></a>
+                                <a href="course-details.html?course=design463" data-course-id="design463" class="course-card-link" id="design463"><div class="course-card-item"><div class="course-category programming"></div><div class="course-card-content"><h4>تصميم وتكامل وأمن الروبوتات</h4><p>ع ر 463</p></div><span class="course-hours">3 ساعات</span></div></a>
+                                <a href="course-details.html?course=gp1" data-course-id="gp1" class="course-card-link" id="gp1"><div class="course-card-item"><div class="course-category general"></div><div class="course-card-content"><h4>مشروع تخرج (1)</h4><p>ع ر 491</p></div><span class="course-hours">1 ساعة</span></div></a>
+                                <a href="course-details.html?course=ent119" data-course-id="ent119" class="course-card-link" id="ent119"><div class="course-card-item"><div class="course-category general"></div><div class="course-card-content"><h4>الريادة والإبتكار</h4><p>ع أ 119</p></div><span class="course-hours">2 ساعات</span></div></a>
+                            </div>
+                             <h3 class="semester-title">الفصل الثاني (18 ساعات)</h3>
+                            <div class="course-grid">
+                                <a href="course-details.html?course=industrial464" data-course-id="industrial464" class="course-card-link" id="industrial464"><div class="course-card-item"><div class="course-category mechanics"></div><div class="course-card-content"><h4>الروبوتات الصناعية</h4><p>ع ر 464</p></div><span class="course-hours">3 ساعات</span></div></a>
+                                <a href="course-details.html?course=industriallab465" data-course-id="industriallab465" class="course-card-link" id="industriallab465"><div class="course-card-item"><div class="course-category mechanics"></div><div class="course-card-content"><h4>مختبر الروبوتات الصناعية</h4><p>ع ر 465</p></div><span class="course-hours">1 ساعة</span></div></a>
+                                <a href="course-details.html?course=gp2" data-course-id="gp2" class="course-card-link" id="gp2"><div class="course-card-item"><div class="course-category general"></div><div class="course-card-content"><h4>مشروع تخرج (2)</h4><p>ع ر 492</p></div><span class="course-hours">3 ساعات</span></div></a>
+                                <a href="course-details.html?course=national110" data-course-id="national110" class="course-card-link" id="national110"><div class="course-card-item"><div class="course-category general"></div><div class="course-card-content"><h4>التربية الوطنية</h4><p>ع أ 110</p></div><span class="course-hours">3 ساعات</span></div></a>
+                                <a href="course-details.html?course=elective3" data-course-id="elective3" class="course-card-link" id="elective3"><div class="course-card-item"><div class="course-category programming"></div><div class="course-card-content"><h4>قسم اختياري (1)</h4><p>---</p></div><span class="course-hours">3 ساعات</span></div></a>
+                                <a href="course-details.html?course=elective4" data-course-id="elective4" class="course-card-link" id="elective4"><div class="course-card-item"><div class="course-category programming"></div><div class="course-card-content"><h4>قسم اختياري (2)</h4><p>---</p></div><span class="course-hours">3 ساعات</span></div></a>
+                                <a href="course-details.html?course=elective5" data-course-id="elective5" class="course-card-link" id="elective5"><div class="course-card-item"><div class="course-category programming"></div><div class="course-card-content"><h4>قسم اختياري (3)</h4><p>---</p></div><span class="course-hours">3 ساعات</span></div></a>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-content" data-year="electives">
+                            <p style="text-align:center; padding: 1rem 0 0.5rem 0; opacity: 0.8;">اختر إحدى المجموعات التالية لتصفح المواد المتاحة.</p>
+                            <div class="department-cards-container" style="padding: 1rem;">
+                                <div class="card glass"><a href="electives-group1.html" class="card-link"></a><div class="card-content"><div class="card-icon"><i class="bi bi-1-square"></i></div><h3>المجموعة الأولى</h3></div></div>
+                                <div class="card glass"><a href="electives-group2.html" class="card-link"></a><div class="card-content"><div class="card-icon"><i class="bi bi-2-square"></i></div><h3>المجموعة الثانية</h3></div></div>
+                                <div class="card glass"><a href="electives-group3.html" class="card-link"></a><div class="card-content"><div class="card-icon"><i class="bi bi-3-square"></i></div><h3>المجموعة الثالثة</h3></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div> 
+
+    <div id="image-modal-tree-2025" class="modal-overlay">
+        <div class="modal-content glass image-modal-content">
+            <button class="close-modal-btn">&times;</button>
+            <img src="https://justrobotics-software.com/robotics/(2025)-robotics-tree-plan.jpg" alt="الخطة الشجرية لتخصص علم الروبوتات - دفعة 2025">
+          
+            <div class="modal-actions">
+                <a href="https://justrobotics-software.com/robotics/(2025)-robotics-tree-plan.jpg" download="robotics-plan-tree-2025.jpg" class="gpa-btn">
+                    <i class="bi bi-download"></i> تحميل خطة 2025
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="image-modal-tree-2024" class="modal-overlay">
+        <div class="modal-content glass image-modal-content">
+            <button class="close-modal-btn">&times;</button>
+            <img src="https://justrobotics-software.com/robotics/(2024)-robotics-tree-plan.jpg" alt="الخطة الشجرية لتخصص علم الروبوتات - دفعة 2024">
+          
+            <div class="modal-actions">
+                <a href="https://justrobotics-software.com/robotics/(2024)-robotics-tree-plan.jpg" download="robotics-plan-tree-2024.jpg" class="gpa-btn">
+                    <i class="bi bi-download"></i> تحميل خطة 2024
+                </a>
+            </div>
+        </div>
+    </div>
+    <div id="grade-modal" class="modal-overlay">
+      <div class="modal-content glass">
+        <h3 id="modal-course-title">اسم المادة</h3>
+        <div id="modal-grade-selector" class="grade-selector"></div>
+        <div class="modal-actions">
+          <button id="save-grade-btn" class="gpa-btn">حفظ</button>
+          <button id="cancel-grade-btn" class="gpa-btn secondary">إلغاء</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="delete-modal" class="modal-overlay">
+      <div class="modal-content glass">
+        <h3>مسح الإنجاز</h3>
+        <p>اختر ما تريد مسحه:</p>
+        <div class="modal-actions">
+          <button class="delete-option-btn gpa-btn" data-delete-target="all">مسح الكل</button>
+          <button class="delete-option-btn gpa-btn" data-delete-target="year1">مسح مواد السنة الأولى</button>
+          <button class="delete-option-btn gpa-btn" data-delete-target="year2">مسح مواد السنة الثانية</button>
+          <button class="delete-option-btn gpa-btn" data-delete-target="year3">مسح مواد السنة الثالثة</button>
+          <button class="delete-option-btn gpa-btn" data-delete-target="year4">مسح مواد السنة الرابعة</button>
+          <button class="delete-option-btn gpa-btn" data-delete-target="electives">مسح المواد الاختيارية</button>
+          <button id="cancel-delete-btn" class="gpa-btn secondary">إلغاء</button>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>  
+    <script src="courses-data.js"></script>
+    <script src="../script.js"></script>
+    <script src="../highlighter.js"></script>
+    
+    <script>
+        window.addEventListener('unload', function() {
+        });
+    </script>
+    </body>
+
+
+</html>
+

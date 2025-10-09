@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="favicon.png">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كل ما تريد معرفته عن تخصص هندسة البرمجيات | Software Learn</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="1.index.css">
+    <link rel="icon" type="image/png" href="logo tab.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <style>
+        /* CSS Enhancements for the new layout */
+        .info-highlight-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+        .highlight-card {
+            padding: 1.5rem;
+        }
+        .highlight-card i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .highlight-card h3 {
+            margin: 0 0 0.5rem 0;
+            color: var(--text-heading);
+            font-size: 1rem;
+        }
+        .highlight-card p, .highlight-card ul {
+            margin: 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-main);
+            list-style: none;
+            padding: 0;
+        }
+        .highlight-card ul li {
+            margin-bottom: 0.5rem;
+        }
+         .highlight-card ul li small {
+            font-size: 0.85rem;
+            font-weight: 400;
+            opacity: 0.8;
+         }
+         /* Style to make the department card stand out */
+        .department-card {
+            grid-column: 1 / -1; /* Make it span the full width */
+            background: rgba(0, 169, 255, 0.1);
+            border-color: rgba(0, 169, 255, 0.3);
+        }
+        .note-box {
+            background: rgba(255, 193, 7, 0.1);
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+        .recommendation-box {
+            background: rgba(40, 167, 69, 0.1);
+            border-left: 4px solid #28a745;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+        .recommendation-box h3 {
+            color: #28a745;
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="aurora-background"></div>
+    <div id="page-overlay" class="page-overlay"></div>
+
+    <div class="page-container">
+        <aside id="sidebar" class="sidebar glass">
+            <div class="sidebar-header">
+                <h3><i class="bi bi-code-slash"></i> Software Learn</h3>
+                <button id="close-sidebar-btn" class="close-sidebar-btn">&times;</button>
+            </div>
+           <nav id="main-nav">
+                            <a href="../index.html">الصفحة الرئيسية للقسم</a>
+
+                    <a href="index.html">الصفحة الرئيسية للتخصص</a>
+    <a href="courses.html">المواد الدراسية</a>
+    <a href="gpa.html">حساب المعدل</a>
+    <a href="teachers.html">الهيئة التدريسية</a>
+    <a href="about-software.html">عن التخصص</a> 
+    <a href="about-web.html">عن الموقع</a>
+</nav>
+        </aside>
+
+        <div class="main-content">
+            <header class="mobile-header glass">
+                <button id="hamburger-btn" class="hamburger-btn">
+                    <span></span><span></span><span></span>
+                </button>
+                <h2 class="mobile-logo"><i class="bi bi-code-slash"></i> Software Learn</h2>
+            </header>
+            
+            <main>
+                <div class="main-page-header fade-in">
+                    <h1>تخصص هندسة البرمجيات – Software Engineering</h1>
+                    <p>جامعة العلوم والتكنولوجيا الأردنية – JUST</p>
+                </div>
+
+                <div class="info-highlight-section fade-in">
+                    <div class="highlight-card glass department-card">
+                        <i class="bi bi-building"></i>
+                        <h3>القسم الأكاديمي</h3>
+                        <p>قسم هندسة البرمجيات - كلية (IT)</p>
+                    </div>
+                    <div class="highlight-card glass">
+                        <i class="bi bi-clock-history"></i>
+                        <h3>الساعات المعتمدة</h3>
+                        <p>132 ساعة</p>
+                    </div>
+                    <div class="highlight-card glass">
+                        <i class="bi bi-calendar-check"></i>
+                        <h3>مدة الدراسة</h3>
+                        <p>4 سنوات (بكالوريوس)</p>
+                    </div>
+                    <div class="highlight-card glass">
+                        <i class="bi bi-tags-fill"></i>
+                        <h3>البرامج المتاحة</h3>
+                        <ul>
+                            <li>التنافس : <small>33 دينار/ساعة</small></li>
+                            <li>الموازي: <small>75 دينار/ساعة</small></li>
+                            <li>الدولي : <small>85 دينار/ساعة</small></li>
+
+                        </ul>
+                    </div>
+                    <div class="highlight-card glass">
+                        <i class="bi bi-graph-up-arrow"></i>
+                        <h3>معدل القبول (2025)</h3>
+                        <ul>
+                            <li>الحد الأدنى : <small>65</small></li>
+                            <li>التنافس : <small>93.60</small></li>
+                            <li>الموازي: <small>88.95</small></li>
+
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="robotics-sections">
+
+                    <section class="robotics-info-block glass fade-in">
+                        <div class="info-content">
+                            <h2>تعريف التخصص</h2>
+                            <p>هندسة البرمجيات هي التخصص الذي يُعنى بتصميم وتطوير الأنظمة البرمجية وفق أسس هندسية ومعايير عالمية، بهدف إنتاج برمجيات:</p>
+                            <ul class="styled-list">
+                                <li>خالية من الأخطاء التقنية</li>
+                                <li>قابلة للتطوير والتحديث المستمر</li>
+                                <li>عالية الكفاءة وتلبي احتياجات المستخدمين بدقة</li>
+                                <li>مهيأة للعمل في بيئات مختلفة (أنظمة تشغيل، منصات ويب، تطبيقات موبايل)</li>
+                                <li>قائمة على منهجيات تطوير حديثة مثل Agile و DevOps</li>
+                            </ul>
+                        </div>
+                        <div class="info-visual">
+                            <i class="bi bi-mortarboard-fill"></i>
+                        </div>
+                    </section>
+
+                    <section class="robotics-info-block glass fade-in reverse-layout">
+                        <div class="info-content">
+                            <h2>مجالات العمل للخريجين</h2>
+                            <p>يمكن لخريجي هذا التخصص الانخراط في عدة مجالات مهنية متميزة، من بينها:</p>
+                            <ul class="styled-list">
+                                <li><strong>مهندس برمجيات:</strong> تصميم وتطوير الأنظمة البرمجية المتقدمة.</li>
+                                <li><strong>مبرمج أو مبرمج ألعاب:</strong> تطوير التطبيقات والألعاب البرمجية.</li>
+                                <li><strong>مهندس نظم:</strong> تصميم وإدارة الأنظمة المعلوماتية.</li>
+                                <li><strong>مدير مشاريع تقنية المعلومات:</strong> قيادة فرق تطوير المشاريع التقنية.</li>
+                                <li><strong>أخصائي أمن وحماية المعلومات:</strong> تأمين الأنظمة والشبكات.</li>
+                                <li><strong>محلل نظم (Systems Analyst):</strong> تحليل متطلبات الأنظمة وتصميم الحلول.</li>
+                                <li><strong>مهندس ضمان الجودة البرمجية (Software QA Engineer):</strong> اختبار وضمان جودة البرمجيات.</li>
+                            </ul>
+                        </div>
+                        <div class="info-visual">
+                             <i class="bi bi-briefcase-fill"></i>
+                        </div>
+                    </section>
+
+                    <section class="robotics-info-block glass fade-in">
+                        <div class="info-content">
+                            <h2>أداة أساسية للطالب</h2>
+                            <p>يُعد الحاسوب الشخصي أو المحمول (Laptop) أداة أساسية لا غنى عنها، نظرًا لارتباط التخصص بالجانب العملي والبرمجي بشكل مباشر، ويفضّل أن يتمتع بالمواصفات التالية:</p>
+                            <ul class="styled-list">
+                                <li>معالج حديث (Core i5 أو أعلى)</li>
+                                <li>ذاكرة RAM لا تقل عن 8GB</li>
+                                <li>قرص تخزين SSD لسرعة الأداء</li>
+                                <li>نظام تشغيل يدعم بيئات التطوير المختلفة</li>
+                            </ul>
+                        </div>
+                        <div class="info-visual">
+                             <i class="bi bi-laptop-fill"></i>
+                        </div>
+                    </section>
+
+                    <section class="robotics-info-block glass fade-in reverse-layout">
+                        <div class="info-content">
+                            <h2>ملاحظات أكاديمية</h2>
+                            <div class="note-box">
+                                <p><strong>ملاحظة هامة:</strong> تخصص هندسة البرمجيات غير مدرج ضمن نقابة المهندسين الأردنيين، وذلك لعدم احتوائه على عدد الساعات الكافي من مقررات الفيزياء والرياضيات (160 ساعة).</p>
+                            </div>
+                            <p>حصلت جامعة العلوم والتكنولوجيا الأردنية على:</p>
+                            <ul class="styled-list">
+                                <li>الاعتماد العالمي IET عام 2018</li>
+                                <li>الاعتماد البريطاني عام 2020</li>
+                            </ul>
+                            <p>الخطة الدراسية تشمل مواد في:</p>
+                            <ul class="styled-list">
+                                <li>لغات البرمجة المختلفة (Java, Python, C#, JavaScript)</li>
+                                <li>تحليل وتصميم النظم</li>
+                                <li>قواعد البيانات وإدارتها</li>
+                                <li>هندسة المتطلبات</li>
+                                <li>اختبار وضمان الجودة البرمجية</li>
+                                <li>هندسة النظم المدمجة</li>
+                                <li>الذكاء الاصطناعي وتطبيقاته</li>
+                            </ul>
+                        </div>
+                        <div class="info-visual">
+                             <i class="bi bi-journal-bookmark-fill"></i>
+                        </div>
+                    </section>
+
+                    <section class="robotics-info-block glass fade-in">
+                        <div class="info-content">
+                            <h2>لماذا يُطلق عليه "هندسة" البرمجيات؟</h2>
+                            <p>لأنه يترجم جوهر العمل الهندسي، والمتمثل في:</p>
+                            <ul class="styled-list">
+                                <li>إنتاج حلول برمجية بأقل وقت وأقل تكلفة وبأفضل جودة ممكنة.</li>
+                                <li>تطبيق المهارات العلمية والفنية لحل المشكلات بكفاءة.</li>
+                                <li>تصميم أنظمة برمجية تواكب متطلبات المستخدمين بأعلى المعايير.</li>
+                                <li>استخدام نماذج تطوير هندسية منظمة مثل Waterfall و Spiral Model.</li>
+                            </ul>
+                        </div>
+                        <div class="info-visual">
+                             <i class="bi bi-gear-fill"></i>
+                        </div>
+                    </section>
+
+                    <div class="recommendation-box fade-in">
+                        <h3><i class="bi bi-lightbulb-fill"></i> توصيات للطلبة</h3>
+                        <ul class="styled-list">
+                            <li><strong>من جدّ وجد، ومن سار على الدرب وصل</strong> - المثابرة مفتاح النجاح.</li>
+                            <li>ليست المعرفة السابقة شرطًا للتميز، بل الرغبة في التعلم والتطوير الذاتي.</li>
+                            <li>تحتاج السنتان الأولى والثانية إلى جهد ومتابعة، وبعدها ستتضح آلية الدراسة وتزداد فرص التميز والإبداع.</li>
+                            <li>الاهتمام بالمشاريع العملية لبناء سيرة ذاتية قوية قبل التخرج.</li>
+                            <li>متابعة أحدث التقنيات وأطر العمل البرمجية باستمرار.</li>
+                        </ul>
+                        <p class="mt-3"><strong>هندسة البرمجيات ليست مجرد دراسة أكاديمية، بل هي مسار إبداعي وعملي يضعك في قلب الابتكار التكنولوجي وصناعة المستقبل.</strong></p>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div> 
+        <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+    <script src="script.js"></script>
+    
+    <script>
+        window.addEventListener('unload', function() {
+        });
+    </script>
+</body>
+</html>
