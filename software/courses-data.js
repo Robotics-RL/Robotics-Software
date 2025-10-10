@@ -423,7 +423,7 @@ const coursesData = {
         description: "",
         universityLink: "https://services.just.edu.jo/CourseQA/WS/CourseInfo.aspx?LineNo=1762220",
         resources: {
-        
+        whatsappLink: "https://chat.whatsapp.com/LPzLWHO7sdY3cwgi677TjI?mode=ems_copy_t"
         }
     },
     
@@ -439,7 +439,7 @@ const coursesData = {
         description: "",
         universityLink: "https://services.just.edu.jo/CourseQA/WS/CourseInfo.aspx?LineNo=1762230",
         resources: {
-        
+        whatsappLink: "https://chat.whatsapp.com/LPzLWHO7sdY3cwgi677TjI?mode=ems_copy_t"
         }
     },
     
@@ -496,7 +496,7 @@ const coursesData = {
         description: "",
         universityLink: "https://services.just.edu.jo/CourseQA/WS/CourseInfo.aspx?LineNo=822560",
         resources: {
-        
+        whatsappLink: "https://chat.whatsapp.com/HRLB0pCU9LADGEdrHGeztl?mode=ems_copy_t"
         }
     },
     
@@ -578,7 +578,7 @@ const coursesData = {
         description: "يركز على تطوير مهارات التواصل المهني وفهم أخلاقيات العمل في مجال تكنولوجيا المعلومات.",
         universityLink: "https://services.just.edu.jo/CourseQA/WS/CourseInfo.aspx?LineNo=1733420",
         resources: {
-		
+		whatsappLink: "https://chat.whatsapp.com/JI7nUA2sAIzBgrrEETCjDa?mode=ems_copy_t"
         }
     },
 
@@ -594,7 +594,7 @@ const coursesData = {
         description: "يركز على تطوير مهارات التواصل المهني وفهم أخلاقيات العمل في مجال تكنولوجيا المعلومات.",
         universityLink: "https://services.just.edu.jo/CourseQA/WS/CourseInfo.aspx?LineNo=1733750",
         resources: {
-		
+		whatsappLink: "https://chat.whatsapp.com/Ez8kk6OTAwU1N6pNITbOO3"
         }
     },
     
@@ -610,7 +610,7 @@ const coursesData = {
         description: "يركز على تطوير مهارات التواصل المهني وفهم أخلاقيات العمل في مجال تكنولوجيا المعلومات.",
         universityLink: "https://services.just.edu.jo/CourseQA/WS/CourseInfo.aspx?LineNo=1763011",
         resources: {
-		
+		whatsappLink: "https://chat.whatsapp.com/LtpTmGE3VZj7z5Oagb3Ch4"
         }
     },
     "skills103": {
@@ -681,6 +681,7 @@ const coursesData = {
         description: "",
         universityLink: "https://services.just.edu.jo/CourseQA/WS/CourseInfo.aspx?LineNo=1763120",
         resources: {
+			whatsappLink: "https://chat.whatsapp.com/KBIKeywLKqcJw9xxorwtCf?mode=ems_copy_t"
         }
     },
 
@@ -696,6 +697,8 @@ const coursesData = {
         description: "",
         universityLink: "https://services.just.edu.jo/CourseQA/WS/CourseInfo.aspx?LineNo=1763130",
         resources: {
+						whatsappLink: "https://chat.whatsapp.com/KBIKeywLKqcJw9xxorwtCf?mode=ems_copy_t"
+
         }
     },
     "web332": {
@@ -799,7 +802,7 @@ const coursesData = {
         description: "",
         universityLink: "https://services.just.edu.jo/CourseQA/WS/CourseInfo.aspx?LineNo=1764421",
         resources: {            files: [{ title: "📁 تصفح المكتبة الدراسية", url: "https://drive.google.com/drive/folders/1O3HdzAn26Uec7QqjPUhi8MBVo3FfJbqL?usp=drive_link" }],
-
+        whatsappLink: "https://chat.whatsapp.com/BrcbpOiX2U6KsjWnlAMZqc"
         }
     },
 "elective3": {
@@ -871,7 +874,10 @@ const coursesData = {
         teachingMethod: "مدمج",
         description: "",
         universityLink: "https://services.just.edu.jo/CourseQA/WS/CourseInfo.aspx?LineNo=1764440",
-        resources: {}
+        resources: {
+						whatsappLink: "https://chat.whatsapp.com/DroxgK2lTzEJq7doesryQc"
+
+		}
     },
     
     "SE443": {
@@ -885,7 +891,10 @@ const coursesData = {
         teachingMethod: "مدمج",
         description: "",
         universityLink: "https://services.just.edu.jo/CourseQA/WS/CourseInfo.aspx?LineNo=1764430",
-        resources: {}
+        resources: {
+						whatsappLink: "https://chat.whatsapp.com/DADTP1tLXsDEXovrlGhyN4?mode=ems_copy_t"
+
+		}
     },
       "elective5": {
         title: "قسم اختياري (3)",
@@ -1286,3 +1295,4 @@ const coursesData = {
     }
 
 };
+
