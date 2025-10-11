@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { threshold: 4.20, symbol: 'A+', rank: 'إمتياز', colorClass: 'excellent' },
         { threshold: 4.00, symbol: 'A', rank: 'إمتياز', colorClass: 'excellent' },
         { threshold: 3.75, symbol: 'A-', rank: 'ممتاز', colorClass: 'very-good' },
-        { threshold: 3.50, symbol: 'B+', rank: 'جيد جداً', colorClass: 'good' },
+        { threshold: 3.50, symbol: 'B+', rank: 'ممتاز', colorClass: 'good' },
         { threshold: 3.25, symbol: 'B', rank: 'جيد جداً', colorClass: 'good' },
         { threshold: 3.00, symbol: 'B-', rank: 'جيد جداً', colorClass: 'good' },
         { threshold: 2.75, symbol: 'C+', rank: 'جيد', colorClass: 'passable' },
@@ -1223,4 +1223,5 @@ gradeBadge.className = 'grade-badge';
     }
 
 });
+
 
