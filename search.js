@@ -226,7 +226,9 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: 'مقدمة في البرمجة', code: 'ع أ 101ع ح', type: 'choice', options: [{ text: '💻 هندسة البرمجيات', url: 'software/courses.html#cs101' }, { text: '🤖 علم الروبوتات', url: 'robotics/courses.html#cs101' }] , icon: 'bi-book-half' },
         { name: 'مختبر البرمجة', code: 'ع أ 106ع ح', type: 'choice', options: [{ text: '💻 هندسة البرمجيات', url: 'software/courses.html#lap101' }, { text: '🤖 علم الروبوتات', url: 'robotics/courses.html#lap101' }] , icon: 'bi-book-half' },
         { name: 'مقدمة إلى تكنولوجيا المعلومات', code: 'ع أ 103هـ ب', type: 'choice', options: [{ text: '💻 هندسة البرمجيات', url: 'software/courses.html#it103' }, { text: '🤖 علم الروبوتات', url: 'robotics/courses.html#it103' }] , icon: 'bi-book-half' },
-        { name: 'تفاضل وتكامل (2)', code: 'ع أ 102ر', type: 'choice', options: [{ text: '💻 هندسة البرمجيات', url: 'software/courses.html#math102' }, { text: '🤖 علم الروبوتات', url: 'robotics/courses.html#math102' }] , icon: 'bi-book-half' },
+      
+        { name: 'مبادىء الجبر الخطي', code: 'ر 140',type: 'choice', options: [{ text: '💻 هندسة البرمجيات', url: 'software/courses.html#la140' }, { text: '🤖 علم الروبوتات', url: 'robotics/courses.html#la140' }]  , icon: 'bi-book-half' },
+      
         { name: 'مقدمة في البرمجة الكينونية', code: 'ع أ 112هـ ب', type: 'choice', options: [{ text: '💻 هندسة البرمجيات', url: 'software/courses.html#oop112' }, { text: '🤖 علم الروبوتات', url: 'robotics/courses.html#oop112' }] , icon: 'bi-book-half' },
         { name: 'مختبر البرمجة الكينونية', code: 'ع أ 113هـ ب', type: 'choice', options: [{ text: '💻 هندسة البرمجيات', url: 'software/courses.html#lap112' }, { text: '🤖 علم الروبوتات', url: 'robotics/courses.html#lap112' }] , icon: 'bi-book-half' },
         { name: 'الرياضيات المتقطعه', code: 'ع أ 241ر', type: 'choice', options: [{ text: '💻 هندسة البرمجيات', url: 'software/courses.html#math241' }, { text: '🤖 علم الروبوتات', url: 'robotics/courses.html#math241' }] , icon: 'bi-book-half' },
@@ -237,18 +239,25 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: 'تحليل وتصميم الخوارزميات', code: 'ع ح 284', type: 'choice', options: [{ text: '💻 هندسة البرمجيات', url: 'software/courses.html#algo284' }, { text: '🤖 علم الروبوتات', url: 'robotics/courses.html#algo284' }] , icon: 'bi-book-half' },
         { name: 'اللغة العربية', code: 'ع 102', type: 'choice', options: [{ text: '💻 هندسة البرمجيات', url: 'software/courses.html#ar102' }, { text: '🤖 علم الروبوتات', url: 'robotics/courses.html#ar102' }] , icon: 'bi-book-half' },
         { name: 'تحليل عددي', code: 'ع أ 221ر', type: 'choice', options: [{ text: '💻 هندسة البرمجيات', url: 'software/courses.html#na221' }, { text: '🤖 علم الروبوتات', url: 'robotics/courses.html#na221' }] , icon: 'bi-book-half' },
-        { name: 'أساسيات قواعد البيانات', code: 'ع أ 221ن م', type: 'choice', options: [{ text: '💻 هندسة البرمجيات', url: 'software/courses.html#db221' }, { text: '🤖 علم الروبوتات', url: 'robotics/courses.html#db221' }] , icon: 'bi-book-half' },
+        { name: ' قواعد البيانات', code: 'ع أ 221ن م', type: 'choice', options: [{ text: '💻 هندسة البرمجيات', url: 'software/courses.html#db221' }, { text: '🤖 علم الروبوتات', url: 'robotics/courses.html#db221' }] , icon: 'bi-book-half' },
         { name: 'الريادة والإبتكار', code: 'ع أ 119', type: 'choice', options: [{ text: '💻 هندسة البرمجيات', url: 'software/courses.html#ent119' }, { text: '🤖 علم الروبوتات', url: 'robotics/courses.html#ent119' }] , icon: 'bi-book-half' },
         { name: 'التربية الوطنية', code: 'ع أ 110', type: 'choice', options: [{ text: '💻 هندسة البرمجيات', url: 'software/courses.html#national110' }, { text: '🤖 علم الروبوتات', url: 'robotics/courses.html#national110' }] , icon: 'bi-book-half' },
         { name: 'المهارات الحياتية', code: 'ل غ 103', type: 'choice', options: [{ text: '💻 هندسة البرمجيات', url: 'software/courses.html#skills103' }, { text: '🤖 علم الروبوتات', url: 'robotics/courses.html#skills103' }] , icon: 'bi-book-half' },
         { name: 'فيزياء عامه', code: 'ع أ 103ف', type: 'مادة روبوتات', url: 'robotics/courses.html#phys103' , icon: 'bi-book-half' },
+       
         { name: 'برمجة الذكاء الاصطناعي', code: 'ذ.ص 244', type: 'مادة روبوتات', url: 'robotics/courses.html#ai244' , icon: 'bi-book-half' },
-        { name: 'مبادىء الجبر الخطي', code: 'ر 140', type: 'مادة روبوتات', url: 'robotics/courses.html#la140' , icon: 'bi-book-half' },
+       
+        { name: 'مختبر برمجة الذكاء الاصطناعي', code: 'ذ.ص 245', type: 'مادة روبوتات', url: 'robotics/courses.html#ai245' , icon: 'bi-book-half' },
+       
+       
+       
+       
+        { name: 'تفاضل وتكامل (2)', code: 'ع أ 102ر', type: 'مادة روبوتات', url: 'robotics/courses.html#math102', icon: 'bi-book-half' },
+
         { name: 'مقدمة في الذكاء الاصطناعي', code: 'ذ.ص 240', type: 'مادة روبوتات', url: 'robotics/courses.html#ai240' , icon: 'bi-book-half' },
         { name: 'معادلات تفاضليه عاديه (1)', code: 'ر 203', type: 'مادة روبوتات', url: 'robotics/courses.html#de203' , icon: 'bi-book-half' },
         { name: 'مقدمة في الروبوتات', code: 'ع ر 201', type: 'مادة روبوتات', url: 'robotics/courses.html#robo201' , icon: 'bi-book-half' },
         { name: 'ميكانيكا هندسية', code: 'مك 215', type: 'مادة روبوتات', url: 'robotics/courses.html#mech215' , icon: 'bi-book-half' },
-        { name: 'مبادئ هندسة الالكترونيات', code: 'مك 320', type: 'مادة روبوتات', url: 'robotics/courses.html#elec320' , icon: 'bi-book-half' },
         { name: 'تعلم الآلة', code: 'ذ.ص 249', type: 'مادة روبوتات', url: 'robotics/courses.html#ml249' , icon: 'bi-book-half' },
         { name: 'تحليل الاشارات وأنظمة التحكم', code: 'ع ر 331', type: 'مادة روبوتات', url: 'robotics/courses.html#signals331' , icon: 'bi-book-half' },
         { name: 'حركة و ديناميكية الروبوتات', code: 'ع ر 350', type: 'مادة روبوتات', url: 'robotics/courses.html#dynamics350' , icon: 'bi-book-half' },
@@ -269,6 +278,23 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: 'البرمجة بلغة جافا', code: 'هـ ب 210', type: 'مادة برمجيات', url: 'software/courses.html#java210' , icon: 'bi-book-half' },
         { name: 'مقدمة في صفحات الويب', code: 'ن م 201', type: 'مادة برمجيات', url: 'software/courses.html#web201' , icon: 'bi-book-half' },
         { name: 'مهارات الاتصال وأخلاقيات المهنة', code: 'ن م 203', type: 'مادة برمجيات', url: 'software/courses.html#comm203' , icon: 'bi-book-half' },
+
+
+
+
+        { name: 'تصميم وتظيم الحاسوب', code: 'ع أ221ع ب', type: 'مادة برمجيات', url: 'software/courses.html#HSS256CPE' , icon: 'bi-book-half' },
+        { name: ' تصميم واجهة المستخدم وبرمجتها' , code: 'هـ ب222', type: 'مادة برمجيات', url: 'software/courses.html#ui222' , icon: 'bi-book-half' },
+        { name: 'مختبر تصميم واجهة المستخدم وبرمجتها' , code: 'هـ ب223', type: 'مادة برمجيات', url: 'software/courses.html#ui223' , icon: 'bi-book-half' },
+        { name: 'تحليل ونمذجة وتصميم الأنظمة' , code: 'هـ ب301', type: 'مادة برمجيات', url: 'software/courses.html#SE301' , icon: 'bi-book-half' },
+        { name: 'صيانة وإدارة تكوين البرمجيات' , code: 'هـ ب443', type: 'مادة برمجيات', url: 'software/courses.html#SE443' , icon: 'bi-book-half' },
+        { name: 'بناء البرمجيات الآمنة' , code: 'هـ ب444', type: 'مادة برمجيات', url: 'software/courses.html#SE444' , icon: 'bi-book-half' },
+        { name: 'عمليات وإدارة المشاريع البرمجية' , code: '	هـ ب442', type: 'مادة برمجيات', url: 'software/courses.html#SE442' , icon: 'bi-book-half' },
+        { name: 'تصميم وتطوير الأنظمة المتوازية والموزعة' , code: 'هـ ب312', type: 'مادة برمجيات', url: 'software/courses.html#SE312' , icon: 'bi-book-half' },
+        { name: 'مختبر تصميم وتطوير الأنظمة المتوازية والموزعة' , code: 'هـ ب313', type: 'مادة برمجيات', url: 'software/courses.html#SE313' , icon: 'bi-book-half' },
+
+
+
+        
         { name: 'أساسيات هندسة البرمجيات', code: 'هـ ب 230', type: 'مادة برمجيات', url: 'software/courses.html#se230' , icon: 'bi-book-half' },
         { name: 'هندسة متطلبات البرمجيات', code: 'هـ ب 321', type: 'مادة برمجيات', url: 'software/courses.html#se321' , icon: 'bi-book-half' },
         { name: 'تحليل وتصميم الأنظمة', code: 'هـ ب 301', type: 'مادة برمجيات', url: 'software/courses.html#se301' , icon: 'bi-book-half' },
@@ -285,6 +311,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: 'أمن البرمجيات', code: 'هـ ب 431', type: 'مادة برمجيات', url: 'software/courses.html#se431' , icon: 'bi-book-half' },
         { name: 'إدارة المشاريع البرمجية', code: 'هـ ب 448', type: 'مادة برمجيات', url: 'software/courses.html#se448' , icon: 'bi-book-half' },
         { name: 'فحص وضمان جودة البرمجيات', code: 'هـ ب 436', type: 'مادة برمجيات', url: 'software/courses.html#se436' , icon: 'bi-book-half' },
+        { name: 'مختبر فحص وضمان جودة البرمجيات', code: 'هـ ب 437', type: 'مادة برمجيات', url: 'software/courses.html#se437' , icon: 'bi-book-half' },
         { name: 'مشروع تخرج (1)', code: 'هـ ب 491', type: 'مادة برمجيات', url: 'software/courses.html#gp1' , icon: 'bi-book-half' },
         { name: 'هندسة تطبيقات الويب', code: 'هـ ب 332', type: 'مادة برمجيات', url: 'software/courses.html#web332' , icon: 'bi-book-half' },
         { name: 'مشروع تخرج (2)', code: 'هـ ب 492', type: 'مادة برمجيات', url: 'software/courses.html#gp2' , icon: 'bi-book-half' }
