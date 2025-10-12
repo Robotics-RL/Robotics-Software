@@ -280,7 +280,7 @@ const coursesData = {
         description: "يركز على تصميم وتحليل الدوائر الرقمية، البوابات المنطقية، والأنظمة التوافقية والتتابعية.",
         universityLink: "https://services.just.edu.jo/CourseQA/WS/CourseInfo.aspx?LineNo=1712360",
         resources: {
-            files: [{ title: "📁 تصفح المكتبة الدراسية", url: "https://drive.google.com/drive/folders/1GSO_PimBLw2kV76K80vZo1Gwsw2tRcbK?usp=drive_link" }],
+            files: [{ title: "📁 تصفح المكتبة الدراسية", url: "https://drive.google.com/drive/folders/15aXd17KMtx2z19c2jYoRr7mZU1Icf0uB?usp=drive_link" }],
             whatsappLink: "https://chat.whatsapp.com/EW5r3SVkFmG8yTsuyBaQ8R"
         }
     },
@@ -1205,3 +1205,4 @@ const coursesData = {
     }
 
 };
+
