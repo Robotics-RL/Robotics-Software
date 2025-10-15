@@ -274,11 +274,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const COMPLETED_COURSES_KEY = getStorageKey();
         const cumulativeGpaTrackerEl = document.getElementById('cumulative-gpa-tracker');
         const getGradeEquivalent = (gpa) => {
-            if (gpa >= 3.7) return "إمتياز";
+            if (gpa >= 4.00) return "إمتياز";
+            if (gpa >= 3.5) return "ممتاز";
             if (gpa >= 3.0) return "جيد جداً";
             if (gpa >= 2.5) return "جيد";
             if (gpa >= 2.0) return "مقبول";
-            return "راسب";
+            return "إنذار";
         };
 
         const getCompletedCourses = () => JSON.parse(localStorage.getItem(COMPLETED_COURSES_KEY) || '[]');
@@ -1223,5 +1224,6 @@ gradeBadge.className = 'grade-badge';
     }
 
 });
+
 
 
