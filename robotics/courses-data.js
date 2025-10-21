@@ -461,7 +461,7 @@ const coursesData = {
             videos: [{ title: "شرح الدكتورة شذى", url: "https://www.youtube.com/embed/pFJfXOwEh10?list=PLcy9pLDPXtFPvHNXlNKKq1KyjHfW-YqrP" },
                 { title: "شرح اكاديمية ميكانيك", url: "https://www.youtube.com/embed/3COHieELjDQ?list=PLLV20d95DZpLDC8BRjxiEe2x8V9H4i6VO" },
             ],
-            files: [{ title: "📁 تصفح المكتبة الدراسية", url: "https://drive.google.com/drive/folders/1ii18KmuKhraa2cVL-NOLcBf1CmkTW0-p?usp=sharing" }],
+            files: [{ title: "📁 تصفح المكتبة الدراسية", url: "https://drive.google.com/drive/folders/1wK4FiBhpOjA5DsZ3jPngTmkIudW1AT70?usp=drive_link" }],
             whatsappLink: "https://chat.whatsapp.com/F05e9hTuCfBIptE9i7D2KS?mode=ac_c"
         }
     },
@@ -1205,4 +1205,5 @@ const coursesData = {
     }
 
 };
+
 
